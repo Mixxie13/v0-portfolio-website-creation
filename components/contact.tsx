@@ -32,52 +32,78 @@ export function Contact() {
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Get in Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Let&apos;s Work Together</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
-            Ready to transform your business operations? Let&apos;s discuss how I can help you achieve your goals.
+            Ready to automate your business and scale efficiently? Let&apos;s discuss your automation needs and project goals.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-8">
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Email</h3>
-              <a href="mailto:moradavega143@gmail.com" className="text-accent hover:text-accent/80 transition">
+          <div className="lg:col-span-1 space-y-6">
+            {/* Email */}
+            <div className="p-6 rounded-lg bg-background border border-border hover:border-primary transition-all cursor-pointer active:scale-95">
+              <h3 className="text-lg font-bold text-foreground mb-3">Email</h3>
+              <a href="mailto:moradavega143@gmail.com" className="text-primary hover:text-primary/80 transition text-sm break-all">
                 moradavega143@gmail.com
               </a>
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Phone</h3>
-              <a href="tel:+639167474425" className="text-accent hover:text-accent/80 transition">
-                +63 916 747 4425
+
+            {/* LinkedIn */}
+            <div className="p-6 rounded-lg bg-background border border-border hover:border-primary transition-all cursor-pointer active:scale-95">
+              <h3 className="text-lg font-bold text-foreground mb-3">LinkedIn</h3>
+              <a 
+                href="https://linkedin.com/in/vegamorada" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition text-sm break-all"
+              >
+                linkedin.com/in/vegamorada
               </a>
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Location</h3>
-              <p className="text-muted-foreground">
+
+            {/* Upwork */}
+            <div className="p-6 rounded-lg bg-background border border-border hover:border-primary transition-all cursor-pointer active:scale-95">
+              <h3 className="text-lg font-bold text-foreground mb-3">Upwork</h3>
+              <a 
+                href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition text-sm"
+              >
+                View Profile
+              </a>
+            </div>
+
+            {/* Location */}
+            <div className="p-6 rounded-lg bg-background border border-border">
+              <h3 className="text-lg font-bold text-foreground mb-3">Location</h3>
+              <p className="text-muted-foreground text-sm">
                 Bacolod City<br />
-                Negros Occidental, Philippines
+                Negros Occidental<br />
+                Philippines
               </p>
             </div>
 
-            {/* Social Links */}
-            <div className="pt-8 border-t border-border">
-              <h3 className="text-lg font-bold text-foreground mb-4">Connect</h3>
-              <div className="flex gap-4">
+            {/* Quick Connect */}
+            <div className="pt-6 border-t border-border">
+              <h3 className="text-lg font-bold text-foreground mb-4">Quick Connect</h3>
+              <div className="flex flex-col gap-3">
                 <a 
                   href="https://linkedin.com/in/vegamorada" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-background border border-border hover:border-accent hover:text-accent flex items-center justify-center transition text-foreground"
+                  className="px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition text-sm font-medium text-center active:scale-95"
                 >
-                  in
+                  Message on LinkedIn
                 </a>
                 <a 
-                  href="mailto:moradavega143@gmail.com"
-                  className="w-10 h-10 rounded-lg bg-background border border-border hover:border-accent hover:text-accent flex items-center justify-center transition text-foreground text-xs"
+                  href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition text-sm font-medium text-center active:scale-95"
                 >
-                  @
+                  Hire on Upwork
                 </a>
               </div>
             </div>
@@ -98,7 +124,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition"
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
                     placeholder="Your name"
                   />
                 </div>
@@ -113,7 +139,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition"
+                    className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -130,8 +156,8 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition"
-                  placeholder="Project inquiry"
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
+                  placeholder="Automation project inquiry"
                 />
               </div>
 
@@ -146,21 +172,21 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-accent transition resize-none"
-                  placeholder="Tell me about your project..."
+                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition resize-none"
+                  placeholder="Tell me about your automation needs and goals..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-accent text-accent-foreground rounded-lg font-semibold hover:opacity-90 transition"
+                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition active:scale-95"
               >
                 Send Message
               </button>
 
               {submitted && (
-                <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm">
-                  ✓ Thank you for your message! I&apos;ll get back to you soon.
+                <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm animate-fade-in-up">
+                  ✓ Thank you for your message! I&apos;ll get back to you within 24 hours.
                 </div>
               )}
             </form>

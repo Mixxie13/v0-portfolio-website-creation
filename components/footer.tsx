@@ -1,3 +1,5 @@
+'use client'
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -8,13 +10,13 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center">
-                <span className="text-xs font-bold text-accent-foreground">VM</span>
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
+                <span className="text-xs font-bold text-primary-foreground">VM</span>
               </div>
-              <span className="font-bold text-foreground">Vega Morada</span>
+              <span className="font-bold text-foreground hover:text-primary transition cursor-pointer">Vega Morada</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Automation specialist & executive assistant
+              Senior Automation Specialist | CRM Expert | Executive Assistant
             </p>
           </div>
 
@@ -22,29 +24,31 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#services" className="hover:text-accent transition">Services</a></li>
-              <li><a href="#experience" className="hover:text-accent transition">Experience</a></li>
-              <li><a href="#projects" className="hover:text-accent transition">Projects</a></li>
-              <li><a href="#contact" className="hover:text-accent transition">Contact</a></li>
+              <li><a href="#services" className="hover:text-primary transition active:scale-95">Services</a></li>
+              <li><a href="#experience" className="hover:text-primary transition active:scale-95">Experience</a></li>
+              <li><a href="#projects" className="hover:text-primary transition active:scale-95">Projects</a></li>
+              <li><a href="#contact" className="hover:text-primary transition active:scale-95">Contact</a></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Contact</h4>
+            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:moradavega143@gmail.com" className="hover:text-accent transition">
-                  moradavega143@gmail.com
+                <a href="mailto:moradavega143@gmail.com" className="hover:text-primary transition active:scale-95">
+                  Email
                 </a>
               </li>
               <li>
-                <a href="tel:+639167474425" className="hover:text-accent transition">
-                  +63 916 747 4425
+                <a href="https://linkedin.com/in/vegamorada" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition active:scale-95">
+                  LinkedIn
                 </a>
               </li>
-              <li className="text-muted-foreground">
-                Bacolod City, Philippines
+              <li>
+                <a href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition active:scale-95">
+                  Upwork
+                </a>
               </li>
             </ul>
           </div>
@@ -59,9 +63,17 @@ export function Footer() {
               href="https://linkedin.com/in/vegamorada" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-accent transition text-sm font-medium"
+              className="text-muted-foreground hover:text-primary transition text-sm font-medium active:scale-95"
             >
               LinkedIn
+            </a>
+            <a 
+              href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition text-sm font-medium active:scale-95"
+            >
+              Upwork
             </a>
           </div>
         </div>

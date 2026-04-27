@@ -11,36 +11,33 @@ export function Header() {
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center">
-            <span className="text-sm font-bold text-accent-foreground">VM</span>
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center hover:scale-110 transition active:scale-95 cursor-pointer">
+            <span className="text-sm font-bold text-primary-foreground">VM</span>
           </div>
-          <Link href="#" className="text-xl font-bold text-foreground hover:text-accent transition">
+          <Link href="#" className="text-xl font-bold text-foreground hover:text-primary transition">
             Vega Morada
           </Link>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link href="#services" className="text-foreground hover:text-accent transition font-medium text-sm">
+          <Link href="#services" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
             Services
           </Link>
-          <Link href="#experience" className="text-foreground hover:text-accent transition font-medium text-sm">
+          <Link href="#experience" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
             Experience
           </Link>
-          <Link href="#projects" className="text-foreground hover:text-accent transition font-medium text-sm">
+          <Link href="#projects" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
             Projects
           </Link>
-          <Link href="#testimonials" className="text-foreground hover:text-accent transition font-medium text-sm">
-            Testimonials
-          </Link>
-          <Link href="#contact" className="px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition font-medium text-sm">
+          <Link href="#contact" className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-sm active:scale-95">
             Contact
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden"
+          className="md:hidden active:scale-95 transition"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,21 +48,18 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-card border-b border-border">
+        <div className="md:hidden bg-card border-b border-border animate-slide-in-down">
           <div className="px-4 py-4 space-y-4">
-            <Link href="#services" className="block text-foreground hover:text-accent transition font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#services" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Services
             </Link>
-            <Link href="#experience" className="block text-foreground hover:text-accent transition font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#experience" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Experience
             </Link>
-            <Link href="#projects" className="block text-foreground hover:text-accent transition font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#projects" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Projects
             </Link>
-            <Link href="#testimonials" className="block text-foreground hover:text-accent transition font-medium" onClick={() => setIsMenuOpen(false)}>
-              Testimonials
-            </Link>
-            <Link href="#contact" className="block px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition font-medium text-center" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#contact" className="block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-center active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>
           </div>
