@@ -19,13 +19,28 @@ export function Contact() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setTimeout(() => setSubmitted(false), 3000)
+    
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        console.error('Error sending email:', response.statusText)
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    }
   }
 
   return (
@@ -73,16 +88,6 @@ export function Contact() {
               >
                 View Profile
               </a>
-            </div>
-
-            {/* Location */}
-            <div className="p-6 rounded-lg bg-background border border-border">
-              <h3 className="text-lg font-bold text-foreground mb-3">Location</h3>
-              <p className="text-muted-foreground text-sm">
-                Bacolod City<br />
-                Negros Occidental<br />
-                Philippines
-              </p>
             </div>
 
             {/* Quick Connect */}

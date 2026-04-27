@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,8 +12,14 @@ export function Header() {
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center hover:scale-110 transition active:scale-95 cursor-pointer">
-            <span className="text-sm font-bold text-primary-foreground">VM</span>
+          <div className="w-10 h-10 hover:scale-110 transition active:scale-95 cursor-pointer">
+            <Image 
+              src="/logo.png" 
+              alt="Vega Morada" 
+              width={40} 
+              height={40}
+              className="object-contain"
+            />
           </div>
           <Link href="#" className="text-xl font-bold text-foreground hover:text-primary transition">
             Vega Morada

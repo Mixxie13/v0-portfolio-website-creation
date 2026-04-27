@@ -68,7 +68,7 @@ export function Projects() {
       description: "Automated workflow qualifying leads and scheduling appointments efficiently.",
       details: "Built AI agent that qualifies leads through conversation, checks availability, and automatically schedules appointments in calendar systems while sending confirmation emails.",
       tags: ["AI", "Sales Automation", "Lead Management"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-SMtJY5dzuO1uAfH4SOWUa2GA3sbavH.png"
+      image: null
     },
     {
       title: "RAG Knowledge Base Agents",

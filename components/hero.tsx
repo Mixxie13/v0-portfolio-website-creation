@@ -44,7 +44,7 @@ export function Hero() {
           Vega Morada
         </h1>
         <p className="text-xl sm:text-2xl text-primary mb-8 text-balance font-semibold">
-          Senior Automation Specialist | Executive Assistant | CRM Expert
+          Automation Specialist | Executive Assistant | CRM Specialist | B2B Lead Gen Specialist
         </p>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto text-balance leading-relaxed">
           Specializing in no-code automation using Zapier, Make, n8n, and HighLevel. I transform business operations by building intelligent workflows, optimizing CRMs, and automating complex processes to help founders and teams scale efficiently.

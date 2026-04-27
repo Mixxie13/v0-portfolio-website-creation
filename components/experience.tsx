@@ -9,7 +9,7 @@ export function Experience() {
     {
       role: "Executive Assistant",
       company: "BlueCloud USA",
-      year: "2025 - Present",
+      year: "2025",
       description: "Handles email and calendar management for the team, ensuring appointments and internal meetings are properly scheduled and aligned. Sends outreach emails to prospects, coordinates communications, and secures both virtual and in-person appointments. Edits and formats documents including internal resources and visual materials while maintaining brand consistency. Works within the company system to create and manage accounts, input client data, and track project progress through Zoho CRM and Zoho Projects."
     },
     {

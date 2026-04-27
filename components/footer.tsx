@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -10,13 +12,19 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-                <span className="text-xs font-bold text-primary-foreground">VM</span>
+              <div className="w-8 h-8">
+                <Image 
+                  src="/logo.png" 
+                  alt="Vega Morada" 
+                  width={32} 
+                  height={32}
+                  className="object-contain"
+                />
               </div>
               <span className="font-bold text-foreground hover:text-primary transition cursor-pointer">Vega Morada</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Senior Automation Specialist | CRM Expert | Executive Assistant
+              Automation Specialist | CRM Specialist | Executive Assistant
             </p>
           </div>
 
