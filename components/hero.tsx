@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 export function Hero() {
   const contentRef = useRef<HTMLDivElement>(null)
@@ -28,6 +29,17 @@ export function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-4xl mx-auto text-center" ref={contentRef}>
+        <div className="mb-8 flex justify-center">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+            <Image
+              src="/profile.jpg"
+              alt="Vega Morada"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground mb-6 text-balance">
           Vega Morada
         </h1>
