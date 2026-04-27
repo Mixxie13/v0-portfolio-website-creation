@@ -12,49 +12,49 @@ export function Projects() {
       description: "Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.",
       details: "Implemented comprehensive Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.",
       tags: ["Zapier", "Asana", "CRM", "Lead Management"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png"
     },
     {
       title: "Automated Lead Enrichment System",
       description: "Built workflows to enhance lead data using APIs, significantly improving data quality for targeted outreach.",
       details: "Created multi-step API integration workflows that automatically enrich lead profiles with company data, engagement scores, and firmographic information for better targeting.",
       tags: ["API", "Lead Gen", "Data Processing"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20064020-LAwcUvl6J0kPs1TWqQQtwemqEGjeDp.png"
     },
     {
       title: "AI Content Repurposing Engine",
       description: "Created intelligent system transforming long-form content into multiple optimized social media formats automatically.",
       details: "Developed AI-powered automation that takes blog posts and long-form content, automatically generating optimized versions for LinkedIn, Instagram, Twitter, and Facebook.",
       tags: ["AI", "Content Creation", "Automation"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-26%20015828-NynJ0OIIOrrJvhU8Q9c6wKThgwvQ4F.png"
     },
     {
       title: "Gmail to Google Drive Auto-Organization",
       description: "Automated intelligent sorting and organization of email attachments into structured folders.",
       details: "Set up Zapier workflow to automatically categorize and organize email attachments into structured Google Drive folders based on file type, sender, and date.",
       tags: ["Google Workspace", "Automation", "Zapier"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png"
     },
     {
       title: "Xero to Asana Financial Workflow",
       description: "Streamlined financial operations by automating transaction exports and task creation.",
       details: "Created integration between Xero and Asana to automatically create project tasks from financial transactions, enabling seamless project accounting and expense tracking.",
       tags: ["Xero", "Asana", "Integration", "Finance"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213228-tNjVC6P1cQL5ldUPrSNkXaSTZJm9jx.png"
     },
     {
       title: "AI-Powered Facebook Chatbot",
       description: "Developed intelligent chatbot handling customer inquiries and support requests.",
       details: "Built AI agent integrated with Facebook Messenger using advanced prompt engineering to qualify leads, answer common questions, and route complex inquiries to human agents.",
       tags: ["AI", "Facebook", "Customer Service", "Chatbot"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-13%20102343-fLj2Y8eWe5hpgRwxC9mJo9zURvwIc1.png"
     },
     {
       title: "Jobs Scraper + Resume Optimizer",
       description: "Built system scraping job listings and automatically tailoring resumes using AI.",
       details: "Created automation that scrapes job postings, extracts key requirements, and uses AI to tailor resumes for improved matching and application success rates.",
       tags: ["AI", "Web Scraping", "Automation"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-14%20140418-yNzN9y3A8HClHhS24SzLBoNBLySEvA.png"
     },
     {
       title: "YouTube Shorts & Reels Creator",
@@ -68,7 +68,7 @@ export function Projects() {
       description: "Automated workflow qualifying leads and scheduling appointments efficiently.",
       details: "Built AI agent that qualifies leads through conversation, checks availability, and automatically schedules appointments in calendar systems while sending confirmation emails.",
       tags: ["AI", "Sales Automation", "Lead Management"],
-      image: null
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-SMtJY5dzuO1uAfH4SOWUa2GA3sbavH.png"
     },
     {
       title: "RAG Knowledge Base Agents",
