@@ -12,6 +12,7 @@ import {
   GitBranch,
 } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+import { BrandIcon } from '@/components/brand-icon'
 
 export function Experience() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -21,12 +22,12 @@ export function Experience() {
       company: 'BlueCloudUSA',
       role: 'Operations Manager & Executive Assistant',
       positioning:
-        'Business operations, customer onboarding coordination, CRM administration, compliance management, billing operations, and operational documentation.',
+        'Operations, customer onboarding, CRM management, compliance coordination, billing support, workflow optimization, and automation planning.',
       challenge:
         'BlueCloudUSA needed to establish scalable operational systems across customer onboarding, ACH migration support, compliance management, and CRM administration while maintaining quality and team coordination.',
       solution:
-        'Established operational framework using Zoho CRM and Zoho Projects for customer workflow management, coordinated ACH migration initiatives and customer verification processes, structured 10DLC compliance tracking and documentation, developed SOPs for repeatable operational processes, and supported planning for AI voice agent implementation.',
-      systemsUsed: ['Zoho CRM', 'Zoho Projects', 'Stripe', 'Google Workspace', 'Microsoft Office', 'WhatsApp'],
+        'Established operational framework using the Zoho ecosystem for customer workflow management, coordinated ACH migration initiatives and customer verification processes, structured 10DLC compliance tracking and documentation, developed SOPs for repeatable operational processes, and supported planning for AI voice agent implementation.',
+      systemsUsed: ['Zoho One/Ecosystem', 'Stripe', 'Google Workspace', 'Microsoft Office'],
       operationalCoordination:
         'Coordinated customer onboarding workflows, managed ACH migration support and verification processes, tracked 10DLC compliance submissions and approvals, liaised with internal teams on vendor relationships, provided executive support and billing administration.',
       outcome:
@@ -39,36 +40,41 @@ export function Experience() {
         'Oversaw customer communication, escalations, and service coordination',
         'Managed Zoho Projects tasks and operational workflows',
         'Coordinated internal teams and vendor relationships',
+        'Supported AI voice automation implementation planning',
+        'Assisted with CRM integrations, workflow automation, and process improvements',
         'Managed 10DLC campaign compliance submissions, revisions, and approvals',
         'Investigated billing inquiries and customer account concerns',
         'Created SOPs, documentation, and repeatable operational processes',
-        'Supported AI voice automation implementation planning and coordination',
+        'Supported executive-level administrative and operational functions',
+        'Helped improve visibility, accountability, and workflow efficiency across departments',
       ],
     },
     {
       company: 'TLH (The Lucky Harvest)',
       role: 'Operations Manager | Zoho Consultant | Systems Support',
       positioning:
-        'Business systems optimization, operational process improvement, inventory management, product data architecture, and operational workflow design.',
+        'Business systems optimization, operational process improvement, CRM implementation, product management architecture, and workflow automation.',
       challenge:
         'The Lucky Harvest needed to synchronize product data between WooCommerce and inventory systems, improve order workflow coordination, and establish scalable operational processes to support growing e-commerce operations.',
       solution:
-        'Designed Zoho Inventory architecture and operational workflows, developed WooCommerce to Zoho synchronization strategy, structured product management workflows using Zoho Flow, created centralized product and order management processes, and established scalable operational systems in Simpro.',
-      systemsUsed: ['Zoho CRM', 'Zoho Inventory', 'Zoho Flow', 'WooCommerce', 'Simpro', 'Make.com'],
+        'Designed Zoho inventory architecture and operational workflows, developed a WooCommerce to Zoho synchronization strategy, structured product management workflows, created centralized product and order management processes, and established scalable operational systems in Simpro.',
+      systemsUsed: ['Zoho One/Ecosystem', 'Make.com', 'WooCommerce', 'Simpro', 'Google Workspace'],
       operationalCoordination:
-        'Coordinated product data management between WooCommerce and Zoho Inventory, structured order workflow processes, designed product-to-job mapping in Simpro, improved data organization and reporting structures, established operational process documentation.',
+        'Coordinated product data management between WooCommerce and Zoho, structured order workflow processes, designed product-to-job mapping in Simpro, improved data organization and reporting structures, established operational process documentation.',
       outcome:
         'Improved product data accuracy and synchronization, reduced manual data entry, enabled real-time product visibility across platforms, established scalable operational infrastructure and repeatable processes.',
       responsibilities: [
         'Designed and implemented Zoho operational workflows',
         'Built product management and inventory processes',
         'Developed WooCommerce to Zoho synchronization strategy',
-        'Structured automation scenarios using Make.com',
+        'Created automation scenarios using Make.com',
         'Structured operational systems and business workflows',
         'Developed SOPs and process documentation',
         'Created process maps and operational frameworks',
         'Improved data management and reporting structures',
+        'Supported systems administration and platform optimization',
         'Established scalable operational processes',
+        'Assisted with business transformation initiatives',
         'Designed centralized product and information management workflows',
       ],
     },
@@ -80,12 +86,12 @@ export function Experience() {
       challenge:
         'WCJ needed to implement a comprehensive CRM system to manage lead-to-job workflows, establish customer service ticketing, create reporting dashboards, and build financial visibility across operations.',
       solution:
-        'Led Zoho CRM implementation planning, designed customer lifecycle workflows from lead to job completion, structured Zoho Desk for customer service, created financial reporting frameworks, and planned automation strategies using Make.com and Zoho Flow.',
-      systemsUsed: ['Zoho CRM', 'Zoho Desk', 'Zoho Flow', 'Make.com', 'Freshdesk', 'Lucidspark'],
+        'Led Zoho CRM implementation planning, designed customer lifecycle workflows from lead to job completion, structured Freshdesk for customer service, created financial reporting frameworks, and planned automation strategies using Make.com.',
+      systemsUsed: ['Zoho One/Ecosystem', 'Make.com', 'Freshdesk', 'Google Workspace'],
       operationalCoordination:
-        'Automated lead-to-job workflow processes, implemented customer lifecycle automations, structured ticket management and escalation workflows, created KPI dashboards for management visibility',
+        'Automated lead-to-job workflow processes, implemented customer lifecycle automations, structured ticket management and escalation workflows, created KPI dashboards for management visibility.',
       outcome:
-        'Established scalable CRM infrastructure, improved lead tracking and conversion visibility, created comprehensive financial reporting for better decision-making, reduced manual handoff errors',
+        'Established scalable CRM infrastructure, improved lead tracking and conversion visibility, created comprehensive financial reporting for better decision-making, reduced manual handoff errors.',
       responsibilities: [
         'Led Zoho systems implementation planning',
         'Designed CRM architecture and customer workflows',
@@ -97,17 +103,10 @@ export function Experience() {
         'Built financial reporting frameworks and management visibility tools',
         'Improved operational reporting processes',
         'Developed process documentation and implementation plans',
+        'Supported business intelligence and performance tracking initiatives',
+        'Structured scalable CRM and reporting systems',
       ],
     },
-  ]
-
-  const skills = [
-    'Zoho CRM', 'Zoho Inventory', 'Zoho Desk', 'Zoho Flow', 'Zoho Creator',
-    'Make.com', 'WooCommerce', 'Simpro', 'Freshdesk',
-    'API Integration', 'Webhooks', 'Process Mapping',
-    'Business Systems', 'Operational Consulting', 'SOP Development',
-    'Financial Reporting', 'Data Management', 'Workflow Automation',
-    'Google Workspace', 'Microsoft Office',
   ]
 
   const study = caseStudies[activeIndex]
@@ -224,9 +223,7 @@ export function Experience() {
                       </span>
                       <span className="text-xs font-semibold text-muted-foreground">{step.label}</span>
                     </div>
-                    {i < steps.length - 1 && (
-                      <ArrowRight className="w-5 h-5 text-border mx-3 mb-6" />
-                    )}
+                    {i < steps.length - 1 && <ArrowRight className="w-5 h-5 text-border mx-3 mb-6" />}
                   </div>
                 )
               })}
@@ -247,11 +244,9 @@ export function Experience() {
                         </span>
                       </div>
                       {/* Content */}
-                      <div className="flex-1 glass-card rounded-2xl p-5 sm:p-6">
+                      <div className="flex-1 glass-card spotlight rounded-2xl p-5 sm:p-6 overflow-hidden">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/70">
-                            Step {i + 1}
-                          </span>
+                          <span className="mono-label text-muted-foreground/70">Step {i + 1}</span>
                           <span className="w-1 h-1 rounded-full bg-border" />
                           <h4 className={`text-base font-bold ${step.iconColor}`}>{step.label}</h4>
                         </div>
@@ -261,9 +256,10 @@ export function Experience() {
                             {step.badges.map((tech) => (
                               <span
                                 key={tech}
-                                className="px-3 py-1 rounded-full text-xs font-medium text-violet-200 bg-violet-500/[0.08] border border-violet-500/25 hover:border-violet-400/60 transition"
+                                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium text-violet-100 bg-violet-500/[0.08] border border-violet-500/25 hover:border-violet-400/60 transition"
                               >
-                                {tech}
+                                <BrandIcon name={tech} size={14} />
+                                {tech.replace(/\s*\([^)]*\)/, '')}
                               </span>
                             ))}
                           </div>
@@ -290,27 +286,6 @@ export function Experience() {
                 </div>
               ))}
             </div>
-          </Reveal>
-        </div>
-
-        {/* Technology Stack dashboard */}
-        <div className="mt-24 pt-16 section-glow-top">
-          <Reveal className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-foreground mb-2">
-              Technology <span className="text-gradient">Stack</span>
-            </h3>
-            <p className="text-muted-foreground">Core tools and platforms used across implementations</p>
-          </Reveal>
-          <Reveal className="flex flex-wrap gap-3 justify-center max-w-4xl mx-auto">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="group inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm text-muted-foreground glass-effect hover:text-foreground hover:border-primary/50 hover:shadow-[0_0_18px_-4px_rgba(37,99,235,0.5)] transition cursor-default"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-primary/60 group-hover:bg-cyan-400 transition" />
-                {skill}
-              </span>
-            ))}
           </Reveal>
         </div>
       </div>

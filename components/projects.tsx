@@ -12,8 +12,8 @@ export function Projects() {
     {
       title: 'Asana CRM Lead Engagement Workflow',
       description: 'Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.',
-      details: 'Implemented comprehensive Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.',
-      tags: ['Zapier', 'Asana', 'CRM', 'Lead Management'],
+      details: 'Implemented comprehensive Make.com integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.',
+      tags: ['Make.com', 'Asana', 'CRM', 'Lead Management'],
       image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png',
     },
     {

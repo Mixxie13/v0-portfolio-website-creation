@@ -1,15 +1,6 @@
 'use client'
 
-import {
-  Database,
-  Workflow,
-  Link2,
-  Target,
-  LineChart,
-  Building2,
-  ArrowUpRight,
-  type LucideIcon,
-} from 'lucide-react'
+import { Database, Workflow, Bot, ClipboardList, Headset, ArrowUpRight, type LucideIcon } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
 interface Service {
@@ -23,44 +14,37 @@ const services: Service[] = [
   {
     title: 'Zoho CRM Implementation',
     description:
-      'Full CRM system design and implementation tailored to your business model. From architecture and workflow design to dashboard creation and team training. I ensure your CRM becomes the operational backbone of your business.',
+      'End-to-end Zoho CRM design — setup, pipelines, custom modules, automation, and reporting built around how your business actually operates.',
     icon: Database,
-    skills: ['Zoho CRM', 'Workflow Design', 'Dashboards', 'Automation'],
+    skills: ['CRM Setup', 'Pipelines', 'Workflow Automation', 'Reporting', 'Custom Modules'],
   },
   {
     title: 'Business Process Automation',
     description:
-      'Design and build intelligent automation systems using Make.com and Zoho Flow. Eliminate manual repetitive tasks, improve data accuracy, and create scalable operational workflows.',
+      'Connect your tools and eliminate manual work with Make.com automations, API integrations, webhooks, and reliable data synchronization.',
     icon: Workflow,
-    skills: ['Make.com', 'Zoho Flow', 'Workflow Automation', 'Process Design'],
+    skills: ['Make.com Automations', 'API Integrations', 'Webhooks', 'Data Synchronization', 'Workflow Design'],
   },
   {
-    title: 'Systems Integration & APIs',
+    title: 'AI Agent Systems',
     description:
-      'Connect your business tools seamlessly. Expert integration of WooCommerce, Freshdesk, Simpro, and custom APIs to ensure data flows reliably across your entire tech stack.',
-    icon: Link2,
-    skills: ['API Integration', 'Webhooks', 'Data Sync', 'Custom Integrations'],
+      'Deploy AI voice and chat agents that qualify leads, automate customer support, and run intelligent workflows around the clock.',
+    icon: Bot,
+    skills: ['Voice Agents', 'Lead Qualification', 'Customer Support Automation', 'AI Workflows'],
   },
   {
-    title: 'Operational Consulting',
+    title: 'Business Systems Consulting',
     description:
-      'Transform your business operations through process mapping, workflow optimization, and systems design. I help you identify bottlenecks, standardize procedures, and build scalable operational infrastructure.',
-    icon: Target,
-    skills: ['Process Mapping', 'Operations Strategy', 'SOP Development', 'Systems Design'],
+      'Map processes, document SOPs, and run operational audits to optimize workflows and build systems that scale with your growth.',
+    icon: ClipboardList,
+    skills: ['Process Mapping', 'SOP Development', 'Workflow Optimization', 'Operational Audits'],
   },
   {
-    title: 'Financial Reporting & Analytics',
+    title: 'Technical Virtual Assistance',
     description:
-      'Build comprehensive reporting dashboards and analytics systems that provide management visibility. Transform raw data into actionable business intelligence for better decision-making.',
-    icon: LineChart,
-    skills: ['Reporting', 'KPI Dashboards', 'Business Intelligence', 'Data Analysis'],
-  },
-  {
-    title: 'Systems Architecture Planning',
-    description:
-      'Design scalable, future-proof business systems. Help you plan technology infrastructure, integration strategies, and operational architecture to support growth.',
-    icon: Building2,
-    skills: ['Systems Design', 'Architecture Planning', 'Scalability', 'Tech Strategy'],
+      'Ongoing CRM administration, operations support, system maintenance, and documentation to keep your systems running smoothly.',
+    icon: Headset,
+    skills: ['CRM Administration', 'Operations Support', 'System Maintenance', 'Documentation'],
   },
 ]
 
@@ -76,7 +60,7 @@ export function Services() {
             <span className="text-gradient">Services</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
-            Comprehensive automation solutions to transform your business operations
+            Comprehensive CRM, automation, and AI solutions to transform your business operations
           </p>
         </Reveal>
 
