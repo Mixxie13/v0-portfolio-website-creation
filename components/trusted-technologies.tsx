@@ -19,6 +19,7 @@ const technologies = [
       'Zoho Flow',
       'Zoho Projects',
       'HubSpot',
+      'Pipedrive',
       'Salesforce (Foundational Knowledge)',
     ],
   },
@@ -28,7 +29,7 @@ const technologies = [
     icon: Workflow,
     accent: 'from-violet-500/20 to-violet-500/5',
     dot: 'bg-violet-400',
-    tools: ['Make.com', 'n8n', 'APIs', 'Webhooks', 'Deluge'],
+    tools: ['Make.com', 'n8n', 'Zapier', 'APIs', 'Webhooks', 'Deluge'],
   },
   {
     key: 'platforms',
@@ -36,7 +37,7 @@ const technologies = [
     icon: Boxes,
     accent: 'from-cyan-500/20 to-cyan-500/5',
     dot: 'bg-cyan-400',
-    tools: ['WooCommerce', 'Simpro', 'Stripe', 'HighLevel', 'Freshdesk', 'Viirtue', 'GoVoIP'],
+    tools: ['WooCommerce', 'WordPress', 'Simpro', 'Stripe', 'GoHighLevel', 'Freshdesk'],
   },
   {
     key: 'productivity',
@@ -44,7 +45,7 @@ const technologies = [
     icon: Users,
     accent: 'from-blue-500/20 to-violet-500/5',
     dot: 'bg-emerald-400',
-    tools: ['Google Workspace', 'Microsoft 365', 'Teams', 'Slack', 'Notion'],
+    tools: ['Google Workspace', 'Microsoft 365', 'Slack', 'Asana', 'Descript'],
   },
 ]
 

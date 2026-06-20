@@ -23,7 +23,7 @@ const pipeline = [
 ]
 
 const stats = [
-  { end: 5, suffix: '+', label: 'Years Technical Operations' },
+  { end: 6, suffix: '+', label: 'Years of Experience' },
   { end: 3, suffix: '+', label: 'CRM Implementations' },
   { end: 100, suffix: '+', label: 'Business Automations' },
 ]

@@ -27,7 +27,7 @@ export function Experience() {
         'BlueCloudUSA needed to establish scalable operational systems across customer onboarding, ACH migration support, compliance management, and CRM administration while maintaining quality and team coordination.',
       solution:
         'Established operational framework using the Zoho ecosystem for customer workflow management, coordinated ACH migration initiatives and customer verification processes, structured 10DLC compliance tracking and documentation, developed SOPs for repeatable operational processes, and supported planning for AI voice agent implementation.',
-      systemsUsed: ['Zoho One/Ecosystem', 'Stripe', 'Google Workspace', 'Microsoft Office'],
+      systemsUsed: ['Zoho One', 'Stripe', 'Google Workspace', 'Microsoft Office'],
       operationalCoordination:
         'Coordinated customer onboarding workflows, managed ACH migration support and verification processes, tracked 10DLC compliance submissions and approvals, liaised with internal teams on vendor relationships, provided executive support and billing administration.',
       outcome:
@@ -58,7 +58,7 @@ export function Experience() {
         'The Lucky Harvest needed to synchronize product data between WooCommerce and inventory systems, improve order workflow coordination, and establish scalable operational processes to support growing e-commerce operations.',
       solution:
         'Designed Zoho inventory architecture and operational workflows, developed a WooCommerce to Zoho synchronization strategy, structured product management workflows, created centralized product and order management processes, and established scalable operational systems in Simpro.',
-      systemsUsed: ['Zoho One/Ecosystem', 'Make.com', 'WooCommerce', 'Simpro', 'Google Workspace'],
+      systemsUsed: ['Zoho One', 'Make.com', 'WooCommerce', 'Simpro', 'Google Workspace'],
       operationalCoordination:
         'Coordinated product data management between WooCommerce and Zoho, structured order workflow processes, designed product-to-job mapping in Simpro, improved data organization and reporting structures, established operational process documentation.',
       outcome:
@@ -87,7 +87,7 @@ export function Experience() {
         'WCJ needed to implement a comprehensive CRM system to manage lead-to-job workflows, establish customer service ticketing, create reporting dashboards, and build financial visibility across operations.',
       solution:
         'Led Zoho CRM implementation planning, designed customer lifecycle workflows from lead to job completion, structured Freshdesk for customer service, created financial reporting frameworks, and planned automation strategies using Make.com.',
-      systemsUsed: ['Zoho One/Ecosystem', 'Make.com', 'Freshdesk', 'Google Workspace'],
+      systemsUsed: ['Zoho One', 'Make.com', 'Freshdesk', 'Google Workspace'],
       operationalCoordination:
         'Automated lead-to-job workflow processes, implemented customer lifecycle automations, structured ticket management and escalation workflows, created KPI dashboards for management visibility.',
       outcome:
