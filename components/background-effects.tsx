@@ -12,8 +12,12 @@ export function BackgroundEffects() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_85%_10%,rgba(124,58,237,0.16),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(6,182,212,0.10),transparent_60%)]" />
 
-      {/* Animated tech grid with radial fade */}
-      <div className="absolute inset-0 tech-grid tech-grid-animated opacity-[0.55]" />
+      {/* Animated cyber grid with radial fade */}
+      <div className="absolute inset-0 tech-grid tech-grid-animated opacity-80" />
+
+      {/* Horizontal scan accent lines */}
+      <div className="absolute inset-x-0 top-[18%] h-px bg-gradient-to-r from-transparent via-blue-500/25 to-transparent" />
+      <div className="absolute inset-x-0 top-[64%] h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
 
       {/* Soft glowing orbs */}
       <div className="absolute top-[12%] left-[8%] w-[28rem] h-[28rem] bg-blue-600 rounded-full blur-[120px] opacity-[0.12] animate-orb-drift" />

@@ -69,7 +69,7 @@ export function WhyHireMe() {
             const Icon = benefit.icon
             return (
               <Reveal key={benefit.title} delay={index * 70}>
-                <div className="group glass-card gradient-ring rounded-2xl p-7 h-full">
+                <div className="group glass-card spotlight gradient-ring rounded-2xl p-7 h-full overflow-hidden">
                   <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 ring-1 ring-white/10 group-hover:ring-primary/40 mb-5 transition">
                     <Icon className="w-6 h-6 text-cyan-300" />
                   </span>
@@ -91,7 +91,7 @@ export function WhyHireMe() {
             </p>
             <a
               href="#contact"
-              className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:brightness-110 transition active:scale-95"
+              className="relative inline-flex items-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-white btn-gradient active:scale-95"
             >
               Start a Conversation
               <ArrowRight className="w-4 h-4" />

@@ -64,7 +64,7 @@ export function TrustedTechnologies() {
             const Icon = category.icon
             return (
               <Reveal key={category.key} delay={i * 80}>
-                <div className="group glass-card rounded-2xl p-5 h-full">
+                <div className="group glass-card spotlight neon-top rounded-2xl p-5 h-full overflow-hidden">
                   {/* Dashboard-style header */}
                   <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/[0.06]">
                     <span

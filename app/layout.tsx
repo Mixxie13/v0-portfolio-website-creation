@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { BackgroundEffects } from '@/components/background-effects'
+import { PointerSpotlight } from '@/components/pointer-spotlight'
+import { BackToTop } from '@/components/back-to-top'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -27,9 +29,11 @@ export default function RootLayout({
     <html lang="en" className="bg-[#020617]">
       <body className="font-sans antialiased relative">
         <BackgroundEffects />
+        <PointerSpotlight />
         <div className="relative z-10">
           {children}
         </div>
+        <BackToTop />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -202,10 +202,20 @@
   }
   html {
     background-color: #020617;
+    scroll-behavior: smooth;
   }
   body {
     @apply text-foreground;
     background-color: transparent;
+  }
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
@@ -246,39 +256,78 @@
   animation: marquee 40s linear infinite;
 }
 
-/* Tech glass effect */
+/* Header / floating bar surface (kept subtly translucent only here) */
 .glass-effect {
-  background: rgba(11, 17, 32, 0.6);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(51, 65, 85, 0.4);
+  background: rgba(7, 11, 22, 0.82);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(148, 163, 184, 0.10);
 }
 
-/* Dark glass card with subtle inner highlight */
+/* Solid SaaS-dashboard panel (primary card surface, minimal glass) */
 .glass-card {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(30, 41, 59, 0.55) 0%, rgba(11, 17, 32, 0.65) 100%);
-  backdrop-filter: blur(12px) saturate(130%);
-  -webkit-backdrop-filter: blur(12px) saturate(130%);
-  border: 1px solid rgba(51, 65, 85, 0.45);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 8px 30px -12px rgba(0, 0, 0, 0.6);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              border-color 0.35s ease, box-shadow 0.35s ease;
+    linear-gradient(180deg, #11192E 0%, #0B1120 100%);
+  border: 1px solid rgba(148, 163, 184, 0.10);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+    0 1px 2px 0 rgba(0, 0, 0, 0.4),
+    0 12px 32px -16px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(37, 99, 235, 0.5);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
-              0 20px 50px -16px rgba(0, 0, 0, 0.7),
-              0 0 30px -6px rgba(37, 99, 235, 0.35);
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+    0 1px 2px 0 rgba(0, 0, 0, 0.4),
+    0 24px 48px -20px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(59, 130, 246, 0.15),
+    0 0 40px -8px rgba(59, 130, 246, 0.4);
+}
+
+/* Pointer-tracking spotlight overlay (set --mx/--my in px via JS) */
+.spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(99, 102, 241, 0.18),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.spotlight:hover::after {
+  opacity: 1;
+}
+
+/* Neon gradient top edge for dashboard panels */
+.neon-top {
+  position: relative;
+}
+.neon-top::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #3B82F6, #8B5CF6, transparent);
+  opacity: 0.7;
 }
 
 /* Gradient borders */
 .gradient-border {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(11, 17, 32, 0.95)) padding-box,
-              linear-gradient(135deg, #2563EB, #7C3AED 50%, #06B6D4) border-box;
+  background: linear-gradient(180deg, #11192E, #0B1120) padding-box,
+              linear-gradient(135deg, #2563EB, #7C3AED 55%, #22D3EE) border-box;
   border: 1px solid transparent;
 }
 
@@ -292,7 +341,7 @@
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #2563EB, #7C3AED 50%, #06B6D4);
+  background: linear-gradient(135deg, #2563EB, #7C3AED 50%, #22D3EE);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -304,6 +353,19 @@
   opacity: 1;
 }
 
+/* Bold blue -> purple action gradient */
+.btn-gradient {
+  background: linear-gradient(120deg, #2563EB 0%, #6D28D9 50%, #7C3AED 100%);
+  background-size: 160% 160%;
+  box-shadow: 0 8px 24px -8px rgba(79, 70, 229, 0.6), inset 0 1px 0 0 rgba(255,255,255,0.18);
+  transition: background-position 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease, filter 0.3s ease;
+}
+.btn-gradient:hover {
+  background-position: 100% 0;
+  box-shadow: 0 12px 32px -8px rgba(79, 70, 229, 0.75), inset 0 1px 0 0 rgba(255,255,255,0.25);
+  filter: brightness(1.08);
+}
+
 /* Hover glow effect */
 .hover-glow {
   transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
@@ -313,26 +375,34 @@
   box-shadow: 0 0 28px rgba(37, 99, 235, 0.35);
 }
 
-/* Gradient text helper */
+/* Gradient text helper - bold blue -> violet -> cyan */
 .text-gradient {
-  background: linear-gradient(120deg, #60A5FA 0%, #818CF8 45%, #22D3EE 100%);
+  background: linear-gradient(115deg, #3B82F6 0%, #8B5CF6 50%, #22D3EE 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Tech grid background with radial fade mask */
+/* Cyber grid background with radial fade mask */
 .tech-grid {
   background-image:
-    linear-gradient(to right, rgba(51, 65, 85, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(51, 65, 85, 0.35) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+    linear-gradient(to right, rgba(99, 132, 199, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 132, 199, 0.16) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 35%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 35%, #000 25%, transparent 78%);
 }
 
 .tech-grid-animated {
   animation: gridPan 22s linear infinite;
+}
+
+/* Mono micro-label for dashboard chrome */
+.mono-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 /* Scroll reveal */

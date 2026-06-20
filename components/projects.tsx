@@ -104,7 +104,7 @@ export function Projects() {
               <Reveal key={project.title} delay={(index % 2) * 80}>
                 <div
                   onClick={() => setSelectedIndex(isOpen ? null : index)}
-                  className={`group glass-card gradient-ring overflow-hidden rounded-2xl cursor-pointer h-full ${
+                  className={`group glass-card spotlight gradient-ring overflow-hidden rounded-2xl cursor-pointer h-full ${
                     isOpen ? 'border-primary/50 shadow-[0_0_30px_-8px_rgba(37,99,235,0.5)]' : ''
                   }`}
                 >

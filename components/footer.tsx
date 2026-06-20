@@ -1,7 +1,7 @@
 'use client'
 
-import Image from 'next/image'
 import { Mail, Linkedin, Briefcase } from 'lucide-react'
+import { Logo } from '@/components/logo'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,9 +13,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-3">
-              <div className="relative w-9 h-9 rounded-lg flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20 ring-1 ring-white/10">
-                <Image src="/logo.png" alt="Vega Morada" width={32} height={32} className="object-contain p-1" />
-              </div>
+              <Logo size={36} showPulse={false} />
               <span className="font-bold text-foreground">Vega Morada</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">

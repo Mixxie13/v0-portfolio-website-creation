@@ -85,7 +85,7 @@ export function Services() {
             const Icon = service.icon
             return (
               <Reveal key={service.title} delay={index * 70}>
-                <div className="group relative glass-card gradient-ring rounded-2xl p-7 h-full overflow-hidden">
+                <div className="group relative glass-card spotlight gradient-ring rounded-2xl p-7 h-full overflow-hidden">
                   {/* Corner accent glow */}
                   <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

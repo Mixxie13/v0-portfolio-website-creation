@@ -1,12 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Linkedin, Briefcase, Send, ArrowUpRight, CheckCircle2 } from 'lucide-react'
+import { Mail, Linkedin, Briefcase, Send, ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<Status>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -15,21 +18,33 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setStatus('loading')
+    setErrorMsg('')
+
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
+
+      const data = await response.json().catch(() => ({}))
+
       if (response.ok) {
-        setSubmitted(true)
+        setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
-        setTimeout(() => setSubmitted(false), 5000)
+        setTimeout(() => setStatus('idle'), 6000)
       } else {
-        console.error('Error sending email:', response.statusText)
+        setStatus('error')
+        setErrorMsg(
+          data?.error ||
+            'Something went wrong sending your message. Please email moradavega143@gmail.com directly.'
+        )
       }
     } catch (error) {
       console.error('Error submitting form:', error)
+      setStatus('error')
+      setErrorMsg('Network error. Please check your connection or email moradavega143@gmail.com directly.')
     }
   }
 
@@ -68,7 +83,7 @@ export function Contact() {
                   href={card.href}
                   target={card.external ? '_blank' : undefined}
                   rel={card.external ? 'noopener noreferrer' : undefined}
-                  className="group flex items-center gap-4 p-5 rounded-2xl glass-card gradient-ring active:scale-[0.98]"
+                  className="group flex items-center gap-4 p-5 rounded-2xl glass-card spotlight gradient-ring overflow-hidden active:scale-[0.98]"
                 >
                   <span className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/10 ring-1 ring-white/10 group-hover:ring-primary/40 transition">
                     <Icon className="w-5 h-5 text-cyan-300" />
@@ -128,16 +143,32 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="group w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:brightness-110 transition active:scale-95"
+                disabled={status === 'loading'}
+                className="group w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white btn-gradient active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
-                <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                {status === 'loading' ? (
+                  <>
+                    Sending<Loader2 className="w-4 h-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  </>
+                )}
               </button>
 
-              {submitted && (
+              {status === 'success' && (
                 <div className="flex items-center gap-2 p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-300 text-sm animate-fade-in-up">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
                   Thank you for your message! I&apos;ll get back to you within 24 hours.
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="flex items-start gap-2 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-300 text-sm animate-fade-in-up">
+                  <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                  <span>{errorMsg}</span>
                 </div>
               )}
             </form>
