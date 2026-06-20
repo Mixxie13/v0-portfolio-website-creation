@@ -7,26 +7,13 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Vega Morada - Automation Specialist & Executive Assistant',
-  description: 'Senior automation specialist and executive assistant. Expert in workflow automation, CRM optimization, and business operations. 5+ years of proven expertise in Zapier, Make, n8n, and HighLevel.',
-  keywords: ['automation', 'CRM', 'executive assistant', 'no-code', 'workflow', 'HighLevel', 'Zapier'],
+  title: 'Vega Morada - Technical Virtual Assistant | Zoho CRM Specialist | Automation Systems Builder',
+  description: 'Technical Virtual Assistant and Zoho CRM Specialist. I help businesses implement CRM systems, build operational workflows, automate processes, and design scalable systems. Expert in Zoho ecosystem, business process automation, and systems integration.',
+  keywords: ['Zoho CRM', 'business automation', 'CRM implementation', 'Zoho Inventory', 'workflow automation', 'systems integration', 'technical assistant', 'operations consulting'],
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/favicon-32.png',
+    apple: '/apple-touch-icon.png',
   },
 }
 
