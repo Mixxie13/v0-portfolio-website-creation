@@ -12,16 +12,17 @@ export function Header() {
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 hover:scale-110 transition active:scale-95 cursor-pointer">
+          <Link href="#" className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition active:scale-95 cursor-pointer flex items-center justify-center">
             <Image 
               src="/logo.png" 
               alt="Vega Morada" 
-              width={40} 
-              height={40}
+              width={48} 
+              height={48}
               className="object-contain"
+              priority
             />
-          </div>
-          <Link href="#" className="text-xl font-bold text-foreground hover:text-primary transition">
+          </Link>
+          <Link href="#" className="text-lg sm:text-xl font-bold text-foreground hover:text-primary transition">
             Vega Morada
           </Link>
         </div>
