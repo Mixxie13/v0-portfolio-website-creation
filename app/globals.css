@@ -5,11 +5,11 @@
 
 :root {
   /* Dark tech theme - Premium SaaS aesthetic (default) */
-  --background: #0F172A;
+  --background: #020617;
   --foreground: #F8FAFC;
-  --card: #1E293B;
+  --card: #0B1120;
   --card-foreground: #F8FAFC;
-  --popover: #1E293B;
+  --popover: #0B1120;
   --popover-foreground: #F8FAFC;
   
   /* Primary - Electric blue */
@@ -29,8 +29,8 @@
   /* Borders and inputs */
   --destructive: #EF4444;
   --destructive-foreground: #0F172A;
-  --border: #334155;
-  --input: #1E293B;
+  --border: #1E293B;
+  --input: #0B1120;
   --ring: #2563EB;
   
   /* Charts - Tech color palette */
@@ -166,12 +166,46 @@
   }
 }
 
+@keyframes gridPan {
+  from { background-position: 0 0; }
+  to { background-position: 80px 80px; }
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: -1000; }
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.25; r: 2.5; }
+  50% { opacity: 0.9; r: 4; }
+}
+
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.08); }
+  66% { transform: translate(-30px, 25px) scale(0.95); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    background-color: #020617;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: transparent;
   }
 }
 
@@ -204,25 +238,151 @@
   animation: glow 3s ease-in-out infinite;
 }
 
+.animate-orb-drift {
+  animation: orbDrift 18s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
 /* Tech glass effect */
 .glass-effect {
-  background: rgba(30, 41, 59, 0.5);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(51, 65, 85, 0.3);
+  background: rgba(11, 17, 32, 0.6);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+}
+
+/* Dark glass card with subtle inner highlight */
+.glass-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, 0.55) 0%, rgba(11, 17, 32, 0.65) 100%);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(51, 65, 85, 0.45);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 8px 30px -12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+              0 20px 50px -16px rgba(0, 0, 0, 0.7),
+              0 0 30px -6px rgba(37, 99, 235, 0.35);
 }
 
 /* Gradient borders */
 .gradient-border {
-  background: linear-gradient(135deg, #0F172A, #1E293B) padding-box,
-              linear-gradient(135deg, #2563EB, #06B6D4) border-box;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(11, 17, 32, 0.95)) padding-box,
+              linear-gradient(135deg, #2563EB, #7C3AED 50%, #06B6D4) border-box;
   border: 1px solid transparent;
+}
+
+/* Animated gradient ring on hover (use as wrapper) */
+.gradient-ring {
+  position: relative;
+}
+.gradient-ring::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #2563EB, #7C3AED 50%, #06B6D4);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.gradient-ring:hover::before {
+  opacity: 1;
 }
 
 /* Hover glow effect */
 .hover-glow {
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 28px rgba(37, 99, 235, 0.35);
+}
+
+/* Gradient text helper */
+.text-gradient {
+  background: linear-gradient(120deg, #60A5FA 0%, #818CF8 45%, #22D3EE 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Tech grid background with radial fade mask */
+.tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(51, 65, 85, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(51, 65, 85, 0.35) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 75%);
+}
+
+.tech-grid-animated {
+  animation: gridPan 22s linear infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Data flow lines */
+.data-flow {
+  stroke-dasharray: 6 10;
+  animation: dashFlow 18s linear infinite;
+}
+
+/* Soft section divider glow */
+.section-glow-top {
+  position: relative;
+}
+.section-glow-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), rgba(124, 58, 237, 0.4), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-orb-drift,
+  .animate-marquee,
+  .animate-gradient-shift,
+  .animate-glow,
+  .animate-pulse-glow,
+  .tech-grid-animated,
+  .data-flow {
+    animation: none !important;
+  }
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }

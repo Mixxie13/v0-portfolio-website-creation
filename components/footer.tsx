@@ -1,87 +1,75 @@
 'use client'
 
 import Image from 'next/image'
+import { Mail, Linkedin, Briefcase } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-background border-t border-border py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="relative border-t border-white/[0.06] py-14 px-4 sm:px-6 lg:px-8 section-glow-top">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-2">
-              <div className="w-8 h-8">
-                <Image 
-                  src="/logo.png" 
-                  alt="Vega Morada" 
-                  width={32} 
-                  height={32}
-                  className="object-contain"
-                />
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="relative w-9 h-9 rounded-lg flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20 ring-1 ring-white/10">
+                <Image src="/logo.png" alt="Vega Morada" width={32} height={32} className="object-contain p-1" />
               </div>
-              <span className="font-bold text-foreground hover:text-primary transition cursor-pointer">Vega Morada</span>
+              <span className="font-bold text-foreground">Vega Morada</span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Automation Specialist | CRM Specialist | Executive Assistant
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#services" className="hover:text-primary transition active:scale-95">Services</a></li>
-              <li><a href="#experience" className="hover:text-primary transition active:scale-95">Experience</a></li>
-              <li><a href="#projects" className="hover:text-primary transition active:scale-95">Projects</a></li>
-              <li><a href="#contact" className="hover:text-primary transition active:scale-95">Contact</a></li>
+            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li><a href="#services" className="hover:text-cyan-300 transition">Services</a></li>
+              <li><a href="#case-studies" className="hover:text-cyan-300 transition">Case Studies</a></li>
+              <li><a href="#projects" className="hover:text-cyan-300 transition">Solutions</a></li>
+              <li><a href="#contact" className="hover:text-cyan-300 transition">Contact</a></li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Connect */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wider">Connect</h4>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:moradavega143@gmail.com" className="hover:text-primary transition active:scale-95">
-                  Email
+                <a href="mailto:moradavega143@gmail.com" className="inline-flex items-center gap-2 hover:text-cyan-300 transition">
+                  <Mail className="w-4 h-4" /> Email
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/vegamorada" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition active:scale-95">
-                  LinkedIn
+                <a href="https://linkedin.com/in/vegamorada" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-cyan-300 transition">
+                  <Linkedin className="w-4 h-4" /> LinkedIn
                 </a>
               </li>
               <li>
-                <a href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition active:scale-95">
-                  Upwork
+                <a href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-cyan-300 transition">
+                  <Briefcase className="w-4 h-4" /> Upwork
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear} Vega Morada. All rights reserved.
           </p>
-          <div className="flex gap-4">
-            <a 
-              href="https://linkedin.com/in/vegamorada" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition text-sm font-medium active:scale-95"
-            >
-              LinkedIn
+          <div className="flex gap-5">
+            <a href="https://linkedin.com/in/vegamorada" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cyan-300 transition" aria-label="LinkedIn">
+              <Linkedin className="w-5 h-5" />
             </a>
-            <a 
-              href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition text-sm font-medium active:scale-95"
-            >
-              Upwork
+            <a href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-cyan-300 transition" aria-label="Upwork">
+              <Briefcase className="w-5 h-5" />
+            </a>
+            <a href="mailto:moradavega143@gmail.com" className="text-muted-foreground hover:text-cyan-300 transition" aria-label="Email">
+              <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>

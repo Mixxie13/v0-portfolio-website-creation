@@ -1,86 +1,125 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { Database, Workflow, Zap, LifeBuoy, BarChart3, ArrowRight, Sparkles } from 'lucide-react'
+
+const techCards = [
+  { label: 'Zoho CRM', icon: Database, color: 'text-blue-400', glow: 'group-hover:shadow-blue-500/30' },
+  { label: 'Make.com', icon: Workflow, color: 'text-violet-400', glow: 'group-hover:shadow-violet-500/30' },
+  { label: 'Workflow Automation', icon: Zap, color: 'text-cyan-400', glow: 'group-hover:shadow-cyan-500/30' },
+  { label: 'Systems Support', icon: LifeBuoy, color: 'text-blue-400', glow: 'group-hover:shadow-blue-500/30' },
+  { label: 'Reporting', icon: BarChart3, color: 'text-violet-400', glow: 'group-hover:shadow-violet-500/30' },
+]
+
+const stats = [
+  { value: '5+', label: 'Years Technical Operations' },
+  { value: '3+', label: 'CRM Implementations' },
+  { value: '100+', label: 'Business Automations' },
+]
 
 export function Hero() {
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!contentRef.current) return
-
-    const handleScroll = () => {
-      const element = contentRef.current
-      if (!element) return
-
-      const rect = element.getBoundingClientRect()
-      const isVisible = rect.top < window.innerHeight * 0.75
-
-      if (isVisible) {
-        element.classList.add('animate-fade-in-up')
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll() // Check on load
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="max-w-4xl mx-auto text-center" ref={contentRef}>
-        <div className="mb-8 flex justify-center">
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-primary shadow-lg">
-            <Image
-              src="/profile.jpg"
-              alt="Vega Morada"
-              fill
-              className="object-cover"
-              priority
-            />
+    <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Status badge */}
+        <div className="flex justify-center mb-8 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-effect text-xs sm:text-sm font-medium text-muted-foreground">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            CRM Systems &amp; Automation Consultant
+            <span className="mx-1 w-1 h-1 rounded-full bg-border" />
+            <span className="flex items-center gap-1.5 text-emerald-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_rgba(52,211,153,0.6)]" />
+              Open to work
+            </span>
           </div>
         </div>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-foreground mb-6 text-balance bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-fade-in-up">
-          Vega Morada
+
+        {/* Avatar with glowing ring */}
+        <div className="mb-8 flex justify-center animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
+          <div className="relative">
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary via-secondary to-accent opacity-50 blur-lg animate-pulse-glow" />
+            <div className="relative w-36 h-36 rounded-full overflow-hidden ring-2 ring-white/10 shadow-2xl">
+              <Image src="/profile.jpg" alt="Vega Morada" fill className="object-cover" priority />
+            </div>
+          </div>
+        </div>
+
+        {/* Headline */}
+        <h1
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-5 text-balance animate-fade-in-up"
+          style={{ animationDelay: '0.1s' }}
+        >
+          <span className="text-gradient">Vega Morada</span>
         </h1>
-        <p className="text-xl sm:text-2xl text-accent mb-8 text-balance font-semibold">
-          Executive Assistant | CRM Specialist | Zoho CRM Specialist | Technical Virtual Assistant
+
+        <p
+          className="text-base sm:text-xl text-foreground/90 mb-6 text-balance font-semibold animate-fade-in-up"
+          style={{ animationDelay: '0.15s' }}
+        >
+          Executive Assistant <span className="text-border">/</span> CRM Specialist{' '}
+          <span className="text-border">/</span> Zoho CRM Specialist{' '}
+          <span className="text-border">/</span> Technical Virtual Assistant
         </p>
-        <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto text-balance leading-relaxed">
-          I help businesses streamline operations, manage CRM systems, optimize workflows, improve reporting visibility, and implement scalable business processes using Zoho and modern business systems.
+
+        <p
+          className="text-base sm:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto text-balance leading-relaxed animate-fade-in-up"
+          style={{ animationDelay: '0.2s' }}
+        >
+          I help businesses streamline operations, manage CRM systems, optimize workflows, improve
+          reporting visibility, and implement scalable business processes using Zoho and modern
+          business systems.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <a href="#case-studies" className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition active:scale-95">
+
+        {/* CTAs */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up"
+          style={{ animationDelay: '0.25s' }}
+        >
+          <a
+            href="#case-studies"
+            className="group inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:brightness-110 transition active:scale-95"
+          >
             View Case Studies
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-          <a href="#contact" className="px-8 py-4 border border-primary/50 text-accent rounded-lg font-semibold hover:bg-primary/10 hover:border-primary transition active:scale-95">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-foreground glass-effect hover:border-primary/50 hover:text-cyan-300 transition active:scale-95"
+          >
             Schedule Consultation
           </a>
         </div>
 
         {/* Floating tech cards */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-16 max-w-3xl mx-auto">
-          {['Zoho CRM', 'Make.com', 'Automation', 'Systems', 'Reporting'].map((item, i) => (
-            <div key={i} className="glass-effect hover-glow p-3 rounded-lg animate-float text-sm font-medium text-accent" style={{ animationDelay: `${i * 0.2}s` }}>
-              {item}
-            </div>
-          ))}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-16 max-w-3xl mx-auto">
+          {techCards.map((card, i) => {
+            const Icon = card.icon
+            return (
+              <div
+                key={card.label}
+                className={`group glass-card rounded-xl p-4 flex flex-col items-center gap-2 text-center animate-float ${card.glow}`}
+                style={{ animationDelay: `${i * 0.3}s`, animationDuration: '6s' }}
+              >
+                <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-white/[0.04] ring-1 ring-white/10 group-hover:ring-primary/40 transition">
+                  <Icon className={`w-5 h-5 ${card.color}`} />
+                </span>
+                <span className="text-xs font-medium text-foreground/90 leading-tight">{card.label}</span>
+              </div>
+            )
+          })}
         </div>
 
         {/* Stats */}
-        <div className="mt-20 grid grid-cols-3 gap-8">
-          <div className="cursor-pointer hover:scale-105 transition">
-            <p className="text-4xl font-bold text-primary">5+</p>
-            <p className="text-muted-foreground mt-2">Years Technical Operations</p>
-          </div>
-          <div className="cursor-pointer hover:scale-105 transition">
-            <p className="text-4xl font-bold text-primary">3+</p>
-            <p className="text-muted-foreground mt-2">CRM Implementations</p>
-          </div>
-          <div className="cursor-pointer hover:scale-105 transition">
-            <p className="text-4xl font-bold text-primary">100+</p>
-            <p className="text-muted-foreground mt-2">Business Automations</p>
-          </div>
+        <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-2xl mx-auto">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="glass-card rounded-xl p-4 sm:p-6 hover-glow"
+            >
+              <p className="text-3xl sm:text-4xl font-bold text-gradient">{stat.value}</p>
+              <p className="text-[11px] sm:text-sm text-muted-foreground mt-2 leading-snug">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

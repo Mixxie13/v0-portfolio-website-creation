@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className="bg-[#020617]">
       <body className="font-sans antialiased relative">
         <BackgroundEffects />
         <div className="relative z-10">
