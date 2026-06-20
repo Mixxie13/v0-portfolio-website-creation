@@ -102,14 +102,14 @@ export function Experience() {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-full text-left p-4 rounded-lg border transition-all duration-300 ${
+                  className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
                     activeIndex === index
-                      ? 'bg-primary text-primary-foreground border-primary'
-                      : 'bg-card border-border hover:border-primary hover:bg-card/80'
+                      ? 'glass-effect bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/50 hover-glow'
+                      : 'glass-effect border border-border/50 hover:border-primary/30'
                   }`}
                 >
-                  <div className="font-bold text-sm">{study.company}</div>
-                  <div className={`text-xs mt-1 ${activeIndex === index ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
+                  <div className="font-bold text-sm text-foreground">{study.company}</div>
+                  <div className={`text-xs mt-1 ${activeIndex === index ? 'text-accent' : 'text-muted-foreground'}`}>
                     {study.role}
                   </div>
                 </button>
@@ -122,9 +122,9 @@ export function Experience() {
             {caseStudies.map((study, index) => (
               <div
                 key={index}
-                className={`transition-all duration-300 ${activeIndex === index ? 'opacity-100' : 'hidden'}`}
+                className={`transition-all duration-300 ${activeIndex === index ? 'opacity-100 animate-fade-in-up' : 'hidden'}`}
               >
-                <div className="bg-card rounded-lg border border-border p-8 space-y-8">
+                <div className="glass-effect gradient-border rounded-lg p-8 space-y-8">
                   {/* Header */}
                   <div>
                     <h3 className="text-3xl font-bold text-foreground mb-2">{study.company}</h3>
@@ -150,15 +150,15 @@ export function Experience() {
                     <p className="text-muted-foreground leading-relaxed">{study.solution}</p>
                   </div>
 
-                  {/* Systems Used */}
-                  <div className="border-t border-border pt-6">
+                    {/* Systems Used */}
+                  <div className="border-t border-border/30 pt-6">
                     <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
-                      <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                      <span className="inline-block w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full"></span>
                       Systems & Technologies
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {study.systemsUsed.map((tech, i) => (
-                        <span key={i} className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium">
+                        <span key={i} className="px-3 py-1 bg-primary/20 text-accent text-xs rounded-full font-medium border border-primary/30 hover:border-primary/60 transition">
                           {tech}
                         </span>
                       ))}

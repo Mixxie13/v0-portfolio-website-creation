@@ -8,7 +8,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border">
+    <header className="fixed top-0 w-full glass-effect z-50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -38,7 +38,7 @@ export function Header() {
           <Link href="#projects" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
             Solutions
           </Link>
-          <Link href="#contact" className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-sm active:scale-95">
+          <Link href="#contact" className="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-foreground rounded-lg hover:shadow-lg hover:shadow-primary/50 transition font-medium text-sm active:scale-95">
             Contact
           </Link>
         </div>
@@ -67,7 +67,7 @@ export function Header() {
             <Link href="#projects" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Solutions
             </Link>
-            <Link href="#contact" className="block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-center active:scale-95" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#contact" className="block px-6 py-2 bg-gradient-to-r from-primary to-secondary text-foreground rounded-lg hover:shadow-lg hover:shadow-primary/50 transition font-medium text-center active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>
           </div>
