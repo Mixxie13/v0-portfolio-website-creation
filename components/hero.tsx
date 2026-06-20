@@ -44,10 +44,10 @@ export function Hero() {
           Vega Morada
         </h1>
         <p className="text-xl sm:text-2xl text-primary mb-8 text-balance font-semibold">
-          Technical Virtual Assistant | Zoho CRM Specialist | Automation Systems Builder
+          Executive Assistant | CRM Specialist | Zoho CRM Specialist | Technical Virtual Assistant
         </p>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto text-balance leading-relaxed">
-          I help businesses implement CRM systems, build operational workflows, automate repetitive processes, and design scalable systems. Specializing in Zoho ecosystem, business process automation, systems integration, and operations consulting to improve visibility, reporting, and efficiency.
+          I help businesses streamline operations, manage CRM systems, optimize workflows, improve reporting visibility, and implement scalable business processes using Zoho and modern business systems.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#case-studies" className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition active:scale-95">

@@ -9,12 +9,12 @@ export function Experience() {
     {
       company: "BlueCloudUSA",
       role: "Operations Manager & Executive Assistant",
-      positioning: "Operations, customer onboarding, CRM management, compliance coordination, billing support, workflow optimization, and automation planning.",
-      challenge: "BlueCloudUSA needed to streamline complex operational workflows across customer onboarding, ACH migration support, compliance management, and CRM administration while maintaining service quality and team coordination.",
-      solution: "Implemented centralized operational systems using Zoho CRM and Zoho Projects to manage customer workflows, built Make.com automation scenarios for ACH verification processes, coordinated 10DLC compliance submissions, and structured SOPs for repeatable operations.",
-      systemsUsed: ["Zoho CRM", "Zoho Projects", "Make.com", "Stripe", "APIs", "Webhooks"],
-      automationLogic: "Automated customer verification workflows using APIs, streamlined 10DLC compliance tracking, implemented CRM integrations for real-time visibility, coordinated AI voice agent implementation planning",
-      outcome: "Improved operational visibility and accountability across departments, reduced manual follow-up tasks, established scalable onboarding processes, and positioned company for VoIP and AI automation expansion",
+      positioning: "Business operations, customer onboarding coordination, CRM administration, compliance management, billing operations, and operational documentation.",
+      challenge: "BlueCloudUSA needed to establish scalable operational systems across customer onboarding, ACH migration support, compliance management, and CRM administration while maintaining quality and team coordination.",
+      solution: "Established operational framework using Zoho CRM and Zoho Projects for customer workflow management, coordinated ACH migration initiatives and customer verification processes, structured 10DLC compliance tracking and documentation, developed SOPs for repeatable operational processes, and supported planning for AI voice agent implementation.",
+      systemsUsed: ["Zoho CRM", "Zoho Projects", "Stripe", "Google Workspace", "Microsoft Office", "WhatsApp"],
+      operationalCoordination: "Coordinated customer onboarding workflows, managed ACH migration support and verification processes, tracked 10DLC compliance submissions and approvals, liaised with internal teams on vendor relationships, provided executive support and billing administration.",
+      outcome: "Improved operational visibility and accountability across departments, established repeatable onboarding and compliance processes, coordinated successful ACH migration, provided foundational support for planned VoIP and AI voice agent initiatives.",
       responsibilities: [
         "Managed day-to-day operational support across customer onboarding, billing, CRM administration, and client communications",
         "Coordinated onboarding processes and account activations",
@@ -26,23 +26,23 @@ export function Experience() {
         "Managed 10DLC campaign compliance submissions, revisions, and approvals",
         "Investigated billing inquiries and customer account concerns",
         "Created SOPs, documentation, and repeatable operational processes",
-        "Supported AI voice automation implementation planning"
+        "Supported AI voice automation implementation planning and coordination"
       ]
     },
     {
-      company: "TLH (The Lighting Hub)",
+      company: "TLH (The Lucky Harvest)",
       role: "Operations Manager | Zoho Consultant | Systems Support",
-      positioning: "Business systems optimization, operational process improvement, CRM implementation, product management architecture, and workflow automation.",
-      challenge: "TLH needed to synchronize product data between WooCommerce and inventory systems, automate order workflows, and establish scalable operational processes to support growing e-commerce operations.",
-      solution: "Designed and implemented Zoho Inventory architecture, created WooCommerce to Zoho synchronization strategy using Make.com automations, developed centralized product management workflows, and structured operational systems for scalability.",
-      systemsUsed: ["Zoho CRM", "Zoho Inventory", "Zoho Flow", "Make.com", "WooCommerce", "Simpro"],
-      automationLogic: "Automated product data synchronization between WooCommerce and Zoho Inventory, implemented order workflow automations, structured product-to-job mapping in Simpro, created data management and reporting structures",
-      outcome: "Reduced manual data entry by 80%, improved inventory accuracy, enabled real-time product visibility across platforms, established scalable operational infrastructure",
+      positioning: "Business systems optimization, operational process improvement, inventory management, product data architecture, and operational workflow design.",
+      challenge: "The Lucky Harvest needed to synchronize product data between WooCommerce and inventory systems, improve order workflow coordination, and establish scalable operational processes to support growing e-commerce operations.",
+      solution: "Designed Zoho Inventory architecture and operational workflows, developed WooCommerce to Zoho synchronization strategy, structured product management workflows using Zoho Flow, created centralized product and order management processes, and established scalable operational systems in Simpro.",
+      systemsUsed: ["Zoho CRM", "Zoho Inventory", "Zoho Flow", "WooCommerce", "Simpro", "Make.com"],
+      operationalCoordination: "Coordinated product data management between WooCommerce and Zoho Inventory, structured order workflow processes, designed product-to-job mapping in Simpro, improved data organization and reporting structures, established operational process documentation.",
+      outcome: "Improved product data accuracy and synchronization, reduced manual data entry, enabled real-time product visibility across platforms, established scalable operational infrastructure and repeatable processes.",
       responsibilities: [
         "Designed and implemented Zoho operational workflows",
         "Built product management and inventory processes",
         "Developed WooCommerce to Zoho synchronization strategy",
-        "Created automation scenarios using Make.com",
+        "Structured automation scenarios using Make.com",
         "Structured operational systems and business workflows",
         "Developed SOPs and process documentation",
         "Created process maps and operational frameworks",
@@ -165,13 +165,13 @@ export function Experience() {
                     </div>
                   </div>
 
-                  {/* Automation Logic */}
+                  {/* Operational Coordination */}
                   <div className="border-t border-border pt-6">
                     <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
                       <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
-                      Automation & Integration Logic
+                      Operational Coordination & Process Management
                     </h4>
-                    <p className="text-muted-foreground leading-relaxed">{study.automationLogic}</p>
+                    <p className="text-muted-foreground leading-relaxed">{study.operationalCoordination}</p>
                   </div>
 
                   {/* Outcome */}
