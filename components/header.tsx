@@ -32,11 +32,11 @@ export function Header() {
           <Link href="#services" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
             Services
           </Link>
-          <Link href="#experience" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
-            Experience
+          <Link href="#case-studies" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
+            Case Studies
           </Link>
           <Link href="#projects" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
-            Projects
+            Solutions
           </Link>
           <Link href="#contact" className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-sm active:scale-95">
             Contact
@@ -61,11 +61,11 @@ export function Header() {
             <Link href="#services" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Services
             </Link>
-            <Link href="#experience" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
-              Experience
+            <Link href="#case-studies" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
+              Case Studies
             </Link>
             <Link href="#projects" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
-              Projects
+              Solutions
             </Link>
             <Link href="#contact" className="block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-center active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Contact

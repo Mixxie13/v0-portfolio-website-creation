@@ -44,17 +44,17 @@ export function Hero() {
           Vega Morada
         </h1>
         <p className="text-xl sm:text-2xl text-primary mb-8 text-balance font-semibold">
-          Automation Specialist | Executive Assistant | CRM Specialist | B2B Lead Gen Specialist
+          Technical Virtual Assistant | Zoho CRM Specialist | Automation Systems Builder
         </p>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto text-balance leading-relaxed">
-          Specializing in no-code automation using Zapier, Make, n8n, and HighLevel. I transform business operations by building intelligent workflows, optimizing CRMs, and automating complex processes to help founders and teams scale efficiently.
+          I help businesses implement CRM systems, build operational workflows, automate repetitive processes, and design scalable systems. Specializing in Zoho ecosystem, business process automation, systems integration, and operations consulting to improve visibility, reporting, and efficiency.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#projects" className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition active:scale-95">
-            View My Work
+          <a href="#case-studies" className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition active:scale-95">
+            View Case Studies
           </a>
           <a href="#contact" className="px-8 py-4 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/10 transition active:scale-95">
-            Get in Touch
+            Schedule Consultation
           </a>
         </div>
 
@@ -62,15 +62,15 @@ export function Hero() {
         <div className="mt-20 grid grid-cols-3 gap-8">
           <div className="cursor-pointer hover:scale-105 transition">
             <p className="text-4xl font-bold text-primary">5+</p>
-            <p className="text-muted-foreground mt-2">Years Experience</p>
+            <p className="text-muted-foreground mt-2">Years Technical Operations</p>
           </div>
           <div className="cursor-pointer hover:scale-105 transition">
-            <p className="text-4xl font-bold text-primary">11+</p>
-            <p className="text-muted-foreground mt-2">Projects Completed</p>
+            <p className="text-4xl font-bold text-primary">3+</p>
+            <p className="text-muted-foreground mt-2">CRM Implementations</p>
           </div>
           <div className="cursor-pointer hover:scale-105 transition">
-            <p className="text-4xl font-bold text-primary">4+</p>
-            <p className="text-muted-foreground mt-2">Companies Supported</p>
+            <p className="text-4xl font-bold text-primary">100+</p>
+            <p className="text-muted-foreground mt-2">Business Automations</p>
           </div>
         </div>
       </div>
