@@ -31,8 +31,8 @@ export function Projects() {
     {
       title: "Gmail to Google Drive Auto-Organization",
       description: "Automated intelligent sorting and organization of email attachments into structured folders.",
-      details: "Set up Zapier workflow to automatically categorize and organize email attachments into structured Google Drive folders based on file type, sender, and date.",
-      tags: ["Google Workspace", "Automation", "Zapier"],
+      details: "Built Make.com workflow to automatically categorize and organize email attachments into structured Google Drive folders based on file type, sender, and date.",
+      tags: ["Google Workspace", "Make.com", "Workflow Automation"],
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png"
     },
     {
@@ -83,9 +83,9 @@ export function Projects() {
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Implementation Examples</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
-            Proven expertise in automation, API integration, CRM setup, and AI-powered solutions
+            Real-world examples of automation systems, integrations, and workflow solutions I&apos;ve built
           </p>
         </div>
 

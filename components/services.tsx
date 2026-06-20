@@ -7,45 +7,45 @@ export function Services() {
 
   const services = [
     {
-      title: "Workflow Automation",
-      description: "Design and implement automated workflows using Zapier, Make, n8n, and HighLevel to eliminate repetitive tasks and improve efficiency. Expert in complex scenario building and multi-step automation.",
-      icon: "⚙️",
-      skills: ["Zapier", "Make", "n8n", "HighLevel"]
-    },
-    {
-      title: "CRM Setup & Optimization",
-      description: "Configure and optimize CRM systems including Pipedrive, HubSpot, Zoho, and HighLevel. Build custom pipelines, dashboards, and workflows tailored to your sales process.",
+      title: "Zoho CRM Implementation",
+      description: "Full CRM system design and implementation tailored to your business model. From architecture and workflow design to dashboard creation and team training. I ensure your CRM becomes the operational backbone of your business.",
       icon: "📊",
-      skills: ["Pipedrive", "HubSpot", "Zoho", "HighLevel"]
+      skills: ["Zoho CRM", "Workflow Design", "Dashboards", "Automation"]
     },
     {
-      title: "Lead Generation & Outreach",
-      description: "Build and execute lead generation strategies using LinkedIn automation, email outreach systems, and AI-powered qualification. Manage and nurture prospects at scale.",
-      icon: "🎯",
-      skills: ["LinkedIn", "Email", "AI", "CRM"]
+      title: "Business Process Automation",
+      description: "Design and build intelligent automation systems using Make.com and Zoho Flow. Eliminate manual repetitive tasks, improve data accuracy, and create scalable operational workflows.",
+      icon: "⚙️",
+      skills: ["Make.com", "Zoho Flow", "Workflow Automation", "Process Design"]
     },
     {
-      title: "API & Data Integration",
-      description: "Connect disparate systems through custom API integrations, webhooks, and JSON handling. Ensure seamless data flow between your business tools.",
+      title: "Systems Integration & APIs",
+      description: "Connect your business tools seamlessly. Expert integration of WooCommerce, Freshdesk, Simpro, and custom APIs to ensure data flows reliably across your entire tech stack.",
       icon: "🔗",
-      skills: ["APIs", "Webhooks", "JSON", "Data Sync"]
+      skills: ["API Integration", "Webhooks", "Data Sync", "Custom Integrations"]
     },
     {
-      title: "AI-Powered Automation",
-      description: "Leverage AI for content repurposing, appointment setting, customer inquiry handling, and intelligent data processing using prompt engineering.",
-      icon: "🤖",
-      skills: ["AI Agents", "Prompt Engineering", "Content AI", "RAG"]
+      title: "Operational Consulting",
+      description: "Transform your business operations through process mapping, workflow optimization, and systems design. I help you identify bottlenecks, standardize procedures, and build scalable operational infrastructure.",
+      icon: "🎯",
+      skills: ["Process Mapping", "Operations Strategy", "SOP Development", "Systems Design"]
     },
     {
-      title: "Executive Operations",
-      description: "Complete support for email management, calendar coordination, document editing, data organization, and strategic process improvement.",
-      icon: "📋",
-      skills: ["Email", "Calendar", "Documents", "Operations"]
+      title: "Financial Reporting & Analytics",
+      description: "Build comprehensive reporting dashboards and analytics systems that provide management visibility. Transform raw data into actionable business intelligence for better decision-making.",
+      icon: "📈",
+      skills: ["Reporting", "KPI Dashboards", "Business Intelligence", "Data Analysis"]
+    },
+    {
+      title: "Systems Architecture Planning",
+      description: "Design scalable, future-proof business systems. Help you plan technology infrastructure, integration strategies, and operational architecture to support growth.",
+      icon: "🏗️",
+      skills: ["Systems Design", "Architecture Planning", "Scalability", "Tech Strategy"]
     }
   ]
 
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Services</h2>
@@ -58,7 +58,7 @@ export function Services() {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="p-8 rounded-lg bg-background border border-border hover:border-primary transition-all duration-300 group cursor-pointer hover:shadow-lg hover:shadow-primary/20 active:scale-95"
+              className="glass-effect p-8 rounded-lg gradient-border hover-glow transition-all duration-300 group cursor-pointer active:scale-95"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

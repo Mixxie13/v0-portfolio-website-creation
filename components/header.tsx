@@ -8,20 +8,21 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border">
+    <header className="fixed top-0 w-full glass-effect z-50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 hover:scale-110 transition active:scale-95 cursor-pointer">
+          <Link href="#" className="w-10 h-10 sm:w-12 sm:h-12 hover:scale-110 transition active:scale-95 cursor-pointer flex items-center justify-center">
             <Image 
               src="/logo.png" 
               alt="Vega Morada" 
-              width={40} 
-              height={40}
+              width={48} 
+              height={48}
               className="object-contain"
+              priority
             />
-          </div>
-          <Link href="#" className="text-xl font-bold text-foreground hover:text-primary transition">
+          </Link>
+          <Link href="#" className="text-lg sm:text-xl font-bold text-foreground hover:text-primary transition">
             Vega Morada
           </Link>
         </div>
@@ -31,13 +32,13 @@ export function Header() {
           <Link href="#services" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
             Services
           </Link>
-          <Link href="#experience" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
-            Experience
+          <Link href="#case-studies" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
+            Case Studies
           </Link>
           <Link href="#projects" className="text-foreground hover:text-primary transition font-medium text-sm active:scale-95">
-            Projects
+            Solutions
           </Link>
-          <Link href="#contact" className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-sm active:scale-95">
+          <Link href="#contact" className="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-foreground rounded-lg hover:shadow-lg hover:shadow-primary/50 transition font-medium text-sm active:scale-95">
             Contact
           </Link>
         </div>
@@ -60,13 +61,13 @@ export function Header() {
             <Link href="#services" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Services
             </Link>
-            <Link href="#experience" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
-              Experience
+            <Link href="#case-studies" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
+              Case Studies
             </Link>
             <Link href="#projects" className="block text-foreground hover:text-primary transition font-medium active:scale-95" onClick={() => setIsMenuOpen(false)}>
-              Projects
+              Solutions
             </Link>
-            <Link href="#contact" className="block px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition font-medium text-center active:scale-95" onClick={() => setIsMenuOpen(false)}>
+            <Link href="#contact" className="block px-6 py-2 bg-gradient-to-r from-primary to-secondary text-foreground rounded-lg hover:shadow-lg hover:shadow-primary/50 transition font-medium text-center active:scale-95" onClick={() => setIsMenuOpen(false)}>
               Contact
             </Link>
           </div>

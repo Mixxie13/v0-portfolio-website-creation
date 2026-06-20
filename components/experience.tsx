@@ -5,116 +5,217 @@ import { useState } from 'react'
 export function Experience() {
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const positions = [
+  const caseStudies = [
     {
-      role: "Executive Assistant",
-      company: "BlueCloud USA",
-      year: "2025",
-      description: "Handles email and calendar management for the team, ensuring appointments and internal meetings are properly scheduled and aligned. Sends outreach emails to prospects, coordinates communications, and secures both virtual and in-person appointments. Edits and formats documents including internal resources and visual materials while maintaining brand consistency. Works within the company system to create and manage accounts, input client data, and track project progress through Zoho CRM and Zoho Projects."
+      company: "BlueCloudUSA",
+      role: "Operations Manager & Executive Assistant",
+      positioning: "Business operations, customer onboarding coordination, CRM administration, compliance management, billing operations, and operational documentation.",
+      challenge: "BlueCloudUSA needed to establish scalable operational systems across customer onboarding, ACH migration support, compliance management, and CRM administration while maintaining quality and team coordination.",
+      solution: "Established operational framework using Zoho CRM and Zoho Projects for customer workflow management, coordinated ACH migration initiatives and customer verification processes, structured 10DLC compliance tracking and documentation, developed SOPs for repeatable operational processes, and supported planning for AI voice agent implementation.",
+      systemsUsed: ["Zoho CRM", "Zoho Projects", "Stripe", "Google Workspace", "Microsoft Office", "WhatsApp"],
+      operationalCoordination: "Coordinated customer onboarding workflows, managed ACH migration support and verification processes, tracked 10DLC compliance submissions and approvals, liaised with internal teams on vendor relationships, provided executive support and billing administration.",
+      outcome: "Improved operational visibility and accountability across departments, established repeatable onboarding and compliance processes, coordinated successful ACH migration, provided foundational support for planned VoIP and AI voice agent initiatives.",
+      responsibilities: [
+        "Managed day-to-day operational support across customer onboarding, billing, CRM administration, and client communications",
+        "Coordinated onboarding processes and account activations",
+        "Managed customer follow-ups and implementation workflows",
+        "Supported ACH migration initiatives and customer verification processes",
+        "Oversaw customer communication, escalations, and service coordination",
+        "Managed Zoho Projects tasks and operational workflows",
+        "Coordinated internal teams and vendor relationships",
+        "Managed 10DLC campaign compliance submissions, revisions, and approvals",
+        "Investigated billing inquiries and customer account concerns",
+        "Created SOPs, documentation, and repeatable operational processes",
+        "Supported AI voice automation implementation planning and coordination"
+      ]
     },
     {
-      role: "CRM Specialist",
-      company: "Inhouse Outbound Systems LLC",
-      year: "2025",
-      description: "Built and managed CRM environments reflecting real-world sales workflows including pipelines, contact records, and reporting dashboards. Created demo-ready CRM setups for marketing, training, and content production. Identified and structured solutions for common CRM issues such as outdated contacts and poor data hygiene. Collaborated with leadership to translate complex CRM challenges into visual systems. Maintained and organized CRM data ensuring accuracy and consistency across teams."
+      company: "TLH (The Lucky Harvest)",
+      role: "Operations Manager | Zoho Consultant | Systems Support",
+      positioning: "Business systems optimization, operational process improvement, inventory management, product data architecture, and operational workflow design.",
+      challenge: "The Lucky Harvest needed to synchronize product data between WooCommerce and inventory systems, improve order workflow coordination, and establish scalable operational processes to support growing e-commerce operations.",
+      solution: "Designed Zoho Inventory architecture and operational workflows, developed WooCommerce to Zoho synchronization strategy, structured product management workflows using Zoho Flow, created centralized product and order management processes, and established scalable operational systems in Simpro.",
+      systemsUsed: ["Zoho CRM", "Zoho Inventory", "Zoho Flow", "WooCommerce", "Simpro", "Make.com"],
+      operationalCoordination: "Coordinated product data management between WooCommerce and Zoho Inventory, structured order workflow processes, designed product-to-job mapping in Simpro, improved data organization and reporting structures, established operational process documentation.",
+      outcome: "Improved product data accuracy and synchronization, reduced manual data entry, enabled real-time product visibility across platforms, established scalable operational infrastructure and repeatable processes.",
+      responsibilities: [
+        "Designed and implemented Zoho operational workflows",
+        "Built product management and inventory processes",
+        "Developed WooCommerce to Zoho synchronization strategy",
+        "Structured automation scenarios using Make.com",
+        "Structured operational systems and business workflows",
+        "Developed SOPs and process documentation",
+        "Created process maps and operational frameworks",
+        "Improved data management and reporting structures",
+        "Established scalable operational processes",
+        "Designed centralized product and information management workflows"
+      ]
     },
     {
-      role: "Lead Generation Specialist",
-      company: "Jay Abbasi Consulting",
-      year: "2025",
-      description: "Researched and built qualified prospect lists aligned with the client's target market and outreach goals. Sent personalized LinkedIn invites and tracked responses using Pipedrive to monitor lead status and pipeline movement. Executed follow-up strategies through email and alternate platforms when initial outreach received no response. Maintained accurate lead records and ensured CRM was consistently up to date for reporting and team collaboration."
-    },
-    {
-      role: "Virtual Assistant",
-      company: "SuperfastCPA (NSH L.L.C.)",
-      year: "2021 - 2025",
-      description: "Wrote, proofread, and edited high-quality articles tailored to various industries ensuring engaging and SEO-friendly content. Transcribed and summarized lengthy audio and video files into well-structured documents. Managed and executed large-scale data entry tasks with high accuracy ensuring consistency and adherence to deadlines. Maintained organized records and prepared detailed daily performance reports to track progress and enhance workflow transparency."
-    },
-    {
-      role: "Virtual Assistant",
-      company: "Direct Client (Germany)",
-      year: "2020 - 2021",
-      description: "Managed and optimized product listings for an e-commerce store ensuring accurate descriptions and high-quality images. Handled customer inquiries professionally via email and chat providing timely and effective solutions. Processed orders, coordinated with shipping providers, and ensured smooth logistics operations. Conducted market research to identify trends and improve product visibility increasing customer engagement."
+      company: "WCJ (We Clear Junk)",
+      role: "Zoho Systems Implementor & Financial Reporting Analyst",
+      positioning: "CRM implementation, systems architecture, operational reporting, process optimization, automation planning, and business intelligence.",
+      challenge: "WCJ needed to implement a comprehensive CRM system to manage lead-to-job workflows, establish customer service ticketing, create reporting dashboards, and build financial visibility across operations.",
+      solution: "Led Zoho CRM implementation planning, designed customer lifecycle workflows from lead to job completion, structured Zoho Desk for customer service, created financial reporting frameworks, and planned automation strategies using Make.com and Zoho Flow.",
+      systemsUsed: ["Zoho CRM", "Zoho Desk", "Zoho Flow", "Make.com", "Freshdesk", "Lucidspark"],
+      automationLogic: "Automated lead-to-job workflow processes, implemented customer lifecycle automations, structured ticket management and escalation workflows, created KPI dashboards for management visibility",
+      outcome: "Established scalable CRM infrastructure, improved lead tracking and conversion visibility, created comprehensive financial reporting for better decision-making, reduced manual handoff errors",
+      responsibilities: [
+        "Led Zoho systems implementation planning",
+        "Designed CRM architecture and customer workflows",
+        "Created business process maps and operational frameworks",
+        "Developed lead-to-job lifecycle workflows",
+        "Structured customer service and ticket management systems",
+        "Planned automation and workflow strategies",
+        "Designed reporting structures and KPI dashboards",
+        "Built financial reporting frameworks and management visibility tools",
+        "Improved operational reporting processes",
+        "Developed process documentation and implementation plans"
+      ]
     }
   ]
 
   const skills = [
-    "Zapier", "Make", "n8n", "HighLevel",
-    "Pipedrive", "HubSpot", "Zoho CRM",
-    "API Integration", "Webhooks", "JSON",
-    "AI Prompt Engineering", "Process Mapping",
-    "No-Code Automation", "SOP Development",
-    "LinkedIn Automation", "Email Management",
-    "Google Workspace", "Microsoft Office",
-    "WordPress", "Data Organization"
+    "Zoho CRM", "Zoho Inventory", "Zoho Desk", "Zoho Flow", "Zoho Creator",
+    "Make.com", "WooCommerce", "Simpro", "Freshdesk",
+    "API Integration", "Webhooks", "Process Mapping",
+    "Business Systems", "Operational Consulting", "SOP Development",
+    "Financial Reporting", "Data Management", "Workflow Automation",
+    "Google Workspace", "Microsoft Office"
   ]
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="case-studies" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Professional Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Case Studies</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
-            5+ years of proven expertise in automation, CRM setup, and business operations
+            Proven expertise in CRM implementation, systems architecture, business process automation, and operational transformation
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Experience Timeline */}
-          <div className="lg:col-span-2">
-            <div className="space-y-8">
-              {positions.map((position, index) => (
-                <div 
-                  key={index} 
-                  className={`relative pl-8 pb-8 border-l-2 cursor-pointer transition-all duration-300 ${
-                    activeIndex === index ? 'border-primary' : 'border-border'
-                  } last:pb-0`}
+          {/* Case Study Navigation */}
+          <div className="lg:col-span-1">
+            <div className="space-y-3 lg:sticky lg:top-24">
+              {caseStudies.map((study, index) => (
+                <button
+                  key={index}
                   onClick={() => setActiveIndex(index)}
+                  className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
+                    activeIndex === index
+                      ? 'glass-effect bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/50 hover-glow'
+                      : 'glass-effect border border-border/50 hover:border-primary/30'
+                  }`}
                 >
-                  <div className={`absolute -left-3.5 top-0 w-5 h-5 rounded-full border-4 border-background transition-all duration-300 ${
-                    activeIndex === index ? 'bg-primary scale-125' : 'bg-muted'
-                  }`}></div>
-                  <div className="mb-2 flex items-baseline justify-between">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary">{position.role}</h3>
-                    <span className="text-sm text-muted-foreground">{position.year}</span>
+                  <div className="font-bold text-sm text-foreground">{study.company}</div>
+                  <div className={`text-xs mt-1 ${activeIndex === index ? 'text-accent' : 'text-muted-foreground'}`}>
+                    {study.role}
                   </div>
-                  <p className="text-primary font-semibold mb-2">{position.company}</p>
-                  <p className={`text-sm leading-relaxed transition-all duration-300 ${
-                    activeIndex === index ? 'text-foreground' : 'text-muted-foreground'
-                  }`}>
-                    {position.description}
-                  </p>
-                </div>
+                </button>
               ))}
             </div>
           </div>
 
-          {/* Skills & Certifications */}
-          <div className="lg:col-span-1">
-            <div className="bg-card rounded-lg p-8 border border-border sticky top-24">
-              <h3 className="text-lg font-bold text-foreground mb-6">Core Skills</h3>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {skills.map((skill, index) => (
-                  <span 
-                    key={index}
-                    className="px-3 py-1 bg-background border border-border rounded-full text-xs text-foreground hover:border-primary hover:text-primary hover:bg-primary/5 transition-all cursor-pointer active:scale-95"
-                  >
-                    {skill}
-                  </span>
-                ))}
+          {/* Active Case Study Details */}
+          <div className="lg:col-span-2">
+            {caseStudies.map((study, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-300 ${activeIndex === index ? 'opacity-100 animate-fade-in-up' : 'hidden'}`}
+              >
+                <div className="glass-effect gradient-border rounded-lg p-8 space-y-8">
+                  {/* Header */}
+                  <div>
+                    <h3 className="text-3xl font-bold text-foreground mb-2">{study.company}</h3>
+                    <p className="text-primary font-semibold mb-3">{study.role}</p>
+                    <p className="text-muted-foreground italic">{study.positioning}</p>
+                  </div>
+
+                  {/* Problem */}
+                  <div className="border-t border-border pt-6">
+                    <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                      Business Challenge
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">{study.challenge}</p>
+                  </div>
+
+                  {/* Solution */}
+                  <div className="border-t border-border pt-6">
+                    <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                      Solution Designed
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">{study.solution}</p>
+                  </div>
+
+                    {/* Systems Used */}
+                  <div className="border-t border-border/30 pt-6">
+                    <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                      Systems & Technologies
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {study.systemsUsed.map((tech, i) => (
+                        <span key={i} className="px-3 py-1 bg-primary/20 text-accent text-xs rounded-full font-medium border border-primary/30 hover:border-primary/60 transition">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Operational Coordination */}
+                  <div className="border-t border-border pt-6">
+                    <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                      Operational Coordination & Process Management
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">{study.operationalCoordination}</p>
+                  </div>
+
+                  {/* Outcome */}
+                  <div className="border-t border-border pt-6">
+                    <h4 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
+                      Business Outcomes
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">{study.outcome}</p>
+                  </div>
+
+                  {/* Responsibilities */}
+                  <div className="border-t border-border pt-6">
+                    <h4 className="text-lg font-bold text-foreground mb-4">Key Responsibilities</h4>
+                    <ul className="space-y-2">
+                      {study.responsibilities.map((resp, i) => (
+                        <li key={i} className="text-muted-foreground text-sm flex gap-3">
+                          <span className="text-primary font-bold mt-1">→</span>
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <div className="pt-8 border-t border-border">
-                <h4 className="font-bold text-foreground mb-4 text-primary">Certifications</h4>
-                <ul className="space-y-3">
-                  <li className="text-sm text-muted-foreground hover:text-foreground transition">✓ Zapier Certified Expert</li>
-                  <li className="text-sm text-muted-foreground hover:text-foreground transition">✓ Make Advanced Scenario Builder</li>
-                  <li className="text-sm text-muted-foreground hover:text-foreground transition">✓ Microsoft Power Automate Fundamentals</li>
-                  <li className="text-sm text-muted-foreground hover:text-foreground transition">✓ API Integration Professional</li>
-                  <li className="text-sm text-muted-foreground hover:text-foreground transition">✓ HighLevel Automation Architect</li>
-                  <li className="text-sm text-muted-foreground hover:text-foreground transition">✓ AI Prompt Engineering Specialist</li>
-                </ul>
-              </div>
-            </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Technology Stack */}
+        <div className="mt-20 pt-20 border-t border-border">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-2">Technology Stack</h3>
+            <p className="text-muted-foreground">Core tools and platforms used across implementations</p>
+          </div>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {skills.map((skill, index) => (
+              <span 
+                key={index}
+                className="px-4 py-2 bg-card border border-border rounded-lg text-sm text-foreground hover:border-primary hover:bg-primary/5 transition-all cursor-pointer"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
       </div>
