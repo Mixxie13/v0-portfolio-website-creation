@@ -29,12 +29,36 @@ const categories: Category[] = [
     ],
   },
   {
-    label: 'Zapier & Make.com',
-    blurb: 'Multi-app triggers, webhooks, and visual data-routing pipelines',
+    label: 'Zoho',
+    blurb: 'CRM, Desk, Flow, and Sheet workflows that connect customer operations from lead to resolution',
     projects: [
-      { title: 'Asana CRM Lead Engagement Workflow', description: 'Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.', details: 'Implemented comprehensive Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.', tags: ['Zapier', 'Asana', 'CRM', 'Lead Management'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png' },
-      { title: 'Gmail to Google Drive Auto-Organization', description: 'Automated intelligent sorting and organization of email attachments into structured folders.', details: 'Built Make.com workflow to automatically categorize and organize email attachments into structured Google Drive folders based on file type, sender, and date.', tags: ['Google Workspace', 'Make.com', 'Workflow Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png' },
-      { title: 'Xero to Asana Financial Workflow', description: 'Streamlined financial operations by automating transaction exports and task creation.', details: 'Created integration between Xero and Asana to automatically create project tasks from financial transactions, enabling seamless project accounting and expense tracking.', tags: ['Xero', 'Asana', 'Integration', 'Finance'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213228-tNjVC6P1cQL5ldUPrSNkXaSTZJm9jx.png' },
+      { title: 'Zoho Flow Website Forms', description: 'Connected website forms to Zoho CRM, Zoho Desk, and Zoho Sheet for a coordinated intake process.', details: 'Designed Zoho Flow automations for contact, quote, moving, and quick-booking forms. The flows route submissions into the right CRM and Desk records, create supporting sheet entries, and keep the customer journey moving without manual re-entry.', tags: ['Zoho Flow', 'Zoho CRM', 'Zoho Desk', 'Zoho Sheet'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.48.00%E2%80%AFAM%20%282%29-uqNLjC0z47uPSHd73uHlIi9L27ocG1.png' },
+      { title: 'Webform Initial Desk Acknowledgement', description: 'Automatically acknowledged new enquiries after they were created as Zoho Desk tickets and linked to CRM.', details: 'Built a live Zoho Flow with CRM triggers, decision logic, delays, lead lookups, and a Desk email reply. The workflow gives customers a timely acknowledgement while keeping the ticket and lead context connected for the team.', tags: ['Zoho Flow', 'Zoho Desk', 'Zoho CRM', 'Customer Support'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.45.37%E2%80%AFAM%20%282%29-6HP5tsIbJQI7eo43w6n8t7J64cgygt.png' },
+      { title: 'Inbound Bookings Ticket Workflow', description: 'Structured inbound booking requests in Zoho Desk with purpose-built booking and ticket fields.', details: 'Configured booking and ticket information layouts for the Inbound Bookings Team, including journey type, service type, postcode, contact details, CRM IDs, subject, and description fields.', tags: ['Zoho Desk', 'Ticketing', 'CRM Operations', 'Bookings'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.43.59%E2%80%AFAM%20%282%29-M812KDzzEQPR0WPKOWiIDcXIvaDEHZ.png' },
+      { title: 'Zoho Flow Execution Monitoring', description: 'Monitored automation health with execution summaries, success rates, and daily flow activity.', details: 'Used Zoho Flow summary reporting to track execution volume and success across the last seven days, making it easier to spot failures, validate automations, and maintain reliable operations.', tags: ['Zoho Flow', 'Reporting', 'Monitoring', 'Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.45.44%E2%80%AFAM%20%282%29-B7Vz8SJPOeT2rjNBR6CKfHrbA2R2jH.png' },
+    ],
+  },
+  {
+    label: 'n8n',
+    blurb: 'Flexible, self-hosted workflow automation for APIs, data processing, and AI pipelines',
+    projects: [
+      { title: 'API Orchestration Workflows', description: 'Connected services through reusable n8n nodes, webhooks, branching logic, and data transformations.', details: 'Built modular workflows that receive events, validate and reshape payloads, call external APIs, and route results to the right operational systems.', tags: ['n8n', 'APIs', 'Webhooks', 'Data Processing'], image: null },
+      { title: 'AI Operations Automation', description: 'Combined AI steps with deterministic business logic for practical, repeatable automations.', details: 'Created n8n workflows that use AI for classification and content handling while preserving clear approval, routing, and notification steps.', tags: ['n8n', 'AI', 'Automation', 'Integrations'], image: null },
+    ],
+  },
+  {
+    label: 'Make.com',
+    blurb: 'Visual multi-step scenarios for organizing data, files, notifications, and business processes',
+    projects: [
+      { title: 'Gmail to Google Drive Auto-Organization', description: 'Automated intelligent sorting and organization of email attachments into structured folders.', details: 'Built a Make.com scenario to categorize and organize email attachments into Google Drive folders based on file type, sender, and date.', tags: ['Make.com', 'Gmail', 'Google Drive', 'Workflow Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png' },
+      { title: 'Xero to Asana Financial Workflow', description: 'Streamlined financial operations by automating transaction exports and task creation.', details: 'Created a Make.com integration between Xero and Asana to automatically create project tasks from financial transactions, enabling seamless project accounting and expense tracking.', tags: ['Make.com', 'Xero', 'Asana', 'Finance'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213228-tNjVC6P1cQL5ldUPrSNkXaSTZJm9jx.png' },
+    ],
+  },
+  {
+    label: 'Zapier',
+    blurb: 'Reliable Zaps for lead management, notifications, task creation, and follow-up',
+    projects: [
+      { title: 'Asana CRM Lead Engagement Workflow', description: 'Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.', details: 'Implemented a Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.', tags: ['Zapier', 'Asana', 'CRM', 'Lead Management'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png' },
     ],
   },
   {
