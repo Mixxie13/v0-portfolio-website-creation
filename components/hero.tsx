@@ -71,15 +71,15 @@ export function Hero() {
         <div className="mt-20 grid grid-cols-3 gap-8">
           <div className="cursor-pointer hover:scale-105 transition">
             <p className="text-4xl font-bold text-primary">5+</p>
-            <p className="text-muted-foreground mt-2">Years Technical Operations</p>
+            <p className="text-muted-foreground mt-2">Years EA &amp; Operations</p>
           </div>
           <div className="cursor-pointer hover:scale-105 transition">
             <p className="text-4xl font-bold text-primary">3+</p>
             <p className="text-muted-foreground mt-2">CRM Implementations</p>
           </div>
           <div className="cursor-pointer hover:scale-105 transition">
-            <p className="text-4xl font-bold text-primary">100+</p>
-            <p className="text-muted-foreground mt-2">Business Automations</p>
+            <p className="text-4xl font-bold text-primary">Hours</p>
+            <p className="text-muted-foreground mt-2">Saved for Businesses</p>
           </div>
         </div>
       </div>
