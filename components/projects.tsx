@@ -29,7 +29,7 @@ const categories: Category[] = [
     ],
   },
   {
-    label: 'Zoho Portfolio',
+    label: 'Zoho',
     blurb: 'All Zoho CRM, Desk, Flow, and Sheet implementations in one place, from lead intake to customer resolution',
     projects: [
       { title: 'Zoho Flow Website Forms', description: 'Connected website forms to Zoho CRM, Zoho Desk, and Zoho Sheet for a coordinated intake process.', details: 'Designed Zoho Flow automations for contact, quote, moving, and quick-booking forms. The flows route submissions into the right CRM and Desk records, create supporting sheet entries, and keep the customer journey moving without manual re-entry.', tags: ['Zoho Flow', 'Zoho CRM', 'Zoho Desk', 'Zoho Sheet'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.48.00%E2%80%AFAM%20%282%29-uqNLjC0z47uPSHd73uHlIi9L27ocG1.png' },
@@ -39,15 +39,17 @@ const categories: Category[] = [
     ],
   },
   {
-    label: 'n8n Portfolio',
-    blurb: 'All n8n implementations in one place, from API orchestration and data processing to AI-powered workflows',
+    label: 'n8n',
+    blurb: 'n8n implementations in one place, from API orchestration and data processing to AI-powered content workflows',
     projects: [
       { title: 'API Orchestration Workflows', description: 'Connected services through reusable n8n nodes, webhooks, branching logic, and data transformations.', details: 'Built modular workflows that receive events, validate and reshape payloads, call external APIs, and route results to the right operational systems.', tags: ['n8n', 'APIs', 'Webhooks', 'Data Processing'], image: null },
       { title: 'AI Operations Automation', description: 'Combined AI steps with deterministic business logic for practical, repeatable automations.', details: 'Created n8n workflows that use AI for classification and content handling while preserving clear approval, routing, and notification steps.', tags: ['n8n', 'AI', 'Automation', 'Integrations'], image: null },
+      { title: 'AI Content Repurposing Engine', description: 'Created an intelligent system transforming long-form content into optimized social media formats automatically.', details: 'Developed AI-powered automation that takes blog posts and long-form content, automatically generating optimized versions for LinkedIn, Instagram, Twitter, and Facebook.', tags: ['n8n', 'AI', 'Content Creation', 'Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-26%20015828-NynJ0OIIOrrJvhU8Q9c6wKThgwvQ4F.png' },
+      { title: 'YouTube Shorts & Reels Creator', description: 'Automated generation and formatting of short-form video content for distribution.', details: 'Set up an n8n workflow to automatically convert long-form content into optimized YouTube Shorts and Instagram Reels with captions, transitions, and platform-specific formatting.', tags: ['n8n', 'Video Automation', 'Social Media', 'Content'], image: null },
     ],
   },
   {
-    label: 'Make.com Portfolio',
+    label: 'Make.com',
     blurb: 'All Make.com scenarios in one place, covering data, files, finance, notifications, and business processes',
     projects: [
       { title: 'Gmail to Google Drive Auto-Organization', description: 'Automated intelligent sorting and organization of email attachments into structured folders.', details: 'Built a Make.com scenario to categorize and organize email attachments into Google Drive folders based on file type, sender, and date.', tags: ['Make.com', 'Gmail', 'Google Drive', 'Workflow Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png' },
@@ -55,23 +57,11 @@ const categories: Category[] = [
     ],
   },
   {
-    label: 'Zapier Portfolio',
+    label: 'Zapier',
     blurb: 'All Zapier implementations in one place, covering lead management, task creation, notifications, and follow-up',
     projects: [
       { title: 'Asana CRM Lead Engagement Workflow', description: 'Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.', details: 'Implemented a Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.', tags: ['Zapier', 'Asana', 'CRM', 'Lead Management'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png' },
-    ],
-  },
-  {
-    label: 'Integrations & Data',
-    blurb: 'API connections and enrichment pipelines that keep systems in sync',
-    projects: [{ title: 'Automated Lead Enrichment System', description: 'Built workflows to enhance lead data using APIs, significantly improving data quality for targeted outreach.', details: 'Created multi-step API integration workflows that automatically enrich lead profiles with company data, engagement scores, and firmographic information for better targeting.', tags: ['API', 'Lead Gen', 'Data Processing'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20064020-LAwcUvl6J0kPs1TWqQQtwemqEGjeDp.png' }],
-  },
-  {
-    label: 'Content Automation',
-    blurb: 'AI-driven content repurposing and multi-platform publishing pipelines',
-    projects: [
-      { title: 'AI Content Repurposing Engine', description: 'Created intelligent system transforming long-form content into multiple optimized social media formats automatically.', details: 'Developed AI-powered automation that takes blog posts and long-form content, automatically generating optimized versions for LinkedIn, Instagram, Twitter, and Facebook.', tags: ['AI', 'Content Creation', 'Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-26%20015828-NynJ0OIIOrrJvhU8Q9c6wKThgwvQ4F.png' },
-      { title: 'YouTube Shorts & Reels Creator', description: 'Automated generation and formatting of short-form video content for distribution.', details: 'Set up workflow to automatically convert long-form content into optimized YouTube Shorts and Instagram Reels with captions, transitions, and platform-specific formatting.', tags: ['Video Automation', 'Social Media', 'Content'], image: null },
+      { title: 'Automated Lead Enrichment System', description: 'Enhanced lead records with company data, engagement scores, and firmographic information for better targeting.', details: 'Created a Zapier API workflow that enriches lead profiles automatically, improving data quality and supporting more targeted outreach.', tags: ['Zapier', 'API', 'Lead Gen', 'Data Processing'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20064020-LAwcUvl6J0kPs1TWqQQtwemqEGjeDp.png' },
     ],
   },
 ]
