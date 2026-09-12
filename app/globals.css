@@ -4,52 +4,44 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark tech theme - Premium SaaS aesthetic (default) */
-  --background: #0F172A;
-  --foreground: #F8FAFC;
-  --card: #1E293B;
-  --card-foreground: #F8FAFC;
-  --popover: #1E293B;
-  --popover-foreground: #F8FAFC;
-  
-  /* Primary - Electric blue */
-  --primary: #2563EB;
-  --primary-foreground: #0F172A;
-  
-  /* Secondary - Violet */
-  --secondary: #7C3AED;
-  --secondary-foreground: #F8FAFC;
-  
-  /* Accents - Cyan for tech feel */
-  --accent: #06B6D4;
-  --accent-foreground: #0F172A;
-  --muted: #334155;
-  --muted-foreground: #CBD5E1;
-  
-  /* Borders and inputs */
-  --destructive: #EF4444;
-  --destructive-foreground: #0F172A;
-  --border: #334155;
-  --input: #1E293B;
-  --ring: #2563EB;
-  
-  /* Charts - Tech color palette */
-  --chart-1: #2563EB;
-  --chart-2: #06B6D4;
-  --chart-3: #7C3AED;
-  --chart-4: #06B6D4;
-  --chart-5: #2563EB;
-  
-  /* Radius and sidebar */
+  /* Operations console palette: navy structure, slate surfaces, cyan signals, amber status */
+  --background: #08111f;
+  --foreground: #e8f0f7;
+  --card: #101e2e;
+  --card-foreground: #e8f0f7;
+  --popover: #101e2e;
+  --popover-foreground: #e8f0f7;
+
+  --primary: #38bdf8;
+  --primary-foreground: #06101c;
+  --secondary: #1e3a52;
+  --secondary-foreground: #d9edf7;
+  --accent: #f5b942;
+  --accent-foreground: #1b1608;
+  --muted: #182b3d;
+  --muted-foreground: #9fb3c4;
+
+  --destructive: #fb7185;
+  --destructive-foreground: #21090f;
+  --border: #244157;
+  --input: #142638;
+  --ring: #38bdf8;
+
+  --chart-1: #38bdf8;
+  --chart-2: #22c55e;
+  --chart-3: #f5b942;
+  --chart-4: #a78bfa;
+  --chart-5: #fb7185;
+
   --radius: 0.625rem;
-  --sidebar: #1E293B;
-  --sidebar-foreground: #F8FAFC;
-  --sidebar-primary: #2563EB;
-  --sidebar-primary-foreground: #0F172A;
-  --sidebar-accent: #334155;
-  --sidebar-accent-foreground: #06B6D4;
-  --sidebar-border: #334155;
-  --sidebar-ring: #2563EB;
+  --sidebar: #0b1828;
+  --sidebar-foreground: #e8f0f7;
+  --sidebar-primary: #38bdf8;
+  --sidebar-primary-foreground: #06101c;
+  --sidebar-accent: #173047;
+  --sidebar-accent-foreground: #f5b942;
+  --sidebar-border: #244157;
+  --sidebar-ring: #38bdf8;
 }
 
 .dark {
