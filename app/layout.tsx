@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { BackgroundEffects } from '@/components/background-effects'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Vega Morada - Technical Virtual Assistant | Zoho CRM Specialist | Automation Systems Builder',
@@ -13,8 +10,8 @@ export const metadata: Metadata = {
   keywords: ['Zoho CRM', 'business automation', 'CRM implementation', 'Zoho Inventory', 'workflow automation', 'systems integration', 'technical assistant', 'operations consulting'],
   generator: 'v0.app',
   icons: {
-    icon: '/favicon-32.png',
-    apple: '/apple-touch-icon.png',
+    icon: { url: '/vega-abstract-icon.png', type: 'image/png' },
+    apple: '/vega-abstract-apple-icon.png',
   },
 }
 

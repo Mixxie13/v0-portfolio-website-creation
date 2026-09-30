@@ -30,7 +30,7 @@ export function Experience() {
       ]
     },
     {
-      company: "TLH (The Lucky Harvest)",
+      company: "The Lucky Harvest",
       role: "Operations Manager | Zoho Consultant | Systems Support",
       positioning: "Business systems optimization, operational process improvement, inventory management, product data architecture, and operational workflow design.",
       challenge: "The Lucky Harvest needed to synchronize product data between WooCommerce and inventory systems, improve order workflow coordination, and establish scalable operational processes to support growing e-commerce operations.",
@@ -52,12 +52,12 @@ export function Experience() {
       ]
     },
     {
-      company: "WCJ (We Clear Junk)",
+      company: "We Clear Junk",
       role: "Zoho Systems Implementor & Financial Reporting Analyst",
       positioning: "CRM implementation, systems architecture, operational reporting, process optimization, automation planning, and business intelligence.",
-      challenge: "WCJ needed to implement a comprehensive CRM system to manage lead-to-job workflows, establish customer service ticketing, create reporting dashboards, and build financial visibility across operations.",
+      challenge: "We Clear Junk needed to implement a comprehensive CRM system to manage lead-to-job workflows, establish customer service ticketing, create reporting dashboards, and build financial visibility across operations.",
       solution: "Led Zoho CRM implementation planning, designed customer lifecycle workflows from lead to job completion, structured Zoho Desk for customer service, created financial reporting frameworks, and planned automation strategies using Make.com and Zoho Flow.",
-      systemsUsed: ["Zoho CRM", "Zoho Desk", "Zoho Flow", "Make.com", "Freshdesk", "Lucidspark"],
+      systemsUsed: ["Zoho CRM", "Zoho Desk", "Zoho Flow", "Make.com", "Freshdesk"],
       automationLogic: "Automated lead-to-job workflow processes, implemented customer lifecycle automations, structured ticket management and escalation workflows, created KPI dashboards for management visibility",
       outcome: "Established scalable CRM infrastructure, improved lead tracking and conversion visibility, created comprehensive financial reporting for better decision-making, reduced manual handoff errors",
       responsibilities: [
@@ -75,20 +75,11 @@ export function Experience() {
     }
   ]
 
-  const skills = [
-    "Zoho CRM", "Zoho Inventory", "Zoho Desk", "Zoho Flow", "Zoho Creator",
-    "Make.com", "WooCommerce", "Simpro", "Freshdesk",
-    "API Integration", "Webhooks", "Process Mapping",
-    "Business Systems", "Operational Consulting", "SOP Development",
-    "Financial Reporting", "Data Management", "Workflow Automation",
-    "Google Workspace", "Microsoft Office"
-  ]
-
   return (
-    <section id="case-studies" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="max-w-6xl mx-auto">
+    <section id="case-studies" className="section-space case-studies-section">
+      <div className="site-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Case Studies</h2>
+          <p className="eyebrow">02 / REAL BUSINESS, REAL SYSTEMS</p><h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">The work behind the workflows.</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
             Proven expertise in CRM implementation, systems architecture, business process automation, and operational transformation
           </p>
@@ -102,6 +93,7 @@ export function Experience() {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
+                  aria-pressed={activeIndex === index}
                   className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
                     activeIndex === index
                       ? 'glass-effect bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/50 hover-glow'
@@ -171,7 +163,7 @@ export function Experience() {
                       <span className="inline-block w-2 h-2 bg-primary rounded-full"></span>
                       Operational Coordination & Process Management
                     </h4>
-                    <p className="text-muted-foreground leading-relaxed">{study.operationalCoordination}</p>
+                    <p className="text-muted-foreground leading-relaxed">{study.operationalCoordination ?? study.automationLogic}</p>
                   </div>
 
                   {/* Outcome */}
@@ -201,23 +193,7 @@ export function Experience() {
           </div>
         </div>
 
-        {/* Technology Stack */}
-        <div className="mt-20 pt-20 border-t border-border">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-2">Technology Stack</h3>
-            <p className="text-muted-foreground">Core tools and platforms used across implementations</p>
-          </div>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {skills.map((skill, index) => (
-              <span 
-                key={index}
-                className="px-4 py-2 bg-card border border-border rounded-lg text-sm text-foreground hover:border-primary hover:bg-primary/5 transition-all cursor-pointer"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   )

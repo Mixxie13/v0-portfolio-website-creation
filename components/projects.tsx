@@ -2,110 +2,42 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-
-type Project = {
-  title: string
-  description: string
-  details: string
-  tags: string[]
-  image: string | null
-}
-
-type Category = {
-  label: string
-  blurb: string
-  projects: Project[]
-}
-
-const categories: Category[] = [
-  {
-    label: 'Zoho',
-    blurb: 'All Zoho CRM, Desk, Flow, and Sheet implementations in one place, from lead intake to customer resolution',
-    projects: [
-      { title: 'Zoho Flow Website Forms', description: 'Connected website forms to Zoho CRM, Zoho Desk, and Zoho Sheet for a coordinated intake process.', details: 'Designed Zoho Flow automations for contact, quote, moving, and quick-booking forms. The flows route submissions into the right CRM and Desk records, create supporting sheet entries, and keep the customer journey moving without manual re-entry.', tags: ['Zoho Flow', 'Zoho CRM', 'Zoho Desk', 'Zoho Sheet'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.48.00%E2%80%AFAM%20%282%29-uqNLjC0z47uPSHd73uHlIi9L27ocG1.png' },
-      { title: 'Zoho CRM Leads Workspace', description: 'Configured a structured lead workspace for managing booking enquiries, owners, services, urgency, and contact details.', details: 'Organized Zoho CRM lead records with custom views, booking fields, contact information, service details, tags, and ownership data so teams can qualify and act on enquiries consistently.', tags: ['Zoho CRM', 'Leads', 'CRM Operations', 'Data Management'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.41.00%E2%80%AFAM%20%282%29-4IvX1SpjNmlobp12oL8x22yBykJu56.png' },
-      { title: 'Zoho CRM Analytics Dashboard', description: 'Built an analytics dashboard tracking enquiries, bookings, revenue, sources, team performance, and conversion outcomes.', details: 'Created a management dashboard with KPI cards and visual reports for monthly enquiry trends, source performance, team performance, booking outcomes, pipeline, and booking value.', tags: ['Zoho CRM', 'Analytics', 'Dashboards', 'Reporting'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.42.13%E2%80%AFAM%20%282%29-zNJRrLDxnNp7VkA7yXeQOhryEmvkwx.png' },
-      { title: 'Zoho CRM Reports Library', description: 'Created a reusable reporting library for revenue, lead volume, enquiry channels, pipeline, and booking performance.', details: 'Structured CRM reports that turn operational records into clear performance views, including revenue by sector, monthly booking value, lead volume, source performance, and booking conversion.', tags: ['Zoho CRM', 'Reports', 'Business Intelligence', 'Performance'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.41.43%E2%80%AFAM%20%282%29-UO5iaLMdG5avdidB2UTrGwDksgY3WD.png' },
-      { title: 'Webform Initial Desk Acknowledgement', description: 'Automatically acknowledged new enquiries after they were created as Zoho Desk tickets and linked to CRM.', details: 'Built a live Zoho Flow with CRM triggers, decision logic, delays, lead lookups, and a Desk email reply. The workflow gives customers a timely acknowledgement while keeping the ticket and lead context connected for the team.', tags: ['Zoho Flow', 'Zoho Desk', 'Zoho CRM', 'Customer Support'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.45.37%E2%80%AFAM%20%282%29-6HP5tsIbJQI7eo43w6n8t7J64cgygt.png' },
-      { title: 'Inbound Bookings Ticket Workflow', description: 'Structured inbound booking requests in Zoho Desk with purpose-built booking and ticket fields.', details: 'Configured booking and ticket information layouts for the Inbound Bookings Team, including journey type, service type, postcode, contact details, CRM IDs, subject, and description fields.', tags: ['Zoho Desk', 'Ticketing', 'CRM Operations', 'Bookings'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.43.59%E2%80%AFAM%20%282%29-M812KDzzEQPR0WPKOWiIDcXIvaDEHZ.png' },
-      { title: 'Zoho Flow Execution Monitoring', description: 'Monitored automation health with execution summaries, success rates, and daily flow activity.', details: 'Used Zoho Flow summary reporting to track execution volume and success across the last seven days, making it easier to spot failures, validate automations, and maintain reliable operations.', tags: ['Zoho Flow', 'Reporting', 'Monitoring', 'Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%203.45.44%E2%80%AFAM%20%282%29-B7Vz8SJPOeT2rjNBR6CKfHrbA2R2jH.png' },
-    ],
-  },
-  {
-    label: 'n8n',
-    blurb: 'n8n implementations in one place, from AI agents and LLM workflows to API orchestration, data processing, and content automation',
-    projects: [
-      { title: 'AI-Powered Facebook Chatbot', description: 'Developed intelligent chatbot handling customer inquiries and support requests.', details: 'Built AI agent integrated with Facebook Messenger using advanced prompt engineering to qualify leads, answer common questions, and route complex inquiries to human agents.', tags: ['n8n', 'AI', 'Facebook', 'Customer Service', 'Chatbot'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-13%20102343-fLj2Y8eWe5hpgRwxC9mJo9zURvwIc1.png' },
-      { title: 'Jobs Scraper + Resume Optimizer', description: 'Built system scraping job listings and automatically tailoring resumes using AI.', details: 'Created automation that scrapes job postings, extracts key requirements, and uses AI to tailor resumes for improved matching and application success rates.', tags: ['n8n', 'AI', 'Web Scraping', 'Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-14%20140418-yNzN9y3A8HClHhS24SzLBoNBLySEvA.png' },
-      { title: 'AI Appointment Setter', description: 'Automated workflow qualifying leads and scheduling appointments efficiently.', details: 'Built AI agent that qualifies leads through conversation, checks availability, and automatically schedules appointments in calendar systems while sending confirmation emails.', tags: ['n8n', 'AI', 'Sales Automation', 'Lead Management'], image: null },
-      { title: 'RAG Knowledge Base Agents', description: 'Developed AI agents leveraging knowledge bases for context-aware responses.', details: 'Created advanced AI agents using Retrieval-Augmented Generation (RAG) technology to provide accurate, context-aware responses based on company knowledge bases and documentation.', tags: ['n8n', 'AI', 'RAG', 'Knowledge Management'], image: null },
-      { title: 'API Orchestration Workflows', description: 'Connected services through reusable n8n nodes, webhooks, branching logic, and data transformations.', details: 'Built modular workflows that receive events, validate and reshape payloads, call external APIs, and route results to the right operational systems.', tags: ['n8n', 'APIs', 'Webhooks', 'Data Processing'], image: null },
-      { title: 'AI Operations Automation', description: 'Combined AI steps with deterministic business logic for practical, repeatable automations.', details: 'Created n8n workflows that use AI for classification and content handling while preserving clear approval, routing, and notification steps.', tags: ['n8n', 'AI', 'Automation', 'Integrations'], image: null },
-      { title: 'AI Content Repurposing Engine', description: 'Created an intelligent system transforming long-form content into optimized social media formats automatically.', details: 'Developed AI-powered automation that takes blog posts and long-form content, automatically generating optimized versions for LinkedIn, Instagram, Twitter, and Facebook.', tags: ['n8n', 'AI', 'Content Creation', 'Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-26%20015828-NynJ0OIIOrrJvhU8Q9c6wKThgwvQ4F.png' },
-      { title: 'YouTube Shorts & Reels Creator', description: 'Automated generation and formatting of short-form video content for distribution.', details: 'Set up an n8n workflow to automatically convert long-form content into optimized YouTube Shorts and Instagram Reels with captions, transitions, and platform-specific formatting.', tags: ['n8n', 'Video Automation', 'Social Media', 'Content'], image: null },
-    ],
-  },
-  {
-    label: 'Make.com',
-    blurb: 'All Make.com scenarios in one place, covering data, files, finance, notifications, and business processes',
-    projects: [
-      { title: 'Gmail to Google Drive Auto-Organization', description: 'Automated intelligent sorting and organization of email attachments into structured folders.', details: 'Built a Make.com scenario to categorize and organize email attachments into Google Drive folders based on file type, sender, and date.', tags: ['Make.com', 'Gmail', 'Google Drive', 'Workflow Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png' },
-      { title: 'Xero to Asana Financial Workflow', description: 'Streamlined financial operations by automating transaction exports and task creation.', details: 'Created a Make.com integration between Xero and Asana to automatically create project tasks from financial transactions, enabling seamless project accounting and expense tracking.', tags: ['Make.com', 'Xero', 'Asana', 'Finance'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213228-tNjVC6P1cQL5ldUPrSNkXaSTZJm9jx.png' },
-      { title: 'Zoho to WooCommerce Product Creation', description: 'Created WooCommerce products from Zoho Inventory records with duplicate checks and category handling.', details: 'Built a Make.com scenario that watches Zoho Inventory, searches WooCommerce products, aggregates data, routes existing and new SKU paths, and creates products when needed.', tags: ['Make.com', 'Zoho Inventory', 'WooCommerce', 'Product Sync'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%209.37.20%E2%80%AFPM-ZfWuVd6EHqQ2LiHjfMirVczm9pgfUh.png' },
-      { title: 'WooCommerce Product ID Backfill', description: 'Backfilled WooCommerce product IDs into Zoho Inventory records while handling matched and unmatched products.', details: 'Created a scheduled Make.com workflow using iterators, routers, filters, WooCommerce searches, and Zoho Inventory API calls to reconcile existing product identifiers.', tags: ['Make.com', 'WooCommerce', 'Zoho Inventory', 'Data Reconciliation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%209.37.59%E2%80%AFPM-YEHtBhHv95gQfYAWRIPoRUmde15ebC.png' },
-      { title: 'Product Reconciliation and Variant Sync', description: 'Reconciled products and variants across Zoho Inventory and WooCommerce with branching logic.', details: 'Designed a large-scale Make.com scenario with routers, iterators, JSON parsing, aggregation, and conditional paths to synchronize product records and variants between systems.', tags: ['Make.com', 'Zoho Inventory', 'WooCommerce', 'Variants'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%209.36.36%E2%80%AFPM-zNczN47jCUd9vDOC6ynn81mxyj9Wvc.png' },
-      { title: 'WooCommerce Orders to Zoho Sales Orders', description: 'Converted WooCommerce orders into Zoho Inventory sales orders with customer and product routing.', details: 'Built an on-demand Make.com workflow that searches for existing customers, creates or updates records, parses order data, iterates through line items, and generates Zoho sales orders.', tags: ['Make.com', 'WooCommerce', 'Zoho Inventory', 'Order Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%209.35.42%E2%80%AFPM-yqUPBncqeBLXspxFuA0UhuMc80Z8Py.png' },
-      { title: 'WooCommerce Product Variant Updates', description: 'Updated WooCommerce products and variations from Zoho Inventory data with fallback paths.', details: 'Implemented a Make.com scenario that checks product existence, branches between simple products and variants, and updates the matching WooCommerce records.', tags: ['Make.com', 'WooCommerce', 'Zoho Inventory', 'Product Variants'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%209.37.33%E2%80%AFAM%20%282%29-YNlfvXfWERg9IjMxVOA3bARFLgtVBm.png' },
-      { title: 'Product Creation with Variant Support', description: 'Created WooCommerce products and variants from Zoho Inventory with structured branching and parsing.', details: 'Built a working Make.com product sync using routers, iterators, JSON parsing, WooCommerce actions, and Zoho Inventory API calls for simple and variable products.', tags: ['Make.com', 'WooCommerce', 'Zoho Inventory', 'Variant Automation'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-09-12%20at%209.35.59%E2%80%AFPM-VSV5VDwqbDeTWxbGlu3xwiHxMbXqvA.png' },
-    ],
-  },
-  {
-    label: 'Zapier',
-    blurb: 'All Zapier implementations in one place, covering lead management, task creation, notifications, and follow-up',
-    projects: [
-      { title: 'Asana CRM Lead Engagement Workflow', description: 'Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.', details: 'Implemented a Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.', tags: ['Zapier', 'Asana', 'CRM', 'Lead Management'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png' },
-      { title: 'Automated Lead Enrichment System', description: 'Enhanced lead records with company data, engagement scores, and firmographic information for better targeting.', details: 'Created a Zapier API workflow that enriches lead profiles automatically, improving data quality and supporting more targeted outreach.', tags: ['Zapier', 'API', 'Lead Gen', 'Data Processing'], image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20064020-LAwcUvl6J0kPs1TWqQQtwemqEGjeDp.png' },
-    ],
-  },
-]
+import { ArrowDownRight, ChevronDown, Workflow } from 'lucide-react'
+import { categories } from '@/lib/portfolio-projects'
 
 export function Projects() {
-  const [activeCategory, setActiveCategory] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-  const activeProjects = categories[activeCategory].projects
+
+  const [activeCategory, setActiveCategory] = useState('All')
+  const allProjects = categories.flatMap(category => category.projects)
+  const projects = activeCategory === 'All'
+    ? allProjects
+    : categories.find(category => category.label === activeCategory)!.projects
+  const filters = [{ label: 'All', count: allProjects.length }, ...categories.map(category => ({ label: category.label, count: category.projects.length }))]
+  const activeBlurb = activeCategory === 'All'
+    ? 'Explore my full collection of CRM implementations, business integrations, and AI automation workflows.'
+    : categories.find(category => category.label === activeCategory)!.blurb
 
   return (
-    <section id="projects" className="bg-card/30 px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">Implementation Examples</h2>
-          <p className="mx-auto max-w-2xl text-balance text-lg text-muted-foreground">Real-world examples of automation systems, integrations, and workflow solutions I&apos;ve built</p>
+    <section id="projects" className="section-space projects-section">
+      <div className="site-container">
+        <div className="section-heading"><div><p className="eyebrow">03 / PROJECT LIBRARY</p><h2>From idea to<br /><span className="gradient-text">working workflow.</span></h2></div><p>A closer look at the CRM implementations, integrations, and AI automation systems I’ve built. Select a project to explore the implementation.</p></div>
+        <div className="project-filters" role="group" aria-label="Filter projects by platform">
+          {filters.map(filter => <button type="button" key={filter.label} aria-pressed={activeCategory === filter.label} onClick={() => { setActiveCategory(filter.label); setSelectedIndex(null) }} className={`project-filter ${activeCategory === filter.label ? 'filter-active' : ''}`}>{filter.label}<span>{filter.count}</span></button>)}
         </div>
-
-        <div className="mb-4 flex flex-wrap justify-center gap-3" role="tablist" aria-label="Project categories">
-          {categories.map((category, index) => (
-            <button key={category.label} type="button" role="tab" aria-selected={activeCategory === index} onClick={() => { setActiveCategory(index); setSelectedIndex(null) }} className={`rounded-lg px-5 py-2.5 font-mono text-sm font-medium transition-all duration-300 ${activeCategory === index ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30' : 'border border-border bg-background text-muted-foreground hover:border-primary hover:text-foreground'}`}>
-              {category.label}<span className={`ml-2 text-xs ${activeCategory === index ? 'opacity-80' : 'opacity-50'}`}>{category.projects.length}</span>
-            </button>
+        <p className="project-category-description" aria-live="polite">{activeBlurb}</p>
+        <div className="project-grid">
+          {projects.map((project, index) => (
+            <article key={project.title} className={`project-card ${selectedIndex === index ? 'project-active' : ''}`}>
+              {project.image ? <div className="project-image"><Image src={project.image} alt={`${project.title} workflow screenshot`} fill sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" /><span className="project-image-label">WORKFLOW / {String(index + 1).padStart(2, '0')}</span></div> : <div className="project-placeholder" aria-hidden="true"><Workflow size={40} strokeWidth={1} /><span>{project.tags[0]} / WORKFLOW {String(index + 1).padStart(2, '0')}</span><ArrowDownRight size={24} /></div>}
+              <div className="project-content">
+                <button type="button" onClick={() => setSelectedIndex(selectedIndex === index ? null : index)} aria-expanded={selectedIndex === index} aria-controls={`project-details-${index}`} className="project-toggle"><h3>{project.title}</h3><ChevronDown size={20} className={selectedIndex === index ? 'rotate-180' : ''} /></button>
+                <p>{project.description}</p>
+                <div id={`project-details-${index}`} hidden={selectedIndex !== index} className="project-details"><p>{project.details}</p></div>
+                <div className="skill-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+              </div>
+            </article>
           ))}
-        </div>
-        <p className="mb-12 text-center font-mono text-sm text-muted-foreground">{categories[activeCategory].blurb}</p>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {activeProjects.map((project, index) => {
-            const isSelected = selectedIndex === index
-            return (
-              <article key={project.title} className={`overflow-hidden rounded-lg border transition-all duration-300 ${isSelected ? 'scale-105 border-primary bg-background shadow-lg shadow-primary/20' : 'border-border bg-background hover:border-primary'}`}>
-                {project.image && <div className="relative h-40 w-full overflow-hidden bg-muted"><Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-300 hover:scale-110" /></div>}
-                <button type="button" aria-expanded={isSelected} onClick={() => setSelectedIndex(isSelected ? null : index)} className="w-full p-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset">
-                  <div className="mb-3 flex items-start justify-between gap-4"><h3 className={`text-lg font-bold transition-colors ${isSelected ? 'text-primary' : 'text-foreground'}`}>{project.title}</h3><span aria-hidden="true" className={`text-xl transition-transform ${isSelected ? 'rotate-180' : ''}`}>▼</span></div>
-                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                  {isSelected && <div className="mb-4 border-t border-border pt-4"><p className="text-sm leading-relaxed text-foreground">{project.details}</p></div>}
-                  <div className="flex flex-wrap gap-2">{project.tags.map((tag) => <span key={tag} className="rounded bg-primary/10 px-2 py-1 text-xs font-medium text-primary">{tag}</span>)}</div>
-                </button>
-              </article>
-            )
-          })}
         </div>
       </div>
     </section>
