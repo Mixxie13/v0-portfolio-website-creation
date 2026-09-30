@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <path d="M40 12C55.46 12 68 24.54 68 40C68 49 60 54 52 48" stroke="#3B82F6" stroke-width="10" stroke-linecap="round"/>
+  <path d="M40 12C55.46 12 68 24.54 68 40C68 49 60 54 52 48" transform="rotate(120 40 40)" stroke="#1E3A8A" stroke-width="10" stroke-linecap="round"/>
+  <path d="M40 12C55.46 12 68 24.54 68 40C68 49 60 54 52 48" transform="rotate(240 40 40)" stroke="#93C5FD" stroke-width="10" stroke-linecap="round"/>
+</svg>

@@ -14,7 +14,7 @@ export function Footer() {
             <div className="flex items-center space-x-2 mb-2">
               <div className="w-8 h-8">
                 <Image 
-                  src="/logo.png" 
+                  src="/vega-abstract-symbol.svg" 
                   alt="Vega Morada" 
                   width={32} 
                   height={32}
@@ -33,7 +33,7 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#services" className="hover:text-primary transition active:scale-95">Services</a></li>
-              <li><a href="#experience" className="hover:text-primary transition active:scale-95">Experience</a></li>
+              <li><a href="#case-studies" className="hover:text-primary transition active:scale-95">Case Studies</a></li>
               <li><a href="#projects" className="hover:text-primary transition active:scale-95">Projects</a></li>
               <li><a href="#contact" className="hover:text-primary transition active:scale-95">Contact</a></li>
             </ul>

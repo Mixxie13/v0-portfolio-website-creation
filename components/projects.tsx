@@ -2,150 +2,41 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { ArrowDownRight, ChevronDown, Workflow } from 'lucide-react'
+import { categories } from '@/lib/portfolio-projects'
 
 export function Projects() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
-  const projects = [
-    {
-      title: "Asana CRM Lead Engagement Workflow",
-      description: "Automated lead tracking and follow-up system ensuring consistent engagement and zero missed opportunities.",
-      details: "Implemented comprehensive Zapier integration connecting CRM data with Asana, automating task creation, notifications, and follow-up reminders to ensure no lead falls through the cracks.",
-      tags: ["Zapier", "Asana", "CRM", "Lead Management"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20033718-PCVxgeVjifaguZndKewcb8enWwmqSn.png"
-    },
-    {
-      title: "Automated Lead Enrichment System",
-      description: "Built workflows to enhance lead data using APIs, significantly improving data quality for targeted outreach.",
-      details: "Created multi-step API integration workflows that automatically enrich lead profiles with company data, engagement scores, and firmographic information for better targeting.",
-      tags: ["API", "Lead Gen", "Data Processing"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-29%20064020-LAwcUvl6J0kPs1TWqQQtwemqEGjeDp.png"
-    },
-    {
-      title: "AI Content Repurposing Engine",
-      description: "Created intelligent system transforming long-form content into multiple optimized social media formats automatically.",
-      details: "Developed AI-powered automation that takes blog posts and long-form content, automatically generating optimized versions for LinkedIn, Instagram, Twitter, and Facebook.",
-      tags: ["AI", "Content Creation", "Automation"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-03-26%20015828-NynJ0OIIOrrJvhU8Q9c6wKThgwvQ4F.png"
-    },
-    {
-      title: "Gmail to Google Drive Auto-Organization",
-      description: "Automated intelligent sorting and organization of email attachments into structured folders.",
-      details: "Built Make.com workflow to automatically categorize and organize email attachments into structured Google Drive folders based on file type, sender, and date.",
-      tags: ["Google Workspace", "Make.com", "Workflow Automation"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213207-4pbZD5iRe32Aeldz8777ff7TE99yRk.png"
-    },
-    {
-      title: "Xero to Asana Financial Workflow",
-      description: "Streamlined financial operations by automating transaction exports and task creation.",
-      details: "Created integration between Xero and Asana to automatically create project tasks from financial transactions, enabling seamless project accounting and expense tracking.",
-      tags: ["Xero", "Asana", "Integration", "Finance"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-12%20213228-tNjVC6P1cQL5ldUPrSNkXaSTZJm9jx.png"
-    },
-    {
-      title: "AI-Powered Facebook Chatbot",
-      description: "Developed intelligent chatbot handling customer inquiries and support requests.",
-      details: "Built AI agent integrated with Facebook Messenger using advanced prompt engineering to qualify leads, answer common questions, and route complex inquiries to human agents.",
-      tags: ["AI", "Facebook", "Customer Service", "Chatbot"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-13%20102343-fLj2Y8eWe5hpgRwxC9mJo9zURvwIc1.png"
-    },
-    {
-      title: "Jobs Scraper + Resume Optimizer",
-      description: "Built system scraping job listings and automatically tailoring resumes using AI.",
-      details: "Created automation that scrapes job postings, extracts key requirements, and uses AI to tailor resumes for improved matching and application success rates.",
-      tags: ["AI", "Web Scraping", "Automation"],
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-14%20140418-yNzN9y3A8HClHhS24SzLBoNBLySEvA.png"
-    },
-    {
-      title: "YouTube Shorts & Reels Creator",
-      description: "Automated generation and formatting of short-form video content for distribution.",
-      details: "Set up workflow to automatically convert long-form content into optimized YouTube Shorts and Instagram Reels with captions, transitions, and platform-specific formatting.",
-      tags: ["Video Automation", "Social Media", "Content"],
-      image: null
-    },
-    {
-      title: "AI Appointment Setter",
-      description: "Automated workflow qualifying leads and scheduling appointments efficiently.",
-      details: "Built AI agent that qualifies leads through conversation, checks availability, and automatically schedules appointments in calendar systems while sending confirmation emails.",
-      tags: ["AI", "Sales Automation", "Lead Management"],
-      image: null
-    },
-    {
-      title: "RAG Knowledge Base Agents",
-      description: "Developed AI agents leveraging knowledge bases for context-aware responses.",
-      details: "Created advanced AI agents using Retrieval-Augmented Generation (RAG) technology to provide accurate, context-aware responses based on company knowledge bases and documentation.",
-      tags: ["AI", "RAG", "Knowledge Management"],
-      image: null
-    }
-  ]
+  const [activeCategory, setActiveCategory] = useState('All')
+  const allProjects = categories.flatMap(category => category.projects)
+  const projects = activeCategory === 'All'
+    ? allProjects
+    : categories.find(category => category.label === activeCategory)!.projects
+  const filters = [{ label: 'All', count: allProjects.length }, ...categories.map(category => ({ label: category.label, count: category.projects.length }))]
+  const activeBlurb = activeCategory === 'All'
+    ? 'Explore my full collection of CRM implementations, business integrations, and AI automation workflows.'
+    : categories.find(category => category.label === activeCategory)!.blurb
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Implementation Examples</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
-            Real-world examples of automation systems, integrations, and workflow solutions I&apos;ve built
-          </p>
+    <section id="projects" className="section-space projects-section">
+      <div className="site-container">
+        <div className="section-heading"><div><p className="eyebrow">03 / PROJECT LIBRARY</p><h2>From idea to<br /><span className="gradient-text">working workflow.</span></h2></div><p>A closer look at the CRM implementations, integrations, and AI automation systems I’ve built. Select a project to explore the implementation.</p></div>
+        <div className="project-filters" role="group" aria-label="Filter projects by platform">
+          {filters.map(filter => <button type="button" key={filter.label} aria-pressed={activeCategory === filter.label} onClick={() => { setActiveCategory(filter.label); setSelectedIndex(null) }} className={`project-filter ${activeCategory === filter.label ? 'filter-active' : ''}`}>{filter.label}<span>{filter.count}</span></button>)}
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <p className="project-category-description" aria-live="polite">{activeBlurb}</p>
+        <div className="project-grid">
           {projects.map((project, index) => (
-            <div 
-              key={index}
-              onClick={() => setSelectedIndex(selectedIndex === index ? null : index)}
-              className={`overflow-hidden rounded-lg border transition-all duration-300 cursor-pointer ${
-                selectedIndex === index 
-                  ? 'bg-background border-primary shadow-lg shadow-primary/20 transform scale-105' 
-                  : 'bg-background border-border hover:border-primary'
-              }`}
-            >
-              {project.image && (
-                <div className="relative w-full h-40 bg-muted overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-              )}
-              
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className={`text-lg font-bold transition-colors ${
-                    selectedIndex === index ? 'text-primary' : 'text-foreground'
-                  }`}>
-                    {project.title}
-                  </h3>
-                  <span className={`text-xl transition-transform ${selectedIndex === index ? 'rotate-180' : ''}`}>
-                    ▼
-                  </span>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                
-                {selectedIndex === index && (
-                  <div className="mb-4 pt-4 border-t border-border animate-fade-in-up">
-                    <p className="text-sm text-foreground leading-relaxed">
-                      {project.details}
-                    </p>
-                  </div>
-                )}
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex}
-                      className="px-2 py-1 bg-primary/10 text-primary text-xs rounded font-medium hover:bg-primary/20 transition active:scale-95"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+            <article key={project.title} className={`project-card ${selectedIndex === index ? 'project-active' : ''}`}>
+              {project.image ? <div className="project-image"><Image src={project.image} alt={`${project.title} workflow screenshot`} fill sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" /><span className="project-image-label">WORKFLOW / {String(index + 1).padStart(2, '0')}</span></div> : <div className="project-placeholder" aria-hidden="true"><Workflow size={40} strokeWidth={1} /><span>{project.tags[0]} / WORKFLOW {String(index + 1).padStart(2, '0')}</span><ArrowDownRight size={24} /></div>}
+              <div className="project-content">
+                <button type="button" onClick={() => setSelectedIndex(selectedIndex === index ? null : index)} aria-expanded={selectedIndex === index} aria-controls={`project-details-${index}`} className="project-toggle"><h3>{project.title}</h3><ChevronDown size={20} className={selectedIndex === index ? 'rotate-180' : ''} /></button>
+                <p>{project.description}</p>
+                <div id={`project-details-${index}`} hidden={selectedIndex !== index} className="project-details"><p>{project.details}</p></div>
+                <div className="skill-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

@@ -10,6 +10,8 @@ export function Contact() {
     message: ''
   })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -21,6 +23,10 @@ export function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (sending) return
+    setSending(true)
+    setSubmitted(false)
+    setErrorMessage('')
     
     try {
       const response = await fetch('/api/send-email', {
@@ -36,18 +42,20 @@ export function Contact() {
         setFormData({ name: '', email: '', subject: '', message: '' })
         setTimeout(() => setSubmitted(false), 5000)
       } else {
-        console.error('Error sending email:', response.statusText)
+        setErrorMessage('Your message could not be sent. Please email me directly using the link beside this form.')
       }
     } catch (error) {
-      console.error('Error submitting form:', error)
+      setErrorMessage('Unable to connect. Please try again or email me directly.')
+    } finally {
+      setSending(false)
     }
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="section-space contact-section">
+      <div className="site-container">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Let&apos;s Work Together</h2>
+          <p className="eyebrow">05 / LET’S BUILD SOMETHING BETTER</p><h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Your next chapter.<br /><span className="gradient-text">A smarter system.</span></h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
             Ready to automate your business and scale efficiently? Let&apos;s discuss your automation needs and project goals.
           </p>
@@ -184,13 +192,15 @@ export function Contact() {
 
               <button
                 type="submit"
+                disabled={sending}
                 className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition active:scale-95"
               >
-                Send Message
+                {sending ? 'Sending…' : 'Send Message'}
               </button>
 
+              {errorMessage && <p role="alert" className="p-4 rounded-lg border border-red-400/30 bg-red-400/10 text-red-300 text-sm">{errorMessage}</p>}
               {submitted && (
-                <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm animate-fade-in-up">
+                <div role="status" className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm animate-fade-in-up">
                   ✓ Thank you for your message! I&apos;ll get back to you within 24 hours.
                 </div>
               )}
