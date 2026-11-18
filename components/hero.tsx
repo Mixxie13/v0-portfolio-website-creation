@@ -12,17 +12,22 @@ import {
 
 export function Hero() {
   return (
-    <section id="home" className="hero-section" aria-labelledby="hero-heading">
+    <section
+      id="home"
+      className="hero-section"
+      aria-labelledby="hero-heading"
+    >
       <div className="site-container">
         <div className="hero-layout">
+          {/* Hero Copy */}
           <div className="hero-copy">
             <p className="eyebrow hero-eyebrow">
               <span className="status-dot" />
-              ZOHO CRM · AUTOMATION · SYSTEMS INTEGRATION
+              CRM SYSTEMS · AUTOMATION · SYSTEMS INTEGRATION
             </p>
 
             <h1 id="hero-heading">
-              Zoho CRM Specialist &amp;
+              CRM Specialist &amp;
               <br />
               <span className="gradient-text">
                 Business Automation Consultant
@@ -31,25 +36,28 @@ export function Hero() {
 
             <p className="hero-description">
               Connected systems. Smarter operations. I help businesses
-              implement Zoho CRM, automate repetitive workflows, and connect
-              their tools using Zoho Flow, Make.com, n8n, Zapier, APIs, and
-              custom integrations.
+              implement and optimize CRM systems, automate repetitive
+              workflows, and connect their tools using Zoho CRM, HubSpot,
+              Pipedrive, GoHighLevel, Make.com, n8n, Zapier, APIs, and custom
+              integrations.
             </p>
 
             <div className="hero-actions">
               <a href="#contact" className="button">
-                Work with me <ArrowUpRight size={18} />
+                Work with me
+                <ArrowUpRight size={18} aria-hidden="true" />
               </a>
 
               <a href="#case-studies" className="button button-outline">
-                Explore my work <ArrowDown size={16} />
+                Explore my work
+                <ArrowDown size={16} aria-hidden="true" />
               </a>
             </div>
 
             <div className="hero-person">
               <Image
                 src="/profile.jpg"
-                alt="Vega Morada, Zoho CRM specialist and business automation consultant"
+                alt="Vega Morada"
                 width={48}
                 height={48}
                 className="profile-thumb"
@@ -58,14 +66,17 @@ export function Hero() {
 
               <div>
                 <p>Hi, I&apos;m Vega Morada.</p>
-                <span>Zoho CRM Specialist &amp; Business Automation Consultant</span>
+                <span>
+                  CRM Specialist &amp; Business Automation Consultant
+                </span>
               </div>
             </div>
           </div>
 
+          {/* Workflow Illustration */}
           <div
             className="system-panel"
-            aria-label="Connected CRM and business automation workflow"
+            aria-label="Example of a connected CRM and business automation workflow"
           >
             <div className="panel-toolbar">
               <span className="window-dots">
@@ -77,29 +88,32 @@ export function Hero() {
               <span>BUSINESS WORKFLOW</span>
 
               <span className="panel-live">
-                <span className="status-dot" /> CONNECTED
+                <span className="status-dot" />
+                CONNECTED
               </span>
             </div>
 
             <div className="workflow-canvas">
               <div className="canvas-label">
                 <span>01 / CONNECT YOUR TOOLS</span>
-                <GitBranch size={16} />
+                <GitBranch size={16} aria-hidden="true" />
               </div>
 
               <div className="workflow-inputs">
                 <div className="workflow-node">
                   <span className="node-icon blue">
-                    <Database size={21} />
+                    <Database size={21} aria-hidden="true" />
                   </span>
-                  <b>Zoho CRM</b>
+
+                  <b>CRM systems</b>
                   <small>Leads &amp; customer data</small>
                 </div>
 
                 <div className="workflow-node">
                   <span className="node-icon purple">
-                    <Layers3 size={21} />
+                    <Layers3 size={21} aria-hidden="true" />
                   </span>
+
                   <b>Business tools</b>
                   <small>Apps &amp; APIs</small>
                 </div>
@@ -112,12 +126,14 @@ export function Hero() {
 
               <div className="workflow-core">
                 <span className="node-icon teal">
-                  <Zap size={25} />
+                  <Zap size={25} aria-hidden="true" />
                 </span>
 
                 <div>
                   <b>Automation engine</b>
-                  <small>Zoho Flow · Make.com · n8n · Zapier</small>
+                  <small>
+                    Zoho Flow · Make.com · n8n · Zapier
+                  </small>
                 </div>
 
                 <span className="core-indicator" />
@@ -127,7 +143,7 @@ export function Hero() {
 
               <div className="workflow-result">
                 <span className="node-icon teal">
-                  <Sparkles size={21} />
+                  <Sparkles size={21} aria-hidden="true" />
                 </span>
 
                 <div>
@@ -137,16 +153,18 @@ export function Hero() {
                   </small>
                 </div>
 
-                <Check size={18} />
+                <Check size={18} aria-hidden="true" />
               </div>
 
               <div className="canvas-footer">
                 <span>
-                  <Check size={13} /> Data synced
+                  <Check size={13} aria-hidden="true" />
+                  Data synced
                 </span>
 
                 <span>
-                  <Check size={13} /> Workflow connected
+                  <Check size={13} aria-hidden="true" />
+                  Workflow connected
                 </span>
               </div>
             </div>
@@ -155,11 +173,13 @@ export function Hero() {
               <span className="code-label">
                 &lt;/&gt; BUILT AROUND YOUR BUSINESS
               </span>
+
               <span>CRM + AI + AUTOMATION</span>
             </div>
           </div>
         </div>
 
+        {/* Experience / Expertise */}
         <div className="hero-stats">
           <div>
             <strong>
@@ -183,8 +203,10 @@ export function Hero() {
           <a href="#services" className="stats-note">
             Built for real business.
             <br />
+
             <span>
-              Designed for what&apos;s next. <ArrowDown size={16} />
+              Explore my services
+              <ArrowDown size={16} aria-hidden="true" />
             </span>
           </a>
         </div>
