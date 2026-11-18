@@ -8,6 +8,10 @@ const siteUrl = "https://work-with-vega.vercel.app"
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
+  verification: {
+    google: "vSCWZGZotfVnNRHl_l8M0utRamFFhotcXvXW3MVT6co",
+  },
+
   title: {
     default: "Vega Morada | CRM Specialist & Automation Consultant",
     template: "%s | Vega Morada",
@@ -21,6 +25,7 @@ export const metadata: Metadata = {
     "CRM Specialist",
     "CRM Consultant",
     "CRM Implementation",
+    "CRM Optimization",
     "CRM Automation",
     "Business Automation Consultant",
     "Business Process Automation",
@@ -30,16 +35,23 @@ export const metadata: Metadata = {
     "HubSpot",
     "Pipedrive",
     "GoHighLevel",
-    "Make.com Automation",
-    "n8n Automation",
-    "Zapier Automation",
+    "Make.com",
+    "n8n",
+    "Zapier",
     "Zoho Flow",
     "API Integration",
     "Systems Integration",
   ],
 
-  authors: [{ name: "Vega Morada", url: siteUrl }],
+  authors: [
+    {
+      name: "Vega Morada",
+      url: siteUrl,
+    },
+  ],
+
   creator: "Vega Morada",
+  publisher: "Vega Morada",
 
   alternates: {
     canonical: "/",
@@ -48,6 +60,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -87,11 +100,14 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${siteUrl}/#vega-morada`,
+
   name: "Vega Morada",
   url: siteUrl,
+
   jobTitle: "CRM Specialist & Business Automation Consultant",
+
   description:
-    "CRM specialist and business automation consultant focused on CRM implementation, workflow automation, systems integration, reporting, and business process improvement.",
+    "CRM specialist and business automation consultant focused on CRM implementation, CRM optimization, workflow automation, systems integration, reporting, and business process improvement.",
 
   sameAs: [
     "https://linkedin.com/in/vegamorada",
@@ -122,10 +138,15 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
+
   url: siteUrl,
   name: "Vega Morada",
+
   description:
     "Professional portfolio of Vega Morada, CRM specialist and business automation consultant.",
+
+  inLanguage: "en",
+
   publisher: {
     "@id": `${siteUrl}/#vega-morada`,
   },
@@ -135,13 +156,18 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteUrl}/#crm-automation-services`,
+
   name: "CRM & Business Automation Services",
+
   url: `${siteUrl}/#services`,
+
   description:
     "CRM implementation, CRM optimization, workflow automation, systems integration, reporting, and business process automation services.",
+
   provider: {
     "@id": `${siteUrl}/#vega-morada`,
   },
+
   serviceType: [
     "CRM Implementation",
     "CRM Optimization",
@@ -153,7 +179,11 @@ const serviceSchema = {
   ],
 }
 
-const schemas = [personSchema, websiteSchema, serviceSchema]
+const structuredData = [
+  personSchema,
+  websiteSchema,
+  serviceSchema,
+]
 
 export default function RootLayout({
   children,
@@ -165,12 +195,17 @@ export default function RootLayout({
       <body className="font-sans antialiased relative">
         <BackgroundEffects />
 
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10">
+          {children}
+        </div>
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schemas).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(structuredData).replace(
+              /</g,
+              "\\u003c"
+            ),
           }}
         />
 
