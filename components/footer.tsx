@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import Image from 'next/image'
+import Image from "next/image"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -9,52 +9,102 @@ export function Footer() {
     <footer className="bg-background border-t border-border py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-2">
               <div className="w-8 h-8">
-                <Image 
-                  src="/vega-abstract-symbol.svg" 
-                  alt="Vega Morada" 
-                  width={32} 
+                <Image
+                  src="/vega-abstract-symbol.svg"
+                  alt=""
+                  width={32}
                   height={32}
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-foreground hover:text-primary transition cursor-pointer">Vega Morada</span>
+
+              <span className="font-bold text-foreground">
+                Vega Morada
+              </span>
             </div>
+
             <p className="text-sm text-muted-foreground">
-              Automation Specialist | CRM Specialist | Executive Assistant
+              CRM Specialist &amp; Business Automation Consultant
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-foreground mb-4">
+              Explore
+            </h4>
+
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#services" className="hover:text-primary transition active:scale-95">Services</a></li>
-              <li><a href="#case-studies" className="hover:text-primary transition active:scale-95">Case Studies</a></li>
-              <li><a href="#projects" className="hover:text-primary transition active:scale-95">Projects</a></li>
-              <li><a href="#contact" className="hover:text-primary transition active:scale-95">Contact</a></li>
+              <li>
+                <a href="#about" className="hover:text-primary transition">
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a href="#services" className="hover:text-primary transition">
+                  Services
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#case-studies"
+                  className="hover:text-primary transition"
+                >
+                  Case Studies
+                </a>
+              </li>
+
+              <li>
+                <a href="#projects" className="hover:text-primary transition">
+                  Projects
+                </a>
+              </li>
+
+              <li>
+                <a href="#faq" className="hover:text-primary transition">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
+            <h4 className="font-semibold text-foreground mb-4">
+              Connect
+            </h4>
+
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:moradavega143@gmail.com" className="hover:text-primary transition active:scale-95">
+                <a
+                  href="mailto:moradavega143@gmail.com"
+                  className="hover:text-primary transition"
+                >
                   Email
                 </a>
               </li>
+
               <li>
-                <a href="https://linkedin.com/in/vegamorada" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition active:scale-95">
+                <a
+                  href="https://linkedin.com/in/vegamorada"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition"
+                >
                   LinkedIn
                 </a>
               </li>
+
               <li>
-                <a href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition active:scale-95">
+                <a
+                  href="https://www.upwork.com/freelancers/~01513b65b8672f7efa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition"
+                >
                   Upwork
                 </a>
               </li>
@@ -66,24 +116,10 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} Vega Morada. All rights reserved.
           </p>
-          <div className="flex gap-4">
-            <a 
-              href="https://linkedin.com/in/vegamorada" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition text-sm font-medium active:scale-95"
-            >
-              LinkedIn
-            </a>
-            <a 
-              href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition text-sm font-medium active:scale-95"
-            >
-              Upwork
-            </a>
-          </div>
+
+          <p className="text-sm text-muted-foreground">
+            CRM · Automation · Systems Integration
+          </p>
         </div>
       </div>
     </footer>
