@@ -1,208 +1,268 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
+import { useState } from "react"
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  Linkedin,
+  Mail,
+  Send,
+} from "lucide-react"
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
   const [submitted, setSubmitted] = useState(false)
-  const [sending, setSending] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (sending) return
-    setSending(true)
-    setSubmitted(false)
-    setErrorMessage('')
-    
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      })
+    const form = new FormData(event.currentTarget)
 
-      if (response.ok) {
-        setSubmitted(true)
-        setFormData({ name: '', email: '', subject: '', message: '' })
-        setTimeout(() => setSubmitted(false), 5000)
-      } else {
-        setErrorMessage('Your message could not be sent. Please email me directly using the link beside this form.')
-      }
-    } catch (error) {
-      setErrorMessage('Unable to connect. Please try again or email me directly.')
-    } finally {
-      setSending(false)
-    }
+    const name = String(form.get("name") || "")
+    const email = String(form.get("email") || "")
+    const subject = String(form.get("subject") || "")
+    const message = String(form.get("message") || "")
+
+    const emailSubject = subject || "CRM or automation project inquiry"
+
+    const emailBody = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      message,
+    ].join("\n")
+
+    window.location.href = `mailto:moradavega143@gmail.com?subject=${encodeURIComponent(
+      emailSubject
+    )}&body=${encodeURIComponent(emailBody)}`
+
+    setSubmitted(true)
   }
 
   return (
-    <section id="contact" className="section-space contact-section">
+    <section
+      id="contact"
+      className="section-space"
+      aria-labelledby="contact-heading"
+    >
       <div className="site-container">
-        <div className="text-center mb-16">
-          <p className="eyebrow">05 / LET’S BUILD SOMETHING BETTER</p><h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Your next chapter.<br /><span className="gradient-text">A smarter system.</span></h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-balance">
-            Ready to automate your business and scale efficiently? Let&apos;s discuss your automation needs and project goals.
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">06 / LET&apos;S WORK TOGETHER</p>
+
+            <h2 id="contact-heading">
+              Build a better system
+              <br />
+              <span className="text-muted-foreground">
+                for your business.
+              </span>
+            </h2>
+          </div>
+
+          <p>
+            Need a better CRM, workflow, or integration? Let&apos;s discuss your
+            current process, systems, bottlenecks, and project goals.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-6">
-            {/* Email */}
-            <div className="p-6 rounded-lg bg-background border border-border hover:border-primary transition-all cursor-pointer active:scale-95">
-              <h3 className="text-lg font-bold text-foreground mb-3">Email</h3>
-              <a href="mailto:moradavega143@gmail.com" className="text-primary hover:text-primary/80 transition text-sm break-all">
-                moradavega143@gmail.com
-              </a>
-            </div>
+          <div className="space-y-8">
+            <div className="service-card">
+              <p className="eyebrow">START A CONVERSATION</p>
 
-            {/* LinkedIn */}
-            <div className="p-6 rounded-lg bg-background border border-border hover:border-primary transition-all cursor-pointer active:scale-95">
-              <h3 className="text-lg font-bold text-foreground mb-3">LinkedIn</h3>
-              <a 
-                href="https://linkedin.com/in/vegamorada" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition text-sm break-all"
-              >
-                linkedin.com/in/vegamorada
-              </a>
-            </div>
+              <h3>Tell me what&apos;s slowing your business down.</h3>
 
-            {/* Upwork */}
-            <div className="p-6 rounded-lg bg-background border border-border hover:border-primary transition-all cursor-pointer active:scale-95">
-              <h3 className="text-lg font-bold text-foreground mb-3">Upwork</h3>
-              <a 
-                href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition text-sm"
-              >
-                View Profile
-              </a>
-            </div>
+              <p>
+                Whether you&apos;re implementing a CRM, improving an existing
+                system, automating repetitive work, or connecting tools that
+                don&apos;t currently work together, tell me what&apos;s happening
+                and what you&apos;d like to improve.
+              </p>
 
-            {/* Quick Connect */}
-            <div className="pt-6 border-t border-border">
-              <h3 className="text-lg font-bold text-foreground mb-4">Quick Connect</h3>
-              <div className="flex flex-col gap-3">
-                <a 
-                  href="https://linkedin.com/in/vegamorada" 
+              <div className="space-y-4 mt-6">
+                <a
+                  href="mailto:moradavega143@gmail.com"
+                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                >
+                  <span
+                    className="service-icon"
+                    aria-hidden="true"
+                  >
+                    <Mail size={20} strokeWidth={1.5} />
+                  </span>
+
+                  <span>
+                    <small className="block text-muted-foreground">
+                      Email
+                    </small>
+
+                    <strong>moradavega143@gmail.com</strong>
+                  </span>
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/vegamorada"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition text-sm font-medium text-center active:scale-95"
+                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
                 >
-                  Message on LinkedIn
+                  <span
+                    className="service-icon"
+                    aria-hidden="true"
+                  >
+                    <Linkedin size={20} strokeWidth={1.5} />
+                  </span>
+
+                  <span>
+                    <small className="block text-muted-foreground">
+                      LinkedIn
+                    </small>
+
+                    <strong>Connect with Vega Morada</strong>
+                  </span>
+
+                  <ArrowUpRight
+                    size={16}
+                    className="ml-auto"
+                    aria-hidden="true"
+                  />
                 </a>
-                <a 
-                  href="https://www.upwork.com/freelancers/~01513b65b8672f7efa" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition text-sm font-medium text-center active:scale-95"
-                >
-                  Hire on Upwork
-                </a>
+              </div>
+            </div>
+
+            <div className="service-card">
+              <p className="eyebrow">PROJECTS I CAN HELP WITH</p>
+
+              <div className="space-y-3">
+                {[
+                  "CRM implementation and optimization",
+                  "Business process automation",
+                  "Workflow design and integration",
+                  "API and webhook integrations",
+                  "CRM dashboards and reporting",
+                  "Operational systems improvement",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle2
+                      size={18}
+                      className="text-primary mt-0.5 shrink-0"
+                      aria-hidden="true"
+                    />
+
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
+          <div className="service-card">
+            <p className="eyebrow">PROJECT INQUIRY</p>
 
+            <h3>Tell me about your project.</h3>
+
+            <p>
+              A little context about your current setup and what you want to
+              improve will help me understand where I can add the most value.
+            </p>
+
+            <form
+              className="space-y-5 mt-6"
+              onSubmit={handleSubmit}
+            >
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                  Subject
+                <label
+                  htmlFor="contact-name"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Name
                 </label>
+
                 <input
+                  id="contact-name"
+                  name="name"
                   type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
+                  autoComplete="name"
                   required
-                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition"
-                  placeholder="Automation project inquiry"
+                  placeholder="Your name"
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-primary"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
+                <label
+                  htmlFor="contact-email"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Email
                 </label>
+
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  placeholder="you@company.com"
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-primary"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-subject"
+                  className="block text-sm font-medium mb-2"
+                >
+                  What do you need help with?
+                </label>
+
+                <input
+                  id="contact-subject"
+                  name="subject"
+                  type="text"
+                  placeholder="CRM or automation project inquiry"
+                  className="w-full rounded-md border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-primary"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="contact-message"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Project details
+                </label>
+
                 <textarea
-                  id="message"
+                  id="contact-message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-2 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/20 transition resize-none"
-                  placeholder="Tell me about your automation needs and goals..."
-                ></textarea>
+                  placeholder="Tell me about your current process, the tools you're using, what's not working, and what you'd like to improve."
+                  className="w-full resize-y rounded-md border border-border bg-background px-4 py-3 text-foreground outline-none transition focus:border-primary"
+                />
               </div>
 
               <button
                 type="submit"
-                disabled={sending}
-                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition active:scale-95"
+                className="button w-full sm:w-auto"
               >
-                {sending ? 'Sending…' : 'Send Message'}
+                Send project inquiry
+                <Send size={16} aria-hidden="true" />
               </button>
 
-              {errorMessage && <p role="alert" className="p-4 rounded-lg border border-red-400/30 bg-red-400/10 text-red-300 text-sm">{errorMessage}</p>}
               {submitted && (
-                <div role="status" className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm animate-fade-in-up">
-                  ✓ Thank you for your message! I&apos;ll get back to you within 24 hours.
-                </div>
+                <p
+                  className="text-sm text-muted-foreground"
+                  role="status"
+                >
+                  Your email application should open with your project details
+                  ready to send.
+                </p>
               )}
             </form>
           </div>
