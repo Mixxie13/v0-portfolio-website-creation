@@ -1,121 +1,138 @@
+import Link from "next/link"
 import {
   ArrowUpRight,
+  BarChart3,
   Database,
+  GitBranch,
+  Network,
+  Settings2,
   Workflow,
-  PlugZap,
-  Compass,
-  ChartNoAxesCombined,
-  Layers3,
 } from "lucide-react"
 
 const services = [
   {
     title: "CRM implementation & optimization",
     description:
-      "Build or improve a CRM around how your business actually works. I help structure pipelines, customer data, workflows, dashboards, and processes so your team has a system it can rely on.",
+      "Build or improve a CRM around how your business actually works. I help structure pipelines, customer data, workflows, dashboards, reporting, integrations, and automation.",
     icon: Database,
     skills: ["Zoho CRM", "HubSpot", "Pipedrive", "GoHighLevel"],
+    href: "/services/crm-implementation",
   },
   {
     title: "Business process automation",
     description:
-      "Turn repetitive tasks and manual handoffs into reliable automated workflows. I connect processes across your business to reduce busywork and keep information moving.",
+      "Turn repetitive tasks and manual handoffs into reliable automated workflows. I connect processes across your business to reduce busywork and improve operational consistency.",
     icon: Workflow,
     skills: ["Make.com", "n8n", "Zapier", "Zoho Flow"],
   },
   {
     title: "Systems integration & APIs",
     description:
-      "Connect your CRM, business apps, and data sources so they work together. I build integrations using APIs, webhooks, automation platforms, and custom workflow logic.",
-    icon: PlugZap,
-    skills: ["APIs", "Webhooks", "Data sync", "Integrations"],
+      "Connect your CRM, business applications, databases, and other tools so information can move between systems without unnecessary manual work.",
+    icon: Network,
+    skills: ["APIs", "Webhooks", "REST", "Integrations"],
   },
   {
-    title: "Operations & process consulting",
+    title: "Workflow & operations consulting",
     description:
-      "Identify bottlenecks, map better processes, and turn them into practical systems. I help businesses create clearer workflows, documentation, and SOPs for day-to-day operations.",
-    icon: Compass,
-    skills: ["Process mapping", "SOPs", "Operations", "Documentation"],
+      "Map how work moves through your business, identify bottlenecks, and design practical systems that make processes clearer, more efficient, and easier to manage.",
+    icon: GitBranch,
+    skills: ["Process Mapping", "Operations", "Workflow Design"],
   },
   {
-    title: "Reporting & CRM analytics",
+    title: "Reporting & analytics",
     description:
-      "Turn operational and CRM data into useful reporting. I build dashboards, KPI views, and reporting workflows that make performance easier to understand and act on.",
-    icon: ChartNoAxesCombined,
-    skills: ["Dashboards", "Reporting", "KPIs", "Analytics"],
+      "Create dashboards, reports, and operational views that turn CRM and business data into useful information for tracking activity, performance, and decisions.",
+    icon: BarChart3,
+    skills: ["Dashboards", "CRM Reporting", "Analytics"],
   },
   {
     title: "Systems architecture",
     description:
-      "Plan how your CRM, automation tools, integrations, and operational systems should work together. I design practical system structures that can evolve as your business grows.",
-    icon: Layers3,
-    skills: ["Systems design", "Scalability", "Automation strategy"],
+      "Design connected business systems around your CRM, automation tools, applications, and data so each platform has a clear role in your operations.",
+    icon: Settings2,
+    skills: ["System Design", "Data Flow", "Automation Architecture"],
   },
 ]
 
 export function Services() {
   return (
-    <section
-      id="services"
-      className="section-space"
-      aria-labelledby="services-heading"
-    >
+    <section id="services" className="section">
       <div className="site-container">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / WHAT I DO</p>
+            <p className="eyebrow">SERVICES</p>
 
-            <h2 id="services-heading">
+            <h2>
               CRM, automation &amp;
               <br />
-              <span className="text-muted-foreground">
-                connected business systems.
-              </span>
+              <span className="gradient-text">connected systems.</span>
             </h2>
           </div>
 
-          <p>
-            I help businesses implement and improve CRM systems, automate
-            repetitive processes, connect applications, and build clearer
-            operational workflows.
+          <p className="section-description">
+            I help businesses build practical CRM and automation systems that
+            connect customer data, workflows, applications, reporting, and
+            day-to-day operations.
           </p>
         </div>
 
-        <div className="service-grid">
-          {services.map(
-            ({ title, description, icon: Icon, skills }, i) => (
-              <article className="service-card" key={title}>
-                <div className="card-top">
-                  <span className="service-icon" aria-hidden="true">
-                    <Icon size={24} strokeWidth={1.5} />
+        <div className="services-grid">
+          {services.map((service, index) => {
+            const Icon = service.icon
+
+            const content = (
+              <>
+                <div className="service-card-top">
+                  <span className="service-icon">
+                    <Icon size={22} aria-hidden="true" />
                   </span>
 
-                  <span className="card-number">
-                    0{i + 1}
+                  <span className="service-number">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                <h3>{title}</h3>
+                <div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
 
-                <p>{description}</p>
-
-                <div
-                  className="skill-tags"
-                  aria-label={`${title} technologies and capabilities`}
-                >
-                  {skills.map((skill) => (
+                <div className="service-skills">
+                  {service.skills.map((skill) => (
                     <span key={skill}>{skill}</span>
                   ))}
                 </div>
+
+                {service.href && (
+                  <div className="service-link">
+                    Learn more
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </div>
+                )}
+              </>
+            )
+
+            if (service.href) {
+              return (
+                <Link
+                  key={service.title}
+                  href={service.href}
+                  className="service-card"
+                  aria-label={`Learn more about ${service.title}`}
+                >
+                  {content}
+                </Link>
+              )
+            }
+
+            return (
+              <article key={service.title} className="service-card">
+                {content}
               </article>
             )
-          )}
+          })}
         </div>
-
-        <a href="#contact" className="text-link">
-          Let&apos;s find the right CRM and automation solution for your business
-          <ArrowUpRight size={16} aria-hidden="true" />
-        </a>
       </div>
     </section>
   )
