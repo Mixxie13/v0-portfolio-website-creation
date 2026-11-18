@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Menu, X, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Menu, X } from "lucide-react"
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -23,7 +23,7 @@ export function Header() {
         <a
           href="#home"
           className="brand"
-          aria-label="Vega Morada — Back to homepage"
+          aria-label="Vega Morada — CRM Specialist and Business Automation Consultant"
           onClick={closeMenu}
         >
           <Image
@@ -33,11 +33,29 @@ export function Header() {
             height={38}
             className="brand-mark"
             priority
+            aria-hidden="true"
           />
 
-          <span className="brand-copy">
+          <span
+            className="brand-copy"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              gap: "2px",
+              lineHeight: 1.1,
+            }}
+          >
             <strong>Vega Morada</strong>
-            <small>CRM &amp; AUTOMATION</small>
+
+            <small
+              style={{
+                display: "block",
+                whiteSpace: "nowrap",
+              }}
+            >
+              CRM &amp; AUTOMATION
+            </small>
           </span>
         </a>
 
@@ -55,11 +73,13 @@ export function Header() {
           </a>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
           type="button"
           className="menu-toggle"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen((open) => !open)}
@@ -81,7 +101,11 @@ export function Header() {
         >
           <div className="site-container mobile-nav-inner">
             {navLinks.map(({ label, href }) => (
-              <a key={href} href={href} onClick={closeMenu}>
+              <a
+                key={href}
+                href={href}
+                onClick={closeMenu}
+              >
                 {label}
               </a>
             ))}
