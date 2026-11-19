@@ -21,14 +21,15 @@ const services = [
   {
     title: "Business process automation",
     description:
-      "Turn repetitive tasks and manual handoffs into reliable automated workflows. I connect processes across your business to reduce busywork and improve operational consistency.",
+      "Turn repetitive tasks and manual handoffs into reliable automated workflows. I connect processes across your business to reduce busywork, improve consistency, and keep information moving between systems.",
     icon: Workflow,
     skills: ["Make.com", "n8n", "Zapier", "Zoho Flow"],
+    href: "/services/business-process-automation",
   },
   {
     title: "Systems integration & APIs",
     description:
-      "Connect your CRM, business applications, databases, and other tools so information can move between systems without unnecessary manual work.",
+      "Connect your CRM, business applications, databases, and other tools using APIs, webhooks, and integrations so information can move between systems without unnecessary manual work.",
     icon: Network,
     skills: ["APIs", "Webhooks", "REST", "Integrations"],
   },
@@ -42,14 +43,14 @@ const services = [
   {
     title: "Reporting & analytics",
     description:
-      "Create dashboards, reports, and operational views that turn CRM and business data into useful information for tracking activity, performance, and decisions.",
+      "Create dashboards, reports, and operational views that turn CRM and business data into useful information for tracking activity, performance, and operational decisions.",
     icon: BarChart3,
     skills: ["Dashboards", "CRM Reporting", "Analytics"],
   },
   {
     title: "Systems architecture",
     description:
-      "Design connected business systems around your CRM, automation tools, applications, and data so each platform has a clear role in your operations.",
+      "Design connected business systems around your CRM, automation tools, applications, integrations, and data so each platform has a clear role in your operations.",
     icon: Settings2,
     skills: ["System Design", "Data Flow", "Automation Architecture"],
   },
@@ -57,13 +58,17 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="section">
+    <section
+      id="services"
+      className="section"
+      aria-labelledby="services-heading"
+    >
       <div className="site-container">
         <div className="section-heading">
           <div>
             <p className="eyebrow">SERVICES</p>
 
-            <h2>
+            <h2 id="services-heading">
               CRM, automation &amp;
               <br />
               <span className="gradient-text">connected systems.</span>
@@ -98,7 +103,10 @@ export function Services() {
                   <p>{service.description}</p>
                 </div>
 
-                <div className="service-skills">
+                <div
+                  className="service-skills"
+                  aria-label={`${service.title} technologies and capabilities`}
+                >
                   {service.skills.map((skill) => (
                     <span key={skill}>{skill}</span>
                   ))}
