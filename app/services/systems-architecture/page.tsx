@@ -18,12 +18,13 @@ const siteUrl = "https://work-with-vega.vercel.app"
 const pageUrl = `${siteUrl}/services/systems-architecture`
 
 export const metadata: Metadata = {
-  title: "Business Systems Architecture | Vega Morada",
+  title: "Business Systems Architecture",
+
   description:
     "Business systems architecture for CRM, automation, integrations, applications, and data. Design connected systems with clear roles and reliable information flows.",
 
   alternates: {
-    canonical: pageUrl,
+    canonical: "/services/systems-architecture",
   },
 
   openGraph: {
@@ -156,6 +157,44 @@ const caseStudies = [
   },
 ]
 
+const relatedServices = [
+  {
+    title: "CRM implementation & optimization",
+    description:
+      "Build the CRM layer around customer data, pipelines, workflows, reporting, automation, and integrations.",
+    href: "/services/crm-implementation",
+    icon: Database,
+  },
+  {
+    title: "Business process automation",
+    description:
+      "Build automated workflows across the systems and processes defined by the wider architecture.",
+    href: "/services/business-process-automation",
+    icon: Workflow,
+  },
+  {
+    title: "Systems integration & APIs",
+    description:
+      "Implement the connections that allow applications, workflows, and data to move through the architecture.",
+    href: "/services/systems-integration",
+    icon: Network,
+  },
+  {
+    title: "Workflow & operations consulting",
+    description:
+      "Map business processes and operational requirements before deciding how technology should support them.",
+    href: "/services/workflow-operations-consulting",
+    icon: GitBranch,
+  },
+  {
+    title: "Reporting & analytics",
+    description:
+      "Turn information generated across the system architecture into dashboards, reports, and useful operational visibility.",
+    href: "/services/reporting-analytics",
+    icon: BarChart3,
+  },
+]
+
 const faqs = [
   {
     question: "What is business systems architecture?",
@@ -240,7 +279,7 @@ const breadcrumbSchema = {
 
 export default function SystemsArchitecturePage() {
   return (
-    <main>
+    <main className="service-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -252,15 +291,15 @@ export default function SystemsArchitecturePage() {
       />
 
       {/* HERO */}
-      <section className="section">
+      <section className="service-page-hero">
         <div className="site-container">
-          <Link href="/#services" className="back-link">
+          <Link href="/#services" className="service-back-link">
             <ArrowLeft size={16} aria-hidden="true" />
             Back to services
           </Link>
 
-          <div className="section-heading">
-            <div>
+          <div className="service-hero-grid">
+            <div className="service-hero-title">
               <p className="eyebrow">
                 SYSTEM DESIGN · DATA FLOW · AUTOMATION ARCHITECTURE
               </p>
@@ -272,19 +311,29 @@ export default function SystemsArchitecturePage() {
               </h1>
             </div>
 
-            <div>
-              <p className="section-description">
+            <div className="service-hero-copy">
+              <p>
                 Design a clearer technology environment around the way your
                 business operates. I help structure CRM platforms, automation,
                 integrations, applications, workflows, and data so each system
                 has a defined role.
               </p>
 
-              <div className="service-skills">
+              <div
+                className="service-platform-tags"
+                aria-label="Systems architecture capabilities"
+              >
                 <span>System Design</span>
                 <span>Data Flow</span>
                 <span>Integrations</span>
                 <span>Automation Architecture</span>
+              </div>
+
+              <div className="service-hero-cta">
+                <Link href="/#contact" className="button">
+                  Discuss your systems architecture
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </div>
@@ -292,22 +341,22 @@ export default function SystemsArchitecturePage() {
       </section>
 
       {/* APPROACH */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">01 / THE APPROACH</p>
 
               <h2>
                 Design the ecosystem,
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   not just the individual tool.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Business systems work better when each application has a clear
               purpose. Architecture looks at the wider environment: which
               systems own information, how data moves, where workflows run,
@@ -315,26 +364,24 @@ export default function SystemsArchitecturePage() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {architectureAreas.map((area, index) => {
               const Icon = area.icon
 
               return (
-                <article key={area.title} className="service-card">
-                  <div className="service-card-top">
-                    <span className="service-icon">
-                      <Icon size={22} aria-hidden="true" />
+                <article className="service-detail-card" key={area.title}>
+                  <div className="service-detail-card-top">
+                    <span className="service-detail-icon">
+                      <Icon size={21} aria-hidden="true" />
                     </span>
 
-                    <span className="service-number">
+                    <span className="service-detail-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <div>
-                    <h3>{area.title}</h3>
-                    <p>{area.description}</p>
-                  </div>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
                 </article>
               )
             })}
@@ -343,22 +390,22 @@ export default function SystemsArchitecturePage() {
       </section>
 
       {/* ARCHITECTURE PROCESS */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">02 / ARCHITECTURE PROCESS</p>
 
               <h2>
                 From disconnected tools
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   to a connected system.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Architecture starts with the business rather than the software.
               The technology environment can then be structured around the
               processes, information, and operational requirements it needs to
@@ -366,21 +413,19 @@ export default function SystemsArchitecturePage() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {architectureProcess.map((step) => (
-              <article key={step.number} className="service-card">
-                <div className="service-card-top">
-                  <span className="service-icon">
-                    <Boxes size={22} aria-hidden="true" />
+              <article className="service-detail-card" key={step.number}>
+                <div className="service-detail-card-top">
+                  <span className="service-detail-icon">
+                    <Boxes size={21} aria-hidden="true" />
                   </span>
 
-                  <span className="service-number">{step.number}</span>
+                  <span className="service-detail-number">{step.number}</span>
                 </div>
 
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </article>
             ))}
           </div>
@@ -388,31 +433,36 @@ export default function SystemsArchitecturePage() {
       </section>
 
       {/* SCOPE */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">03 / WHAT I CAN HELP WITH</p>
 
               <h2>
                 Give every system
                 <br />
-                <span className="gradient-text">a clear role.</span>
+                <span className="service-heading-muted">
+                  a clear role.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Architecture projects vary by technology stack and business
               process, but the work can cover the following areas.
             </p>
           </div>
 
-          <div className="service-card">
-            <div className="services-grid">
+          <div className="service-deliverables-panel">
+            <div className="service-deliverables-grid">
               {helpWith.map((item) => (
-                <div key={item} className="service-link">
-                  <Check size={17} aria-hidden="true" />
-                  {item}
+                <div className="service-deliverable" key={item}>
+                  <span className="service-check">
+                    <Check size={14} aria-hidden="true" />
+                  </span>
+
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
@@ -421,219 +471,133 @@ export default function SystemsArchitecturePage() {
       </section>
 
       {/* RELATED CASE STUDIES */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
                 Connected systems
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   applied to real operations.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Explore work involving multiple applications, CRM platforms,
               operational workflows, automation tools, and connected business
               processes.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-case-grid">
             {caseStudies.map((study) => (
-              <article key={study.company} className="service-card">
+              <Link
+                href={study.href}
+                className="service-case-card"
+                key={study.company}
+              >
                 <div>
+                  <span className="service-card-label">CASE STUDY</span>
+
                   <h3>{study.company}</h3>
+
                   <p>{study.description}</p>
                 </div>
 
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Link href={study.href} className="service-link">
-                    View case study
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                <div className="service-card-link">
+                  <span>View case study</span>
+                  <ArrowUpRight size={17} aria-hidden="true" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* RELATED SERVICES */}
-      <section className="section">
+      {/* CONNECTED SERVICES */}
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">05 / CONNECTED SERVICES</p>
 
               <h2>
                 Architecture creates
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   the bigger picture.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Systems architecture connects naturally with CRM implementation,
               business process automation, systems integration, workflow
               consulting, and reporting.
             </p>
           </div>
 
-          <div className="services-grid">
-            <Link
-              href="/services/crm-implementation"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Database size={22} aria-hidden="true" />
-                </span>
-              </div>
+          <div className="related-service-grid">
+            {relatedServices.map((service) => {
+              const Icon = service.icon
 
-              <div>
-                <h3>CRM implementation &amp; optimization</h3>
-                <p>
-                  Build the CRM layer around customer data, pipelines,
-                  workflows, reporting, automation, and integrations.
-                </p>
-              </div>
+              return (
+                <Link
+                  href={service.href}
+                  className="related-service-card"
+                  key={service.title}
+                >
+                  <span className="service-detail-icon">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
 
-              <div className="service-link">
-                Explore CRM services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
 
-            <Link
-              href="/services/business-process-automation"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Workflow size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Business process automation</h3>
-                <p>
-                  Build automated workflows across the systems and processes
-                  defined by the wider architecture.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore automation services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
-
-            <Link
-              href="/services/systems-integration"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Network size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Systems integration &amp; APIs</h3>
-                <p>
-                  Implement the connections that allow applications,
-                  workflows, and data to move through the architecture.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore integration services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
-
-            <Link
-              href="/services/workflow-operations-consulting"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <GitBranch size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Workflow &amp; operations consulting</h3>
-                <p>
-                  Map business processes and operational requirements before
-                  deciding how technology should support them.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore workflow consulting
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
-
-            <Link
-              href="/services/reporting-analytics"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <BarChart3 size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Reporting &amp; analytics</h3>
-                <p>
-                  Turn information generated across the system architecture
-                  into dashboards, reports, and useful operational visibility.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore reporting services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
+                  <ArrowUpRight
+                    className="related-service-arrow"
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">06 / ARCHITECTURE QUESTIONS</p>
 
               <h2>
                 Systems architecture
                 <br />
-                <span className="gradient-text">questions answered.</span>
+                <span className="service-heading-muted">
+                  questions answered.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Straightforward answers about business systems architecture,
               CRM architecture, applications, integrations, automation, and
               data flow.
             </p>
           </div>
 
-          <div>
+          <div className="service-faq-grid">
             {faqs.map((faq) => (
-              <article key={faq.question} className="service-card">
+              <article className="service-faq-card" key={faq.question}>
                 <h3>{faq.question}</h3>
                 <p>{faq.answer}</p>
               </article>
@@ -643,27 +607,33 @@ export default function SystemsArchitecturePage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <section className="service-page-cta-section">
         <div className="site-container">
-          <div className="service-card">
-            <p className="eyebrow">SYSTEMS ARCHITECTURE</p>
+          <div className="service-cta-panel">
+            <div>
+              <p className="eyebrow">SYSTEMS ARCHITECTURE</p>
 
-            <h2>
-              Need a clearer
-              <br />
-              <span className="gradient-text">systems landscape?</span>
-            </h2>
+              <h2>
+                Need a clearer
+                <br />
+                <span className="gradient-text">
+                  systems landscape?
+                </span>
+              </h2>
+            </div>
 
-            <p className="section-description">
-              Tell me which systems you use, how information currently moves
-              between them, where the operational friction happens, and what
-              you want the technology environment to support.
-            </p>
+            <div className="service-cta-copy">
+              <p>
+                Tell me which systems you use, how information currently moves
+                between them, where the operational friction happens, and what
+                you want the technology environment to support.
+              </p>
 
-            <Link href="/#contact" className="button">
-              Discuss your systems architecture
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </Link>
+              <Link href="/#contact" className="button">
+                Discuss your systems architecture
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
