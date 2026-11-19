@@ -1,6 +1,40 @@
-"use client"
-
 import Image from "next/image"
+import Link from "next/link"
+
+const exploreLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Projects", href: "/#projects" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Contact", href: "/#contact" },
+]
+
+const serviceLinks = [
+  {
+    label: "CRM Implementation",
+    href: "/services/crm-implementation",
+  },
+  {
+    label: "Business Process Automation",
+    href: "/services/business-process-automation",
+  },
+  {
+    label: "Systems Integration",
+    href: "/services/systems-integration",
+  },
+  {
+    label: "Workflow & Operations Consulting",
+    href: "/services/workflow-operations-consulting",
+  },
+  {
+    label: "Reporting & Analytics",
+    href: "/services/reporting-analytics",
+  },
+  {
+    label: "Systems Architecture",
+    href: "/services/systems-architecture",
+  },
+]
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -8,9 +42,14 @@ export function Footer() {
   return (
     <footer className="bg-background border-t border-border py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          {/* Brand */}
           <div>
-            <div className="flex items-center space-x-2 mb-2">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 mb-2"
+              aria-label="Vega Morada homepage"
+            >
               <div className="w-8 h-8">
                 <Image
                   src="/vega-abstract-symbol.svg"
@@ -18,60 +57,61 @@ export function Footer() {
                   width={32}
                   height={32}
                   className="object-contain"
+                  aria-hidden="true"
                 />
               </div>
 
               <span className="font-bold text-foreground">
                 Vega Morada
               </span>
-            </div>
+            </Link>
 
             <p className="text-sm text-muted-foreground">
               CRM Specialist &amp; Business Automation Consultant
             </p>
           </div>
 
+          {/* Explore */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">
               Explore
             </h4>
 
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <a href="#about" className="hover:text-primary transition">
-                  About
-                </a>
-              </li>
-
-              <li>
-                <a href="#services" className="hover:text-primary transition">
-                  Services
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#case-studies"
-                  className="hover:text-primary transition"
-                >
-                  Case Studies
-                </a>
-              </li>
-
-              <li>
-                <a href="#projects" className="hover:text-primary transition">
-                  Projects
-                </a>
-              </li>
-
-              <li>
-                <a href="#faq" className="hover:text-primary transition">
-                  FAQ
-                </a>
-              </li>
+              {exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Services */}
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">
+              Services
+            </h4>
+
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              {serviceLinks.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
+                    className="hover:text-primary transition"
+                  >
+                    {service.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">
               Connect
