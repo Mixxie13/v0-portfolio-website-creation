@@ -1119,12 +1119,6 @@ h2 {
   background: #0b1421a6;
 }
 
-/*
- * Section headings deliberately use a vertical content flow.
- * This keeps the explanatory copy connected to the heading
- * rather than placing it on the far-right side of the page.
- */
-
 .service-section-heading {
   display: block;
   width: 100%;
@@ -1171,20 +1165,16 @@ h2 {
 
 .service-capability-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+  align-items: stretch;
 }
 
-.service-capability-grid .service-detail-card {
-  grid-column: span 2;
-}
-
-.service-capability-grid .service-detail-card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.service-capability-grid .service-detail-card:nth-child(5) {
-  grid-column: 4 / span 2;
+.service-capability-grid .service-detail-card,
+.service-capability-grid .service-detail-card:nth-child(4),
+.service-capability-grid .service-detail-card:nth-child(5),
+.service-capability-grid .service-detail-card:last-child {
+  grid-column: auto;
 }
 
 /* =========================================================
@@ -1632,21 +1622,31 @@ h2 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
+  align-items: start;
 }
 
 .project-card {
   overflow: hidden;
+  min-width: 0;
   background: #0f1929;
   border: 1px solid #2b3c55;
   border-radius: 10px;
-  transition: border-color 0.2s;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .project-card:hover,
 .project-active {
   border-color: #5694a2;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
 .project-image {
@@ -1692,8 +1692,10 @@ h2 {
 }
 
 .project-toggle h3 {
+  margin: 0;
   font-size: 18px;
   font-weight: 600;
+  line-height: 1.4;
   letter-spacing: -0.025em;
 }
 
@@ -1720,10 +1722,15 @@ h2 {
   line-height: 1.85;
 }
 
+.project-details p {
+  margin: 0;
+}
+
 .project-placeholder {
   display: flex;
   align-items: center;
   gap: 18px;
+  min-height: 120px;
   padding: 25px;
   background-image:
     linear-gradient(#88c5db08 1px, transparent 1px),
@@ -1799,6 +1806,32 @@ h2 {
   color: var(--muted-foreground);
   font-size: 12px;
   line-height: 1.9;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.project-tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  padding: 5px 9px;
+  background: #102530;
+  border: 1px solid #294556;
+  border-radius: 5px;
+  color: #8fc2d2;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* =========================================================
@@ -2026,12 +2059,9 @@ h2 {
 
   .service-capability-grid .service-detail-card,
   .service-capability-grid .service-detail-card:nth-child(4),
-  .service-capability-grid .service-detail-card:nth-child(5) {
-    grid-column: auto;
-  }
-
+  .service-capability-grid .service-detail-card:nth-child(5),
   .service-capability-grid .service-detail-card:last-child {
-    grid-column: 1 / -1;
+    grid-column: auto;
   }
 
   .service-case-grid {
@@ -2568,6 +2598,18 @@ h2 {
 
   .project-content > p {
     font-size: 13px;
+  }
+
+  .project-tags {
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .project-tag {
+    min-height: 27px;
+    padding: 5px 8px;
+    font-size: 8px;
+    white-space: normal;
   }
 
   .why-layout {
