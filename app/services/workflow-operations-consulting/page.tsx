@@ -5,6 +5,7 @@ import {
   ArrowUpRight,
   Check,
   ClipboardList,
+  Database,
   GitBranch,
   Network,
   Route,
@@ -17,12 +18,13 @@ const siteUrl = "https://work-with-vega.vercel.app"
 const pageUrl = `${siteUrl}/services/workflow-operations-consulting`
 
 export const metadata: Metadata = {
-  title: "Workflow & Operations Consulting | Vega Morada",
+  title: "Workflow & Operations Consulting",
+
   description:
     "Workflow and operations consulting for businesses that need clearer processes, better system design, fewer bottlenecks, and more efficient day-to-day operations.",
 
   alternates: {
-    canonical: pageUrl,
+    canonical: "/services/workflow-operations-consulting",
   },
 
   openGraph: {
@@ -155,6 +157,30 @@ const caseStudies = [
   },
 ]
 
+const relatedServices = [
+  {
+    title: "CRM implementation & optimization",
+    description:
+      "Structure CRM pipelines, customer data, workflows, reporting, integrations, and automation around the business process.",
+    href: "/services/crm-implementation",
+    icon: Database,
+  },
+  {
+    title: "Business process automation",
+    description:
+      "Turn suitable repetitive processes and manual handoffs into connected automated workflows.",
+    href: "/services/business-process-automation",
+    icon: Workflow,
+  },
+  {
+    title: "Systems integration & APIs",
+    description:
+      "Connect applications, CRM platforms, APIs, webhooks, and data flows so the systems supporting the process can work together.",
+    href: "/services/systems-integration",
+    icon: Network,
+  },
+]
+
 const faqs = [
   {
     question: "What is workflow and operations consulting?",
@@ -238,7 +264,7 @@ const breadcrumbSchema = {
 
 export default function WorkflowOperationsConsultingPage() {
   return (
-    <main>
+    <main className="service-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -249,16 +275,16 @@ export default function WorkflowOperationsConsultingPage() {
         }}
       />
 
-      {/* HERO + APPROACH */}
-      <section className="section">
+      {/* HERO */}
+      <section className="service-page-hero">
         <div className="site-container">
-          <Link href="/#services" className="back-link">
+          <Link href="/#services" className="service-back-link">
             <ArrowLeft size={16} aria-hidden="true" />
             Back to services
           </Link>
 
-          <div className="section-heading">
-            <div>
+          <div className="service-hero-grid">
+            <div className="service-hero-title">
               <p className="eyebrow">
                 WORKFLOW CONSULTING · OPERATIONS · PROCESS DESIGN
               </p>
@@ -270,37 +296,52 @@ export default function WorkflowOperationsConsultingPage() {
               </h1>
             </div>
 
-            <div>
-              <p className="section-description">
+            <div className="service-hero-copy">
+              <p>
                 Improve how work moves through your business. I help map
                 processes, identify bottlenecks, clarify handoffs, align
                 systems, and design practical workflows around the way your
                 operations actually work.
               </p>
 
-              <div className="service-skills">
+              <div
+                className="service-platform-tags"
+                aria-label="Workflow and operations capabilities"
+              >
                 <span>Process Mapping</span>
                 <span>Operations</span>
                 <span>Workflow Design</span>
                 <span>Process Improvement</span>
               </div>
+
+              <div className="service-hero-cta">
+                <Link href="/#contact" className="button">
+                  Discuss your workflow
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="section-heading">
+      {/* APPROACH */}
+      <section className="service-page-section">
+        <div className="site-container">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">01 / THE APPROACH</p>
 
               <h2>
                 Improve the process,
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   not just the individual task.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Useful operational improvement starts by understanding the whole
               workflow. That means looking at the people, systems, information,
               decisions, dependencies, and handoffs involved before deciding
@@ -308,26 +349,24 @@ export default function WorkflowOperationsConsultingPage() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {consultingAreas.map((area, index) => {
               const Icon = area.icon
 
               return (
-                <article key={area.title} className="service-card">
-                  <div className="service-card-top">
-                    <span className="service-icon">
-                      <Icon size={22} aria-hidden="true" />
+                <article className="service-detail-card" key={area.title}>
+                  <div className="service-detail-card-top">
+                    <span className="service-detail-icon">
+                      <Icon size={21} aria-hidden="true" />
                     </span>
 
-                    <span className="service-number">
+                    <span className="service-detail-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <div>
-                    <h3>{area.title}</h3>
-                    <p>{area.description}</p>
-                  </div>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
                 </article>
               )
             })}
@@ -336,41 +375,41 @@ export default function WorkflowOperationsConsultingPage() {
       </section>
 
       {/* CONSULTING PROCESS */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">02 / CONSULTING PROCESS</p>
 
               <h2>
                 Understand first.
                 <br />
-                <span className="gradient-text">Improve second.</span>
+                <span className="service-heading-muted">
+                  Improve second.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               The exact approach depends on the business and workflow, but the
               process is designed to move from understanding the current state
               toward a clearer and more maintainable operating model.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {process.map((step) => (
-              <article key={step.number} className="service-card">
-                <div className="service-card-top">
-                  <span className="service-icon">
-                    <ClipboardList size={22} aria-hidden="true" />
+              <article className="service-detail-card" key={step.number}>
+                <div className="service-detail-card-top">
+                  <span className="service-detail-icon">
+                    <ClipboardList size={21} aria-hidden="true" />
                   </span>
 
-                  <span className="service-number">{step.number}</span>
+                  <span className="service-detail-number">{step.number}</span>
                 </div>
 
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </article>
             ))}
           </div>
@@ -378,33 +417,36 @@ export default function WorkflowOperationsConsultingPage() {
       </section>
 
       {/* WHAT I CAN HELP WITH */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">03 / WHAT I CAN HELP WITH</p>
 
               <h2>
                 From process friction
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   to clearer operations.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Every workflow is different, but consulting projects can cover
               the following operational and process areas.
             </p>
           </div>
 
-          <div className="service-card">
-            <div className="services-grid">
+          <div className="service-deliverables-panel">
+            <div className="service-deliverables-grid">
               {helpWith.map((item) => (
-                <div key={item} className="service-link">
-                  <Check size={17} aria-hidden="true" />
-                  {item}
+                <div className="service-deliverable" key={item}>
+                  <span className="service-check">
+                    <Check size={14} aria-hidden="true" />
+                  </span>
+
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
@@ -413,172 +455,132 @@ export default function WorkflowOperationsConsultingPage() {
       </section>
 
       {/* RELATED CASE STUDIES */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
                 Operational workflows
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   applied to real businesses.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Explore examples involving operational coordination, customer
               workflows, CRM administration, process documentation, connected
               systems, and day-to-day business operations.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-case-grid">
             {caseStudies.map((study) => (
-              <article key={study.company} className="service-card">
+              <Link
+                href={study.href}
+                className="service-case-card"
+                key={study.company}
+              >
                 <div>
+                  <span className="service-card-label">CASE STUDY</span>
+
                   <h3>{study.company}</h3>
+
                   <p>{study.description}</p>
                 </div>
 
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Link href={study.href} className="service-link">
-                    View case study
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                <div className="service-card-link">
+                  <span>View case study</span>
+                  <ArrowUpRight size={17} aria-hidden="true" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CONNECTED SYSTEMS */}
-      <section className="section">
+      {/* CONNECTED SERVICES */}
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">05 / CONNECTED SERVICES</p>
 
               <h2>
                 Processes and technology
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   should work together.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Workflow consulting can lead into CRM optimization, automation,
               or systems integration when technology changes are needed to
               support the improved process.
             </p>
           </div>
 
-          <div className="services-grid">
-            <Link
-              href="/services/crm-implementation"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Settings2 size={22} aria-hidden="true" />
-                </span>
-              </div>
+          <div className="related-service-grid">
+            {relatedServices.map((service) => {
+              const Icon = service.icon
 
-              <div>
-                <h3>CRM implementation &amp; optimization</h3>
-                <p>
-                  Structure CRM pipelines, customer data, workflows,
-                  reporting, integrations, and automation around the business
-                  process.
-                </p>
-              </div>
+              return (
+                <Link
+                  href={service.href}
+                  className="related-service-card"
+                  key={service.title}
+                >
+                  <span className="service-detail-icon">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
 
-              <div className="service-link">
-                Explore CRM services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
 
-            <Link
-              href="/services/business-process-automation"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Workflow size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Business process automation</h3>
-                <p>
-                  Turn suitable repetitive processes and manual handoffs into
-                  connected automated workflows.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore automation services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
-
-            <Link
-              href="/services/systems-integration"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Network size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Systems integration &amp; APIs</h3>
-                <p>
-                  Connect applications, CRM platforms, APIs, webhooks, and
-                  data flows so the systems supporting the process can work
-                  together.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore integration services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
+                  <ArrowUpRight
+                    className="related-service-arrow"
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">06 / WORKFLOW QUESTIONS</p>
 
               <h2>
                 Workflow &amp; operations
                 <br />
-                <span className="gradient-text">questions answered.</span>
+                <span className="service-heading-muted">
+                  questions answered.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Straightforward answers about process mapping, workflow design,
               operations improvement, CRM processes, and automation planning.
             </p>
           </div>
 
-          <div>
+          <div className="service-faq-grid">
             {faqs.map((faq) => (
-              <article key={faq.question} className="service-card">
+              <article className="service-faq-card" key={faq.question}>
                 <h3>{faq.question}</h3>
                 <p>{faq.answer}</p>
               </article>
@@ -588,27 +590,31 @@ export default function WorkflowOperationsConsultingPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <section className="service-page-cta-section">
         <div className="site-container">
-          <div className="service-card">
-            <p className="eyebrow">WORKFLOW CONSULTING</p>
+          <div className="service-cta-panel">
+            <div>
+              <p className="eyebrow">WORKFLOW CONSULTING</p>
 
-            <h2>
-              Ready to build
-              <br />
-              <span className="gradient-text">a clearer process?</span>
-            </h2>
+              <h2>
+                Ready to build
+                <br />
+                <span className="gradient-text">a clearer process?</span>
+              </h2>
+            </div>
 
-            <p className="section-description">
-              Tell me how the process works today, where the friction happens,
-              which people and systems are involved, and what you want the
-              workflow to accomplish.
-            </p>
+            <div className="service-cta-copy">
+              <p>
+                Tell me how the process works today, where the friction happens,
+                which people and systems are involved, and what you want the
+                workflow to accomplish.
+              </p>
 
-            <Link href="/#contact" className="button">
-              Discuss your workflow
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </Link>
+              <Link href="/#contact" className="button">
+                Discuss your workflow
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
