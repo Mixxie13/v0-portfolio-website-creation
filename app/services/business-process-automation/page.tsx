@@ -119,6 +119,21 @@ const capabilities = [
   "Documentation and workflow handover",
 ]
 
+const caseStudies = [
+  {
+    company: "The Lucky Harvest",
+    description:
+      "Zoho and WooCommerce workflows involving product synchronization, inventory processes, Make.com automation, and connected operational systems.",
+    href: "/case-studies/the-lucky-harvest",
+  },
+  {
+    company: "We Clear Junk",
+    description:
+      "CRM workflow planning, customer lifecycle automation, Zoho Flow and Make.com strategy, ticket management, and operational reporting.",
+    href: "/case-studies/we-clear-junk",
+  },
+]
+
 const faqs = [
   {
     question: "What is business process automation?",
@@ -180,7 +195,7 @@ const breadcrumbSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": `${pageUrl}#service`,
+  "@id": `${pageUrl}/#service`,
   name: "Business Process Automation",
   url: pageUrl,
   description:
@@ -219,21 +234,11 @@ export default function BusinessProcessAutomationPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([
+            breadcrumbSchema,
+            serviceSchema,
+            faqSchema,
+          ]).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -443,44 +448,98 @@ export default function BusinessProcessAutomationPage() {
         </div>
       </section>
 
-      {/* REAL WORK */}
+      {/* RELATED CASE STUDIES */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">04 / REAL WORK</p>
+              <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
-                See automation
+                Automation applied
                 <br />
-                <span className="muted-text">applied to real projects.</span>
+                <span className="muted-text">to real operations.</span>
               </h2>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "1rem",
-                  marginTop: "2rem",
-                }}
-              >
-                <Link href="/#case-studies" className="button">
-                  View case studies
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </Link>
-
-                <Link href="/#projects" className="button button-outline">
-                  Explore projects
-                  <ArrowUpRight size={17} aria-hidden="true" />
-                </Link>
-              </div>
             </div>
 
             <p className="section-description">
-              Explore examples of CRM automation, workflow design, systems
-              integration, reporting, and connected operations from my
-              portfolio.
+              See how workflow automation, CRM processes, connected systems,
+              and data synchronization support real business operations.
             </p>
+          </div>
+
+          <div className="services-grid">
+            {caseStudies.map((study) => (
+              <article className="service-card" key={study.company}>
+                <div>
+                  <h3>{study.company}</h3>
+                  <p>{study.description}</p>
+                </div>
+
+                <div style={{ marginTop: "1.5rem" }}>
+                  <Link href={study.href} className="text-link">
+                    View case study
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div style={{ marginTop: "2rem" }}>
+            <Link href="/#projects" className="button button-outline">
+              Explore automation projects
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* RELATED SERVICES */}
+      <section className="section">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">05 / RELATED SERVICES</p>
+
+              <h2>
+                Connect automation
+                <br />
+                <span className="muted-text">
+                  with your systems and CRM.
+                </span>
+              </h2>
+            </div>
+
+            <p className="section-description">
+              Automation often works alongside CRM implementation and systems
+              integration when workflows need to coordinate information and
+              actions across multiple applications.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <Link
+              href="/services/crm-implementation"
+              className="button button-outline"
+            >
+              CRM implementation &amp; optimization
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+
+            <Link
+              href="/services/systems-integration"
+              className="button button-outline"
+            >
+              Systems integration &amp; APIs
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
@@ -490,7 +549,7 @@ export default function BusinessProcessAutomationPage() {
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">05 / AUTOMATION QUESTIONS</p>
+              <p className="eyebrow">06 / AUTOMATION QUESTIONS</p>
 
               <h2>
                 Business automation
