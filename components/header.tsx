@@ -1,14 +1,15 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
 import Image from "next/image"
 import { ArrowUpRight, Menu, X } from "lucide-react"
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Case studies", href: "#case-studies" },
-  { label: "Projects", href: "#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Case studies", href: "/#case-studies" },
+  { label: "Projects", href: "/#projects" },
 ]
 
 export function Header() {
@@ -20,8 +21,8 @@ export function Header() {
     <header className="site-header">
       <div className="site-container header-inner">
         {/* Brand */}
-        <a
-          href="#home"
+        <Link
+          href="/#home"
           className="brand"
           aria-label="Vega Morada — CRM Specialist and Business Automation Consultant"
           onClick={closeMenu}
@@ -57,20 +58,20 @@ export function Header() {
               CRM &amp; AUTOMATION
             </small>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="desktop-nav" aria-label="Main navigation">
           {navLinks.map(({ label, href }) => (
-            <a key={href} href={href}>
+            <Link key={href} href={href}>
               {label}
-            </a>
+            </Link>
           ))}
 
-          <a href="#contact" className="button button-small">
+          <Link href="/#contact" className="button button-small">
             Let&apos;s talk
             <ArrowUpRight size={16} aria-hidden="true" />
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Toggle */}
@@ -101,23 +102,19 @@ export function Header() {
         >
           <div className="site-container mobile-nav-inner">
             {navLinks.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                onClick={closeMenu}
-              >
+              <Link key={href} href={href} onClick={closeMenu}>
                 {label}
-              </a>
+              </Link>
             ))}
 
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="button"
               onClick={closeMenu}
             >
               Let&apos;s talk
               <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </nav>
       )}
