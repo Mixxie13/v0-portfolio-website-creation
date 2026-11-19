@@ -56,6 +56,7 @@ const services = [
       "Design connected business systems around your CRM, automation tools, applications, and data so each platform has a clear role in your operations.",
     icon: Settings2,
     skills: ["System Design", "Data Flow", "Automation Architecture"],
+    href: "/services/systems-architecture",
   },
 ]
 
@@ -89,8 +90,13 @@ export function Services() {
           {services.map((service, index) => {
             const Icon = service.icon
 
-            const content = (
-              <>
+            return (
+              <Link
+                key={service.title}
+                href={service.href}
+                className="service-card"
+                aria-label={`Learn more about ${service.title}`}
+              >
                 <div className="service-card-top">
                   <span className="service-icon">
                     <Icon size={22} aria-hidden="true" />
@@ -115,32 +121,11 @@ export function Services() {
                   ))}
                 </div>
 
-                {service.href && (
-                  <div className="service-link">
-                    Learn more
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </div>
-                )}
-              </>
-            )
-
-            if (service.href) {
-              return (
-                <Link
-                  key={service.title}
-                  href={service.href}
-                  className="service-card"
-                  aria-label={`Learn more about ${service.title}`}
-                >
-                  {content}
-                </Link>
-              )
-            }
-
-            return (
-              <article key={service.title} className="service-card">
-                {content}
-              </article>
+                <div className="service-link">
+                  Learn more
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </div>
+              </Link>
             )
           })}
         </div>
