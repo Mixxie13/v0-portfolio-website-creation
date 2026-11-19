@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Vega Morada | CRM Specialist & Automation Consultant",
     description:
-      "CRM implementation, business process automation, systems integration, reporting, and workflow consulting by Vega Morada.",
+      "CRM implementation, business process automation, systems integration, reporting, workflow consulting, and systems architecture by Vega Morada.",
     siteName: "Vega Morada",
     locale: "en_US",
   },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vega Morada | CRM Specialist & Automation Consultant",
     description:
-      "CRM implementation, business process automation, systems integration, reporting, and workflow consulting by Vega Morada.",
+      "CRM implementation, business process automation, systems integration, reporting, workflow consulting, and systems architecture by Vega Morada.",
   },
 
   icons: {
@@ -88,7 +88,7 @@ const personSchema = {
   jobTitle: "CRM Specialist & Business Automation Consultant",
 
   description:
-    "CRM specialist and business automation consultant focused on CRM implementation, CRM optimization, workflow automation, systems integration, reporting, systems architecture, and business process improvement.",
+    "CRM specialist and business automation consultant focused on CRM implementation, CRM optimization, workflow automation, systems integration, reporting and analytics, systems architecture, and business process improvement.",
 
   sameAs: [
     "https://linkedin.com/in/vegamorada",
@@ -103,11 +103,19 @@ const personSchema = {
     "Workflow Automation",
     "Systems Integration",
     "API Integration",
+    "Webhook Integration",
     "Workflow and Operations Consulting",
+    "Business Process Mapping",
+    "Process Improvement",
     "CRM Reporting",
+    "Operational Reporting",
     "Business Analytics",
     "Systems Architecture",
+    "Data Flow Design",
     "Zoho CRM",
+    "Zoho Inventory",
+    "Zoho Desk",
+    "Zoho Projects",
     "Zoho Flow",
     "HubSpot",
     "Pipedrive",
@@ -150,7 +158,7 @@ const serviceSchema = {
   url: `${siteUrl}/#services`,
 
   description:
-    "CRM implementation and optimization, business process automation, systems integration, workflow and operations consulting, reporting and analytics, and systems architecture services.",
+    "CRM implementation and optimization, business process automation, systems integration and APIs, workflow and operations consulting, reporting and analytics, and systems architecture services.",
 
   provider: {
     "@id": `${siteUrl}/#vega-morada`,
