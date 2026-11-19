@@ -20,9 +20,11 @@ export const metadata: Metadata = {
   title: "Workflow & Operations Consulting | Vega Morada",
   description:
     "Workflow and operations consulting for businesses that need clearer processes, better system design, fewer bottlenecks, and more efficient day-to-day operations.",
+
   alternates: {
     canonical: pageUrl,
   },
+
   openGraph: {
     type: "website",
     url: pageUrl,
@@ -31,11 +33,17 @@ export const metadata: Metadata = {
       "Map workflows, identify bottlenecks, improve business processes, and design practical operational systems with Vega Morada.",
     siteName: "Vega Morada",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Workflow & Operations Consulting | Vega Morada",
     description:
       "Workflow mapping, process improvement, operational systems, and practical workflow design for growing businesses.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -132,6 +140,21 @@ const helpWith = [
   "Workflow documentation and handover",
 ]
 
+const caseStudies = [
+  {
+    company: "BlueCloudUSA",
+    description:
+      "Operational systems work covering customer onboarding, CRM administration, compliance processes, documentation, ACH migration support, and day-to-day business operations.",
+    href: "/case-studies/bluecloudusa",
+  },
+  {
+    company: "The Lucky Harvest",
+    description:
+      "Operational coordination across product data, inventory, order workflows, e-commerce systems, automation, and process management.",
+    href: "/case-studies/the-lucky-harvest",
+  },
+]
+
 const faqs = [
   {
     question: "What is workflow and operations consulting?",
@@ -219,17 +242,14 @@ export default function WorkflowOperationsConsultingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([
+            serviceSchema,
+            breadcrumbSchema,
+          ]).replace(/</g, "\\u003c"),
         }}
       />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-
+      {/* HERO + APPROACH */}
       <section className="section">
         <div className="site-container">
           <Link href="/#services" className="back-link">
@@ -315,6 +335,7 @@ export default function WorkflowOperationsConsultingPage() {
         </div>
       </section>
 
+      {/* CONSULTING PROCESS */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
@@ -356,6 +377,7 @@ export default function WorkflowOperationsConsultingPage() {
         </div>
       </section>
 
+      {/* WHAT I CAN HELP WITH */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
@@ -390,11 +412,55 @@ export default function WorkflowOperationsConsultingPage() {
         </div>
       </section>
 
+      {/* RELATED CASE STUDIES */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">04 / CONNECTED SYSTEMS</p>
+              <p className="eyebrow">04 / RELATED CASE STUDIES</p>
+
+              <h2>
+                Operational workflows
+                <br />
+                <span className="gradient-text">
+                  applied to real businesses.
+                </span>
+              </h2>
+            </div>
+
+            <p className="section-description">
+              Explore examples involving operational coordination, customer
+              workflows, CRM administration, process documentation, connected
+              systems, and day-to-day business operations.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {caseStudies.map((study) => (
+              <article key={study.company} className="service-card">
+                <div>
+                  <h3>{study.company}</h3>
+                  <p>{study.description}</p>
+                </div>
+
+                <div style={{ marginTop: "1.5rem" }}>
+                  <Link href={study.href} className="service-link">
+                    View case study
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONNECTED SYSTEMS */}
+      <section className="section">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">05 / CONNECTED SERVICES</p>
 
               <h2>
                 Processes and technology
@@ -490,11 +556,12 @@ export default function WorkflowOperationsConsultingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">05 / WORKFLOW QUESTIONS</p>
+              <p className="eyebrow">06 / WORKFLOW QUESTIONS</p>
 
               <h2>
                 Workflow &amp; operations
@@ -520,6 +587,7 @@ export default function WorkflowOperationsConsultingPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="section">
         <div className="site-container">
           <div className="service-card">
@@ -537,10 +605,10 @@ export default function WorkflowOperationsConsultingPage() {
               workflow to accomplish.
             </p>
 
-            <a href="/#contact" className="button">
+            <Link href="/#contact" className="button">
               Discuss your workflow
               <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
