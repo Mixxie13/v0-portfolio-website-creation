@@ -19,15 +19,23 @@ export const metadata: Metadata = {
   title: "Systems Integration & API Integration",
   description:
     "Connect CRM systems, business applications, databases, and workflows using APIs, webhooks, automation platforms, and practical systems integration.",
+
   alternates: {
     canonical: "/services/systems-integration",
   },
+
   openGraph: {
     title: "Systems Integration & API Integration | Vega Morada",
     description:
       "Connect CRM systems, applications, data, and workflows through APIs, webhooks, automation platforms, and practical business integrations.",
     url: pageUrl,
     type: "website",
+    siteName: "Vega Morada",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -106,6 +114,21 @@ const scope = [
   "Integration troubleshooting and optimization",
   "Workflow and event orchestration",
   "Documentation and system handover",
+]
+
+const caseStudies = [
+  {
+    company: "The Lucky Harvest",
+    description:
+      "Connected WooCommerce, Zoho Inventory, CRM, automation, and operational workflows to support product and order information across business systems.",
+    href: "/case-studies/the-lucky-harvest",
+  },
+  {
+    company: "We Clear Junk",
+    description:
+      "CRM, customer service, reporting, and automation planning across Zoho CRM, Zoho Desk, Make.com, Zoho Flow, and related operational workflows.",
+    href: "/case-studies/we-clear-junk",
+  },
 ]
 
 const faqs = [
@@ -196,17 +219,14 @@ export default function SystemsIntegrationPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([
+            serviceSchema,
+            breadcrumbSchema,
+          ]).replace(/</g, "\\u003c"),
         }}
       />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-
+      {/* HERO */}
       <section className="section">
         <div className="site-container">
           <Link href="/#services" className="back-link">
@@ -247,6 +267,7 @@ export default function SystemsIntegrationPage() {
         </div>
       </section>
 
+      {/* APPROACH */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
@@ -256,7 +277,9 @@ export default function SystemsIntegrationPage() {
               <h2>
                 Connect the systems,
                 <br />
-                <span className="muted-text">not just the applications.</span>
+                <span className="muted-text">
+                  not just the applications.
+                </span>
               </h2>
             </div>
 
@@ -294,6 +317,7 @@ export default function SystemsIntegrationPage() {
         </div>
       </section>
 
+      {/* INTEGRATION METHODS */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
@@ -339,6 +363,7 @@ export default function SystemsIntegrationPage() {
         </div>
       </section>
 
+      {/* SCOPE */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
@@ -369,47 +394,108 @@ export default function SystemsIntegrationPage() {
         </div>
       </section>
 
+      {/* RELATED CASE STUDIES */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">04 / REAL WORK</p>
+              <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
-                See connected systems
+                Connected systems
                 <br />
-                <span className="muted-text">applied to real projects.</span>
+                <span className="muted-text">applied to real operations.</span>
               </h2>
             </div>
 
-            <div>
-              <p className="section-description">
-                Explore examples of CRM integration, workflow automation,
-                application connections, reporting, and operational systems
-                from my portfolio.
-              </p>
+            <p className="section-description">
+              Explore examples where CRM platforms, automation tools,
+              applications, and operational workflows needed to work together.
+            </p>
+          </div>
 
-              <div className="hero-actions">
-                <Link href="/#case-studies" className="button">
-                  View case studies
-                  <ArrowUpRight size={18} aria-hidden="true" />
-                </Link>
+          <div className="services-grid">
+            {caseStudies.map((study) => (
+              <article key={study.company} className="service-card">
+                <div>
+                  <h3>{study.company}</h3>
+                  <p>{study.description}</p>
+                </div>
 
-                <Link href="/#projects" className="button button-outline">
-                  Explore projects
-                  <ArrowUpRight size={18} aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
+                <div style={{ marginTop: "1.5rem" }}>
+                  <Link href={study.href} className="text-link">
+                    View case study
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div style={{ marginTop: "2rem" }}>
+            <Link href="/#projects" className="button button-outline">
+              Explore integration projects
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
 
+      {/* RELATED SERVICES */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">05 / INTEGRATION QUESTIONS</p>
+              <p className="eyebrow">05 / RELATED SERVICES</p>
+
+              <h2>
+                Build connected
+                <br />
+                <span className="muted-text">
+                  CRM and automation workflows.
+                </span>
+              </h2>
+            </div>
+
+            <p className="section-description">
+              Systems integration often works alongside CRM implementation and
+              business process automation when applications need to exchange
+              information and coordinate actions.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1rem",
+            }}
+          >
+            <Link
+              href="/services/crm-implementation"
+              className="button button-outline"
+            >
+              CRM implementation &amp; optimization
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+
+            <Link
+              href="/services/business-process-automation"
+              className="button button-outline"
+            >
+              Business process automation
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">06 / INTEGRATION QUESTIONS</p>
 
               <h2>
                 Systems integration
@@ -435,6 +521,7 @@ export default function SystemsIntegrationPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="section">
         <div className="site-container">
           <div className="cta-panel">
