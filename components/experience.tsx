@@ -39,6 +39,7 @@ const caseStudies = [
       "Created SOPs, documentation, and repeatable operational processes",
       "Supported AI voice automation implementation planning and coordination",
     ],
+    href: "/case-studies/bluecloudusa",
   },
   {
     company: "The Lucky Harvest",
@@ -263,8 +264,7 @@ export function Experience() {
                     </h4>
 
                     <p className="text-muted-foreground leading-relaxed">
-                      {study.operationalCoordination ??
-                        study.automationLogic}
+                      {study.operationalCoordination ?? study.automationLogic}
                     </p>
                   </div>
 
@@ -306,18 +306,16 @@ export function Experience() {
                   </div>
 
                   {/* Dedicated Case Study Link */}
-                  {study.href && (
-                    <div className="border-t border-border pt-6">
-                      <Link
-                        href={study.href}
-                        className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors"
-                        aria-label={`View the full ${study.company} case study`}
-                      >
-                        View full case study
-                        <ArrowUpRight size={17} aria-hidden="true" />
-                      </Link>
-                    </div>
-                  )}
+                  <div className="border-t border-border pt-6">
+                    <Link
+                      href={study.href}
+                      className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors"
+                      aria-label={`View the full ${study.company} case study`}
+                    >
+                      View full case study
+                      <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
+                  </div>
                 </article>
               </div>
             ))}
