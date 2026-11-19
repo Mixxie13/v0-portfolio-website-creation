@@ -3,6 +3,7 @@ import Link from "next/link"
 import {
   ArrowLeft,
   ArrowUpRight,
+  BarChart3,
   Boxes,
   Check,
   Database,
@@ -20,9 +21,11 @@ export const metadata: Metadata = {
   title: "Business Systems Architecture | Vega Morada",
   description:
     "Business systems architecture for CRM, automation, integrations, applications, and data. Design connected systems with clear roles and reliable information flows.",
+
   alternates: {
     canonical: pageUrl,
   },
+
   openGraph: {
     type: "website",
     url: pageUrl,
@@ -31,11 +34,17 @@ export const metadata: Metadata = {
       "Design connected CRM, automation, integration, application, and data architectures around practical business operations.",
     siteName: "Vega Morada",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Business Systems Architecture | Vega Morada",
     description:
       "Design connected business systems around CRM, automation, integrations, applications, workflows, and data.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -132,6 +141,21 @@ const helpWith = [
   "Architecture documentation and handover",
 ]
 
+const caseStudies = [
+  {
+    company: "The Lucky Harvest",
+    description:
+      "Connected operational systems involving Zoho CRM, Zoho Inventory, Zoho Flow, WooCommerce, Simpro, and Make.com across product, inventory, order, and workflow processes.",
+    href: "/case-studies/the-lucky-harvest",
+  },
+  {
+    company: "BlueCloudUSA",
+    description:
+      "Operational systems work spanning Zoho CRM, Zoho Projects, customer onboarding, compliance processes, documentation, and broader business operations.",
+    href: "/case-studies/bluecloudusa",
+  },
+]
+
 const faqs = [
   {
     question: "What is business systems architecture?",
@@ -220,14 +244,10 @@ export default function SystemsArchitecturePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([
+            serviceSchema,
+            breadcrumbSchema,
+          ]).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -400,12 +420,55 @@ export default function SystemsArchitecturePage() {
         </div>
       </section>
 
+      {/* RELATED CASE STUDIES */}
+      <section className="section">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">04 / RELATED CASE STUDIES</p>
+
+              <h2>
+                Connected systems
+                <br />
+                <span className="gradient-text">
+                  applied to real operations.
+                </span>
+              </h2>
+            </div>
+
+            <p className="section-description">
+              Explore work involving multiple applications, CRM platforms,
+              operational workflows, automation tools, and connected business
+              processes.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {caseStudies.map((study) => (
+              <article key={study.company} className="service-card">
+                <div>
+                  <h3>{study.company}</h3>
+                  <p>{study.description}</p>
+                </div>
+
+                <div style={{ marginTop: "1.5rem" }}>
+                  <Link href={study.href} className="service-link">
+                    View case study
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* RELATED SERVICES */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">04 / CONNECTED SERVICES</p>
+              <p className="eyebrow">05 / CONNECTED SERVICES</p>
 
               <h2>
                 Architecture creates
@@ -526,7 +589,7 @@ export default function SystemsArchitecturePage() {
             >
               <div className="service-card-top">
                 <span className="service-icon">
-                  <Route size={22} aria-hidden="true" />
+                  <BarChart3 size={22} aria-hidden="true" />
                 </span>
               </div>
 
@@ -552,7 +615,7 @@ export default function SystemsArchitecturePage() {
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">05 / ARCHITECTURE QUESTIONS</p>
+              <p className="eyebrow">06 / ARCHITECTURE QUESTIONS</p>
 
               <h2>
                 Systems architecture
