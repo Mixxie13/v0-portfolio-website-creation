@@ -48,6 +48,7 @@ const services = [
       "Create dashboards, reports, and operational views that turn CRM and business data into useful information for tracking activity, performance, and decisions.",
     icon: BarChart3,
     skills: ["Dashboards", "CRM Reporting", "Analytics"],
+    href: "/services/reporting-analytics",
   },
   {
     title: "Systems architecture",
@@ -60,13 +61,17 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="section">
+    <section
+      id="services"
+      className="section"
+      aria-labelledby="services-heading"
+    >
       <div className="site-container">
         <div className="section-heading">
           <div>
             <p className="eyebrow">SERVICES</p>
 
-            <h2>
+            <h2 id="services-heading">
               CRM, automation &amp;
               <br />
               <span className="gradient-text">connected systems.</span>
@@ -101,7 +106,10 @@ export function Services() {
                   <p>{service.description}</p>
                 </div>
 
-                <div className="service-skills">
+                <div
+                  className="service-skills"
+                  aria-label={`${service.title} technologies and capabilities`}
+                >
                   {service.skills.map((skill) => (
                     <span key={skill}>{skill}</span>
                   ))}
