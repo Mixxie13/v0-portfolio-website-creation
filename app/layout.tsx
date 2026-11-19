@@ -18,30 +18,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Vega Morada is a CRM specialist and business automation consultant helping businesses implement CRM systems, automate workflows, integrate applications, and improve operations.",
-
-  keywords: [
-    "Vega Morada",
-    "CRM Specialist",
-    "CRM Consultant",
-    "CRM Implementation",
-    "CRM Optimization",
-    "CRM Automation",
-    "Business Automation Consultant",
-    "Business Process Automation",
-    "Workflow Automation",
-    "Zoho CRM Specialist",
-    "Zoho CRM",
-    "HubSpot",
-    "Pipedrive",
-    "GoHighLevel",
-    "Make.com",
-    "n8n",
-    "Zapier",
-    "Zoho Flow",
-    "API Integration",
-    "Systems Integration",
-  ],
+    "Vega Morada is a CRM specialist and business automation consultant helping businesses implement CRM systems, automate workflows, integrate applications, improve reporting, and streamline operations.",
 
   authors: [
     {
@@ -75,7 +52,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: "Vega Morada | CRM Specialist & Automation Consultant",
     description:
-      "CRM implementation, workflow automation, systems integration, and business process automation by Vega Morada.",
+      "CRM implementation, business process automation, systems integration, reporting, and workflow consulting by Vega Morada.",
     siteName: "Vega Morada",
     locale: "en_US",
   },
@@ -84,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vega Morada | CRM Specialist & Automation Consultant",
     description:
-      "CRM implementation, workflow automation, systems integration, and business process automation by Vega Morada.",
+      "CRM implementation, business process automation, systems integration, reporting, and workflow consulting by Vega Morada.",
   },
 
   icons: {
@@ -104,10 +81,14 @@ const personSchema = {
   name: "Vega Morada",
   url: siteUrl,
 
+  mainEntityOfPage: {
+    "@id": `${siteUrl}/#website`,
+  },
+
   jobTitle: "CRM Specialist & Business Automation Consultant",
 
   description:
-    "CRM specialist and business automation consultant focused on CRM implementation, CRM optimization, workflow automation, systems integration, reporting, and business process improvement.",
+    "CRM specialist and business automation consultant focused on CRM implementation, CRM optimization, workflow automation, systems integration, reporting, systems architecture, and business process improvement.",
 
   sameAs: [
     "https://linkedin.com/in/vegamorada",
@@ -122,7 +103,10 @@ const personSchema = {
     "Workflow Automation",
     "Systems Integration",
     "API Integration",
+    "Workflow and Operations Consulting",
     "CRM Reporting",
+    "Business Analytics",
+    "Systems Architecture",
     "Zoho CRM",
     "Zoho Flow",
     "HubSpot",
@@ -145,7 +129,11 @@ const websiteSchema = {
   description:
     "Professional portfolio of Vega Morada, CRM specialist and business automation consultant.",
 
-  inLanguage: "en",
+  inLanguage: "en-US",
+
+  about: {
+    "@id": `${siteUrl}/#vega-morada`,
+  },
 
   publisher: {
     "@id": `${siteUrl}/#vega-morada`,
@@ -162,20 +150,19 @@ const serviceSchema = {
   url: `${siteUrl}/#services`,
 
   description:
-    "CRM implementation, CRM optimization, workflow automation, systems integration, reporting, and business process automation services.",
+    "CRM implementation and optimization, business process automation, systems integration, workflow and operations consulting, reporting and analytics, and systems architecture services.",
 
   provider: {
     "@id": `${siteUrl}/#vega-morada`,
   },
 
   serviceType: [
-    "CRM Implementation",
-    "CRM Optimization",
+    "CRM Implementation & Optimization",
     "Business Process Automation",
-    "Workflow Automation",
-    "Systems Integration",
-    "API Integration",
-    "CRM Reporting",
+    "Systems Integration & APIs",
+    "Workflow & Operations Consulting",
+    "Reporting & Analytics",
+    "Systems Architecture",
   ],
 }
 
