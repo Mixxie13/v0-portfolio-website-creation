@@ -17,7 +17,8 @@ const siteUrl = "https://work-with-vega.vercel.app"
 const pageUrl = `${siteUrl}/services/business-process-automation`
 
 export const metadata: Metadata = {
-  title: "Business Process Automation Consultant | Vega Morada",
+  title: "Business Process Automation Consultant",
+
   description:
     "Business process automation for repetitive workflows, CRM processes, integrations, notifications, data synchronization, and connected operations.",
 
@@ -134,6 +135,23 @@ const caseStudies = [
   },
 ]
 
+const relatedServices = [
+  {
+    title: "CRM implementation & optimization",
+    description:
+      "Build CRM structures, pipelines, workflows, reporting, and automation around the way your business operates.",
+    href: "/services/crm-implementation",
+    icon: Database,
+  },
+  {
+    title: "Systems integration & APIs",
+    description:
+      "Connect CRM platforms, applications, databases, APIs, and webhooks so information can move reliably between systems.",
+    href: "/services/systems-integration",
+    icon: GitBranch,
+  },
+]
+
 const faqs = [
   {
     question: "What is business process automation?",
@@ -230,7 +248,7 @@ const faqSchema = {
 
 export default function BusinessProcessAutomationPage() {
   return (
-    <main>
+    <main className="service-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -243,24 +261,15 @@ export default function BusinessProcessAutomationPage() {
       />
 
       {/* HERO */}
-      <section className="section">
+      <section className="service-page-hero">
         <div className="site-container">
-          <Link
-            href="/#services"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              marginBottom: "4rem",
-              textDecoration: "none",
-            }}
-          >
+          <Link href="/#services" className="service-back-link">
             <ArrowLeft size={16} aria-hidden="true" />
             Back to services
           </Link>
 
-          <div className="section-heading">
-            <div>
+          <div className="service-hero-grid">
+            <div className="service-hero-title">
               <p className="eyebrow">
                 BUSINESS PROCESS AUTOMATION · WORKFLOW AUTOMATION
               </p>
@@ -272,8 +281,8 @@ export default function BusinessProcessAutomationPage() {
               </h1>
             </div>
 
-            <div>
-              <p className="section-description">
+            <div className="service-hero-copy">
+              <p>
                 Automate repetitive work and connect the systems your business
                 already uses. I design practical workflows that move
                 information, trigger actions, update records, notify teams, and
@@ -281,18 +290,19 @@ export default function BusinessProcessAutomationPage() {
               </p>
 
               <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "0.5rem",
-                  marginTop: "1.5rem",
-                }}
+                className="service-platform-tags"
+                aria-label="Automation platforms"
               >
                 {["Make.com", "n8n", "Zapier", "Zoho Flow"].map((platform) => (
-                  <span className="tag" key={platform}>
-                    {platform}
-                  </span>
+                  <span key={platform}>{platform}</span>
                 ))}
+              </div>
+
+              <div className="service-hero-cta">
+                <Link href="/#contact" className="button">
+                  Discuss your automation project
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </div>
@@ -300,20 +310,22 @@ export default function BusinessProcessAutomationPage() {
       </section>
 
       {/* APPROACH */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">01 / THE APPROACH</p>
 
               <h2>
                 Automate the process,
                 <br />
-                <span className="muted-text">not just the task.</span>
+                <span className="service-heading-muted">
+                  not just the task.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Useful automation starts with understanding how work actually
               moves through the business. The goal is to connect the right
               systems and automate the right steps without creating unnecessary
@@ -321,26 +333,24 @@ export default function BusinessProcessAutomationPage() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {automationAreas.map((area, index) => {
               const Icon = area.icon
 
               return (
-                <article className="service-card" key={area.title}>
-                  <div className="service-card-top">
-                    <span className="service-icon">
-                      <Icon size={22} aria-hidden="true" />
+                <article className="service-detail-card" key={area.title}>
+                  <div className="service-detail-card-top">
+                    <span className="service-detail-icon">
+                      <Icon size={21} aria-hidden="true" />
                     </span>
 
-                    <span className="service-number">
+                    <span className="service-detail-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <div>
-                    <h3>{area.title}</h3>
-                    <p>{area.description}</p>
-                  </div>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
                 </article>
               )
             })}
@@ -349,22 +359,22 @@ export default function BusinessProcessAutomationPage() {
       </section>
 
       {/* PLATFORMS */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">02 / AUTOMATION PLATFORMS</p>
 
               <h2>
                 Different tools.
                 <br />
-                <span className="muted-text">
+                <span className="service-heading-muted">
                   One process-first approach.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               The platform should support the workflow rather than define it. I
               work across several automation tools and choose the approach
               around the applications, logic, data, and operational
@@ -372,23 +382,21 @@ export default function BusinessProcessAutomationPage() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-platform-grid">
             {platforms.map((platform, index) => (
-              <article className="service-card" key={platform.name}>
-                <div className="service-card-top">
-                  <span className="service-icon">
-                    <Zap size={22} aria-hidden="true" />
+              <article className="service-detail-card" key={platform.name}>
+                <div className="service-detail-card-top">
+                  <span className="service-detail-icon">
+                    <Zap size={21} aria-hidden="true" />
                   </span>
 
-                  <span className="service-number">
+                  <span className="service-detail-number">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                <div>
-                  <h3>{platform.name}</h3>
-                  <p>{platform.description}</p>
-                </div>
+                <h3>{platform.name}</h3>
+                <p>{platform.description}</p>
               </article>
             ))}
           </div>
@@ -396,97 +404,89 @@ export default function BusinessProcessAutomationPage() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">03 / WHAT I CAN HELP WITH</p>
 
               <h2>
                 From repetitive work
                 <br />
-                <span className="muted-text">to connected workflows.</span>
+                <span className="service-heading-muted">
+                  to connected workflows.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               The exact automation depends on your current process and
               technology stack, but projects can include the following areas.
             </p>
           </div>
 
-          <div
-            className="service-card"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: "1.5rem",
-            }}
-          >
-            {capabilities.map((capability) => (
-              <div
-                key={capability}
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "0.75rem",
-                }}
-              >
-                <Check
-                  size={18}
-                  aria-hidden="true"
-                  style={{
-                    flexShrink: 0,
-                    marginTop: "0.2rem",
-                  }}
-                />
+          <div className="service-deliverables-panel">
+            <div className="service-deliverables-grid">
+              {capabilities.map((capability) => (
+                <div className="service-deliverable" key={capability}>
+                  <span className="service-check">
+                    <Check size={14} aria-hidden="true" />
+                  </span>
 
-                <span>{capability}</span>
-              </div>
-            ))}
+                  <span>{capability}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* RELATED CASE STUDIES */}
-      <section className="section">
+      {/* CASE STUDIES */}
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
                 Automation applied
                 <br />
-                <span className="muted-text">to real operations.</span>
+                <span className="service-heading-muted">
+                  to real operations.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               See how workflow automation, CRM processes, connected systems,
               and data synchronization support real business operations.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-case-grid">
             {caseStudies.map((study) => (
-              <article className="service-card" key={study.company}>
+              <Link
+                href={study.href}
+                className="service-case-card"
+                key={study.company}
+              >
                 <div>
+                  <span className="service-card-label">CASE STUDY</span>
+
                   <h3>{study.company}</h3>
+
                   <p>{study.description}</p>
                 </div>
 
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Link href={study.href} className="text-link">
-                    View case study
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                <div className="service-card-link">
+                  <span>View case study</span>
+                  <ArrowUpRight size={17} aria-hidden="true" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
-          <div style={{ marginTop: "2rem" }}>
+          <div className="service-section-action">
             <Link href="/#projects" className="button button-outline">
               Explore automation projects
               <ArrowUpRight size={17} aria-hidden="true" />
@@ -496,81 +496,86 @@ export default function BusinessProcessAutomationPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">05 / RELATED SERVICES</p>
 
               <h2>
                 Connect automation
                 <br />
-                <span className="muted-text">
+                <span className="service-heading-muted">
                   with your systems and CRM.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Automation often works alongside CRM implementation and systems
               integration when workflows need to coordinate information and
               actions across multiple applications.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1rem",
-            }}
-          >
-            <Link
-              href="/services/crm-implementation"
-              className="button button-outline"
-            >
-              CRM implementation &amp; optimization
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+          <div className="related-service-grid">
+            {relatedServices.map((service) => {
+              const Icon = service.icon
 
-            <Link
-              href="/services/systems-integration"
-              className="button button-outline"
-            >
-              Systems integration &amp; APIs
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+              return (
+                <Link
+                  href={service.href}
+                  className="related-service-card"
+                  key={service.title}
+                >
+                  <span className="service-detail-icon">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
+
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
+
+                  <ArrowUpRight
+                    className="related-service-arrow"
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">06 / AUTOMATION QUESTIONS</p>
 
               <h2>
                 Business automation
                 <br />
-                <span className="muted-text">questions answered.</span>
+                <span className="service-heading-muted">
+                  questions answered.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Straightforward answers about workflow automation, CRM
               automation, integrations, platforms, and project planning.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-faq-grid">
             {faqs.map((faq) => (
-              <article className="service-card" key={faq.question}>
-                <div>
-                  <h3>{faq.question}</h3>
-                  <p>{faq.answer}</p>
-                </div>
+              <article className="service-faq-card" key={faq.question}>
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
               </article>
             ))}
           </div>
@@ -578,32 +583,30 @@ export default function BusinessProcessAutomationPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <section className="service-page-cta-section">
         <div className="site-container">
-          <div className="service-card">
-            <p className="eyebrow">AUTOMATION PROJECT</p>
+          <div className="service-cta-panel">
+            <div>
+              <p className="eyebrow">AUTOMATION PROJECT</p>
 
-            <h2>
-              Ready to reduce
-              <br />
-              <span className="gradient-text">repetitive work?</span>
-            </h2>
+              <h2>
+                Ready to reduce
+                <br />
+                <span className="gradient-text">repetitive work?</span>
+              </h2>
+            </div>
 
-            <p
-              className="section-description"
-              style={{
-                marginTop: "1rem",
-                marginBottom: "2rem",
-              }}
-            >
-              Tell me about your current process, applications, manual steps,
-              bottlenecks, and what you want the workflow to accomplish.
-            </p>
+            <div className="service-cta-copy">
+              <p>
+                Tell me about your current process, applications, manual steps,
+                bottlenecks, and what you want the workflow to accomplish.
+              </p>
 
-            <Link href="/#contact" className="button">
-              Discuss your automation project
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </Link>
+              <Link href="/#contact" className="button">
+                Discuss your automation project
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
