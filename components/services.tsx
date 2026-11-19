@@ -64,7 +64,7 @@ export function Services() {
   return (
     <section
       id="services"
-      className="section"
+      className="section services-section"
       aria-labelledby="services-heading"
     >
       <div className="site-container">
@@ -102,12 +102,12 @@ export function Services() {
                     <Icon size={22} aria-hidden="true" />
                   </span>
 
-                  <span className="service-number">
+                  <span className="service-number" aria-hidden="true">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                <div>
+                <div className="service-card-content">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </div>
@@ -122,7 +122,7 @@ export function Services() {
                 </div>
 
                 <div className="service-link">
-                  Learn more
+                  <span>Learn more</span>
                   <ArrowUpRight size={16} aria-hidden="true" />
                 </div>
               </Link>
