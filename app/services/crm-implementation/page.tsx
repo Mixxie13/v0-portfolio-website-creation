@@ -3,6 +3,7 @@ import Link from "next/link"
 import {
   ArrowLeft,
   ArrowUpRight,
+  BarChart3,
   Check,
   Database,
   GitBranch,
@@ -68,16 +69,11 @@ const capabilities = [
     title: "Reporting & visibility",
     description:
       "Create useful dashboards, reports, and operational views so teams can understand pipeline activity, customer data, and business performance.",
-    icon: Layers3,
+    icon: BarChart3,
   },
 ]
 
-const platforms = [
-  "Zoho CRM",
-  "HubSpot",
-  "Pipedrive",
-  "GoHighLevel",
-]
+const platforms = ["Zoho CRM", "HubSpot", "Pipedrive", "GoHighLevel"]
 
 const deliverables = [
   "CRM requirements and process mapping",
@@ -110,6 +106,23 @@ const caseStudies = [
     description:
       "CRM administration, customer onboarding, operational workflows, compliance coordination, and business process documentation.",
     href: "/case-studies/bluecloudusa",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Business process automation",
+    description:
+      "Automate repetitive CRM and operational workflows across your business.",
+    href: "/services/business-process-automation",
+    icon: Workflow,
+  },
+  {
+    title: "Systems integration & APIs",
+    description:
+      "Connect your CRM with applications, databases, APIs, and automation platforms.",
+    href: "/services/systems-integration",
+    icon: GitBranch,
   },
 ]
 
@@ -188,7 +201,7 @@ const breadcrumbSchema = {
 
 export default function CRMImplementationPage() {
   return (
-    <main>
+    <main className="service-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -199,16 +212,16 @@ export default function CRMImplementationPage() {
         }}
       />
 
-      {/* Hero */}
-      <section className="section-space">
+      {/* HERO */}
+      <section className="service-page-hero">
         <div className="site-container">
-          <Link href="/#services" className="text-link">
-            <ArrowLeft size={16} aria-hidden="true" />
+          <Link href="/#services" className="service-back-link">
+            <ArrowLeft size={15} aria-hidden="true" />
             Back to services
           </Link>
 
-          <div className="section-heading" style={{ marginTop: "3rem" }}>
-            <div>
+          <div className="service-hero-grid">
+            <div className="service-hero-title">
               <p className="eyebrow">
                 CRM IMPLEMENTATION · OPTIMIZATION · AUTOMATION
               </p>
@@ -220,7 +233,7 @@ export default function CRMImplementationPage() {
               </h1>
             </div>
 
-            <div>
+            <div className="service-hero-copy">
               <p>
                 Build or improve a CRM around the way your business actually
                 works. I help structure customer data, pipelines, workflows,
@@ -229,36 +242,32 @@ export default function CRMImplementationPage() {
                 to manage.
               </p>
 
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "0.5rem",
-                  marginTop: "1.5rem",
-                }}
-              >
+              <div className="service-platform-tags">
                 {platforms.map((platform) => (
-                  <span className="skill-tags" key={platform}>
-                    <span>{platform}</span>
-                  </span>
+                  <span key={platform}>{platform}</span>
                 ))}
               </div>
+
+              <Link href="/#contact" className="button service-hero-cta">
+                Discuss your CRM project
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="section-space">
+      {/* APPROACH */}
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">01 / THE APPROACH</p>
 
               <h2>
                 Your CRM should fit
                 <br />
-                <span className="text-muted-foreground">
+                <span className="service-heading-muted">
                   your business process.
                 </span>
               </h2>
@@ -271,21 +280,17 @@ export default function CRMImplementationPage() {
             </p>
           </div>
 
-          <div className="service-grid">
+          <div className="service-capability-grid">
             {capabilities.map(
               ({ title, description, icon: Icon }, index) => (
-                <article className="service-card" key={title}>
-                  <div className="card-top">
-                    <span className="service-icon">
-                      <Icon
-                        size={24}
-                        strokeWidth={1.5}
-                        aria-hidden="true"
-                      />
+                <article className="service-detail-card" key={title}>
+                  <div className="service-detail-card-top">
+                    <span className="service-detail-icon">
+                      <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
                     </span>
 
-                    <span className="card-number">
-                      0{index + 1}
+                    <span className="service-detail-number">
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
@@ -298,17 +303,17 @@ export default function CRMImplementationPage() {
         </div>
       </section>
 
-      {/* Platforms */}
-      <section className="section-space">
+      {/* PLATFORMS */}
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">02 / CRM PLATFORMS</p>
 
               <h2>
                 Different platforms.
                 <br />
-                <span className="text-muted-foreground">
+                <span className="service-heading-muted">
                   Same business-first approach.
                 </span>
               </h2>
@@ -320,20 +325,16 @@ export default function CRMImplementationPage() {
             </p>
           </div>
 
-          <div className="service-grid">
+          <div className="service-platform-grid">
             {platforms.map((platform, index) => (
-              <article className="service-card" key={platform}>
-                <div className="card-top">
-                  <span className="service-icon">
-                    <Database
-                      size={22}
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
+              <article className="service-detail-card" key={platform}>
+                <div className="service-detail-card-top">
+                  <span className="service-detail-icon">
+                    <Database size={22} strokeWidth={1.5} aria-hidden="true" />
                   </span>
 
-                  <span className="card-number">
-                    0{index + 1}
+                  <span className="service-detail-number">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
@@ -350,17 +351,17 @@ export default function CRMImplementationPage() {
         </div>
       </section>
 
-      {/* Deliverables */}
-      <section className="section-space">
+      {/* DELIVERABLES */}
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">03 / WHAT I CAN HELP WITH</p>
 
               <h2>
                 From CRM structure
                 <br />
-                <span className="text-muted-foreground">
+                <span className="service-heading-muted">
                   to connected operations.
                 </span>
               </h2>
@@ -372,29 +373,13 @@ export default function CRMImplementationPage() {
             </p>
           </div>
 
-          <div className="service-card">
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns:
-                  "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: "1.25rem",
-              }}
-            >
+          <div className="service-deliverables-panel">
+            <div className="service-deliverables-grid">
               {deliverables.map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "0.75rem",
-                  }}
-                >
-                  <Check
-                    size={18}
-                    className="text-primary"
-                    aria-hidden="true"
-                  />
+                <div className="service-deliverable" key={item}>
+                  <span className="service-check">
+                    <Check size={15} strokeWidth={2} aria-hidden="true" />
+                  </span>
 
                   <span>{item}</span>
                 </div>
@@ -404,17 +389,17 @@ export default function CRMImplementationPage() {
         </div>
       </section>
 
-      {/* Case studies */}
-      <section className="section-space">
+      {/* CASE STUDIES */}
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
                 CRM systems
                 <br />
-                <span className="text-muted-foreground">
+                <span className="service-heading-muted">
                   applied to real operations.
                 </span>
               </h2>
@@ -426,30 +411,28 @@ export default function CRMImplementationPage() {
             </p>
           </div>
 
-          <div className="service-grid">
+          <div className="service-case-grid">
             {caseStudies.map((study) => (
-              <article className="service-card" key={study.company}>
-                <h3>{study.company}</h3>
-                <p>{study.description}</p>
-
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Link href={study.href} className="text-link">
-                    View case study
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+              <Link
+                href={study.href}
+                className="service-case-card"
+                key={study.company}
+              >
+                <div>
+                  <span className="service-card-label">CASE STUDY</span>
+                  <h3>{study.company}</h3>
+                  <p>{study.description}</p>
                 </div>
-              </article>
+
+                <div className="service-card-link">
+                  View case study
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </div>
+              </Link>
             ))}
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1rem",
-              marginTop: "2rem",
-            }}
-          >
+          <div className="service-section-action">
             <Link href="/#projects" className="button button-outline">
               Explore CRM &amp; automation projects
               <ArrowUpRight size={16} aria-hidden="true" />
@@ -458,17 +441,17 @@ export default function CRMImplementationPage() {
         </div>
       </section>
 
-      {/* Related services */}
-      <section className="section-space">
+      {/* RELATED SERVICES */}
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">05 / RELATED SERVICES</p>
 
               <h2>
                 Connect your CRM
                 <br />
-                <span className="text-muted-foreground">
+                <span className="service-heading-muted">
                   to the rest of your operation.
                 </span>
               </h2>
@@ -481,43 +464,46 @@ export default function CRMImplementationPage() {
             </p>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1rem",
-            }}
-          >
-            <Link
-              href="/services/business-process-automation"
-              className="button button-outline"
-            >
-              Business process automation
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+          <div className="related-service-grid">
+            {relatedServices.map(
+              ({ title, description, href, icon: Icon }) => (
+                <Link
+                  href={href}
+                  className="related-service-card"
+                  key={title}
+                >
+                  <span className="service-detail-icon">
+                    <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+                  </span>
 
-            <Link
-              href="/services/systems-integration"
-              className="button button-outline"
-            >
-              Systems integration &amp; APIs
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </div>
+
+                  <ArrowUpRight
+                    className="related-service-arrow"
+                    size={17}
+                    aria-hidden="true"
+                  />
+                </Link>
+              )
+            )}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section-space">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">06 / CRM QUESTIONS</p>
 
               <h2>
                 CRM implementation
                 <br />
-                <span className="text-muted-foreground">
+                <span className="service-heading-muted">
                   questions answered.
                 </span>
               </h2>
@@ -529,16 +515,9 @@ export default function CRMImplementationPage() {
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "1rem",
-            }}
-          >
+          <div className="service-faq-grid">
             {faqs.map(({ question, answer }) => (
-              <article className="service-card" key={question}>
+              <article className="service-faq-card" key={question}>
                 <h3>{question}</h3>
                 <p>{answer}</p>
               </article>
@@ -548,25 +527,27 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* CTA */}
-      <section className="section-space">
+      <section className="service-page-cta-section">
         <div className="site-container">
-          <div className="service-card">
-            <p className="eyebrow">CRM PROJECT</p>
+          <div className="service-cta-panel">
+            <div>
+              <p className="eyebrow">CRM PROJECT</p>
 
-            <h2>
-              Need a CRM that works
-              <br />
-              <span className="gradient-text">
-                around your business?
-              </span>
-            </h2>
+              <h2>
+                Need a CRM that works
+                <br />
+                <span className="gradient-text">
+                  around your business?
+                </span>
+              </h2>
+            </div>
 
-            <p>
-              Tell me about your current CRM, processes, tools, bottlenecks,
-              and what you want the system to help your team accomplish.
-            </p>
+            <div className="service-cta-copy">
+              <p>
+                Tell me about your current CRM, processes, tools, bottlenecks,
+                and what you want the system to help your team accomplish.
+              </p>
 
-            <div style={{ marginTop: "2rem" }}>
               <Link href="/#contact" className="button">
                 Discuss your CRM project
                 <ArrowUpRight size={16} aria-hidden="true" />
