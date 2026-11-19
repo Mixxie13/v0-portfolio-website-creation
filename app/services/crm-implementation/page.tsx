@@ -73,7 +73,12 @@ const capabilities = [
   },
 ]
 
-const platforms = ["Zoho CRM", "HubSpot", "Pipedrive", "GoHighLevel"]
+const platforms = [
+  "Zoho CRM",
+  "HubSpot",
+  "Pipedrive",
+  "GoHighLevel",
+]
 
 const deliverables = [
   "CRM requirements and process mapping",
@@ -113,14 +118,14 @@ const relatedServices = [
   {
     title: "Business process automation",
     description:
-      "Automate repetitive CRM and operational workflows across your business.",
+      "Automate repetitive tasks, handoffs, updates, and rule-based processes across your CRM and connected business applications.",
     href: "/services/business-process-automation",
     icon: Workflow,
   },
   {
     title: "Systems integration & APIs",
     description:
-      "Connect your CRM with applications, databases, APIs, and automation platforms.",
+      "Connect your CRM with applications, databases, APIs, webhooks, and automation platforms so information can move between systems.",
     href: "/services/systems-integration",
     icon: GitBranch,
   },
@@ -242,13 +247,19 @@ export default function CRMImplementationPage() {
                 to manage.
               </p>
 
-              <div className="service-platform-tags">
+              <div
+                className="service-platform-tags"
+                aria-label="CRM platforms"
+              >
                 {platforms.map((platform) => (
                   <span key={platform}>{platform}</span>
                 ))}
               </div>
 
-              <Link href="/#contact" className="button service-hero-cta">
+              <Link
+                href="/#contact"
+                className="button service-hero-cta"
+              >
                 Discuss your CRM project
                 <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
@@ -258,7 +269,7 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* APPROACH */}
-      <section className="service-page-section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
           <div className="service-section-heading">
             <div>
@@ -286,7 +297,11 @@ export default function CRMImplementationPage() {
                 <article className="service-detail-card" key={title}>
                   <div className="service-detail-card-top">
                     <span className="service-detail-icon">
-                      <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+                      <Icon
+                        size={22}
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
                     </span>
 
                     <span className="service-detail-number">
@@ -304,7 +319,7 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* PLATFORMS */}
-      <section className="service-page-section service-page-section-alt">
+      <section className="service-page-section">
         <div className="site-container">
           <div className="service-section-heading">
             <div>
@@ -330,7 +345,11 @@ export default function CRMImplementationPage() {
               <article className="service-detail-card" key={platform}>
                 <div className="service-detail-card-top">
                   <span className="service-detail-icon">
-                    <Database size={22} strokeWidth={1.5} aria-hidden="true" />
+                    <Database
+                      size={22}
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
                   </span>
 
                   <span className="service-detail-number">
@@ -352,7 +371,7 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* DELIVERABLES */}
-      <section className="service-page-section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
           <div className="service-section-heading">
             <div>
@@ -378,7 +397,11 @@ export default function CRMImplementationPage() {
               {deliverables.map((item) => (
                 <div className="service-deliverable" key={item}>
                   <span className="service-check">
-                    <Check size={15} strokeWidth={2} aria-hidden="true" />
+                    <Check
+                      size={14}
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
                   </span>
 
                   <span>{item}</span>
@@ -390,7 +413,7 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* CASE STUDIES */}
-      <section className="service-page-section service-page-section-alt">
+      <section className="service-page-section">
         <div className="site-container">
           <div className="service-section-heading">
             <div>
@@ -419,15 +442,19 @@ export default function CRMImplementationPage() {
                 key={study.company}
               >
                 <div>
-                  <span className="service-card-label">CASE STUDY</span>
+                  <span className="service-card-label">
+                    CASE STUDY
+                  </span>
+
                   <h3>{study.company}</h3>
+
                   <p>{study.description}</p>
                 </div>
 
-                <div className="service-card-link">
+                <span className="service-card-link">
                   View case study
                   <ArrowUpRight size={16} aria-hidden="true" />
-                </div>
+                </span>
               </Link>
             ))}
           </div>
@@ -442,7 +469,7 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="service-page-section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
           <div className="service-section-heading">
             <div>
@@ -473,7 +500,11 @@ export default function CRMImplementationPage() {
                   key={title}
                 >
                   <span className="service-detail-icon">
-                    <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+                    <Icon
+                      size={21}
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
                   </span>
 
                   <div>
@@ -483,7 +514,7 @@ export default function CRMImplementationPage() {
 
                   <ArrowUpRight
                     className="related-service-arrow"
-                    size={17}
+                    size={18}
                     aria-hidden="true"
                   />
                 </Link>
@@ -494,7 +525,7 @@ export default function CRMImplementationPage() {
       </section>
 
       {/* FAQ */}
-      <section className="service-page-section service-page-section-alt">
+      <section className="service-page-section">
         <div className="site-container">
           <div className="service-section-heading">
             <div>
@@ -544,8 +575,9 @@ export default function CRMImplementationPage() {
 
             <div className="service-cta-copy">
               <p>
-                Tell me about your current CRM, processes, tools, bottlenecks,
-                and what you want the system to help your team accomplish.
+                Tell me about your current CRM, processes, tools,
+                bottlenecks, and what you want the system to help your team
+                accomplish.
               </p>
 
               <Link href="/#contact" className="button">
