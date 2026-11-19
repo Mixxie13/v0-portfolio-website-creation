@@ -40,6 +40,7 @@ const services = [
       "Map how work moves through your business, identify bottlenecks, and design practical systems that make processes clearer, more efficient, and easier to manage.",
     icon: GitBranch,
     skills: ["Process Mapping", "Operations", "Workflow Design"],
+    href: "/services/workflow-operations-consulting",
   },
   {
     title: "Reporting & analytics",
