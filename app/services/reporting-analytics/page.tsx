@@ -18,18 +18,19 @@ const siteUrl = "https://work-with-vega.vercel.app"
 const pageUrl = `${siteUrl}/services/reporting-analytics`
 
 export const metadata: Metadata = {
-  title: "Reporting & Analytics | CRM Dashboards | Vega Morada",
+  title: "Reporting & Analytics | CRM Dashboards",
+
   description:
     "Reporting and analytics for CRM and business operations, including dashboards, KPIs, data visibility, pipeline reporting, and operational reporting.",
 
   alternates: {
-    canonical: pageUrl,
+    canonical: "/services/reporting-analytics",
   },
 
   openGraph: {
     type: "website",
     url: pageUrl,
-    title: "Reporting & Analytics | Vega Morada",
+    title: "Reporting & Analytics | CRM Dashboards | Vega Morada",
     description:
       "Turn CRM and operational data into useful dashboards, reports, KPIs, and business visibility.",
     siteName: "Vega Morada",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Reporting & Analytics | Vega Morada",
+    title: "Reporting & Analytics | CRM Dashboards | Vega Morada",
     description:
       "CRM dashboards, operational reporting, KPIs, pipeline visibility, and practical business analytics.",
   },
@@ -156,6 +157,30 @@ const caseStudies = [
   },
 ]
 
+const relatedServices = [
+  {
+    title: "CRM implementation & optimization",
+    description:
+      "Structure CRM data, pipelines, workflows, and reporting around the way your business operates.",
+    href: "/services/crm-implementation",
+    icon: Database,
+  },
+  {
+    title: "Business process automation",
+    description:
+      "Automate structured workflows and keep information moving through the systems that support your operations.",
+    href: "/services/business-process-automation",
+    icon: Workflow,
+  },
+  {
+    title: "Systems integration & APIs",
+    description:
+      "Connect applications and data sources when reporting depends on information from multiple business systems.",
+    href: "/services/systems-integration",
+    icon: Network,
+  },
+]
+
 const faqs = [
   {
     question: "What is CRM reporting?",
@@ -240,7 +265,7 @@ const breadcrumbSchema = {
 
 export default function ReportingAnalyticsPage() {
   return (
-    <main>
+    <main className="service-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -252,15 +277,15 @@ export default function ReportingAnalyticsPage() {
       />
 
       {/* HERO */}
-      <section className="section">
+      <section className="service-page-hero">
         <div className="site-container">
-          <Link href="/#services" className="back-link">
+          <Link href="/#services" className="service-back-link">
             <ArrowLeft size={16} aria-hidden="true" />
             Back to services
           </Link>
 
-          <div className="section-heading">
-            <div>
+          <div className="service-hero-grid">
+            <div className="service-hero-title">
               <p className="eyebrow">
                 REPORTING · DASHBOARDS · BUSINESS VISIBILITY
               </p>
@@ -272,19 +297,29 @@ export default function ReportingAnalyticsPage() {
               </h1>
             </div>
 
-            <div>
-              <p className="section-description">
+            <div className="service-hero-copy">
+              <p>
                 Turn CRM and operational data into information your team can
                 actually use. I help organize reporting, dashboards, KPIs, and
                 business visibility around the questions and processes that
                 matter to your operations.
               </p>
 
-              <div className="service-skills">
+              <div
+                className="service-platform-tags"
+                aria-label="Reporting capabilities"
+              >
                 <span>Dashboards</span>
                 <span>CRM Reporting</span>
                 <span>KPIs</span>
                 <span>Analytics</span>
+              </div>
+
+              <div className="service-hero-cta">
+                <Link href="/#contact" className="button">
+                  Discuss your reporting project
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </div>
@@ -292,22 +327,22 @@ export default function ReportingAnalyticsPage() {
       </section>
 
       {/* APPROACH */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">01 / THE APPROACH</p>
 
               <h2>
                 Start with the question,
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   then build the report.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Useful reporting is not about displaying every available metric.
               It starts with understanding what the business needs to know,
               where the information comes from, and how that information will
@@ -315,26 +350,24 @@ export default function ReportingAnalyticsPage() {
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {reportingAreas.map((area, index) => {
               const Icon = area.icon
 
               return (
-                <article key={area.title} className="service-card">
-                  <div className="service-card-top">
-                    <span className="service-icon">
-                      <Icon size={22} aria-hidden="true" />
+                <article className="service-detail-card" key={area.title}>
+                  <div className="service-detail-card-top">
+                    <span className="service-detail-icon">
+                      <Icon size={21} aria-hidden="true" />
                     </span>
 
-                    <span className="service-number">
+                    <span className="service-detail-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <div>
-                    <h3>{area.title}</h3>
-                    <p>{area.description}</p>
-                  </div>
+                  <h3>{area.title}</h3>
+                  <p>{area.description}</p>
                 </article>
               )
             })}
@@ -343,43 +376,41 @@ export default function ReportingAnalyticsPage() {
       </section>
 
       {/* REPORTING PROCESS */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">02 / REPORTING PROCESS</p>
 
               <h2>
                 From raw data
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   to useful visibility.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Reporting works best when the questions, underlying data,
               structure, and audience are understood before dashboards are
               built.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {reportingProcess.map((step) => (
-              <article key={step.number} className="service-card">
-                <div className="service-card-top">
-                  <span className="service-icon">
-                    <BarChart3 size={22} aria-hidden="true" />
+              <article className="service-detail-card" key={step.number}>
+                <div className="service-detail-card-top">
+                  <span className="service-detail-icon">
+                    <BarChart3 size={21} aria-hidden="true" />
                   </span>
 
-                  <span className="service-number">{step.number}</span>
+                  <span className="service-detail-number">{step.number}</span>
                 </div>
 
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                </div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </article>
             ))}
           </div>
@@ -387,34 +418,37 @@ export default function ReportingAnalyticsPage() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">03 / WHAT I CAN HELP WITH</p>
 
               <h2>
                 From CRM activity
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   to operational insight.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Reporting requirements vary by business, but projects can cover
               CRM data, operational processes, dashboards, KPIs, and connected
               reporting workflows.
             </p>
           </div>
 
-          <div className="service-card">
-            <div className="services-grid">
+          <div className="service-deliverables-panel">
+            <div className="service-deliverables-grid">
               {helpWith.map((item) => (
-                <div key={item} className="service-link">
-                  <Check size={17} aria-hidden="true" />
-                  {item}
+                <div className="service-deliverable" key={item}>
+                  <span className="service-check">
+                    <Check size={14} aria-hidden="true" />
+                  </span>
+
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
@@ -423,172 +457,132 @@ export default function ReportingAnalyticsPage() {
       </section>
 
       {/* RELATED CASE STUDIES */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
                 Reporting and visibility
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   grounded in real operations.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Explore work involving CRM reporting, financial visibility,
               operational information, customer processes, and connected
               business systems.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-case-grid">
             {caseStudies.map((study) => (
-              <article key={study.company} className="service-card">
+              <Link
+                href={study.href}
+                className="service-case-card"
+                key={study.company}
+              >
                 <div>
+                  <span className="service-card-label">CASE STUDY</span>
+
                   <h3>{study.company}</h3>
+
                   <p>{study.description}</p>
                 </div>
 
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Link href={study.href} className="service-link">
-                    View case study
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                <div className="service-card-link">
+                  <span>View case study</span>
+                  <ArrowUpRight size={17} aria-hidden="true" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">05 / CONNECTED SERVICES</p>
 
               <h2>
                 Better reporting starts
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   with better systems.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Reporting often depends on CRM structure, workflow automation,
               and systems integration. These services can support the
               information and processes behind the reporting layer.
             </p>
           </div>
 
-          <div className="services-grid">
-            <Link
-              href="/services/crm-implementation"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Database size={22} aria-hidden="true" />
-                </span>
-              </div>
+          <div className="related-service-grid">
+            {relatedServices.map((service) => {
+              const Icon = service.icon
 
-              <div>
-                <h3>CRM implementation &amp; optimization</h3>
-                <p>
-                  Structure CRM data, pipelines, workflows, and reporting
-                  around the way your business operates.
-                </p>
-              </div>
+              return (
+                <Link
+                  href={service.href}
+                  className="related-service-card"
+                  key={service.title}
+                >
+                  <span className="service-detail-icon">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
 
-              <div className="service-link">
-                Explore CRM services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
 
-            <Link
-              href="/services/business-process-automation"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Workflow size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Business process automation</h3>
-                <p>
-                  Automate structured workflows and keep information moving
-                  through the systems that support your operations.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore automation services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
-
-            <Link
-              href="/services/systems-integration"
-              className="service-card"
-            >
-              <div className="service-card-top">
-                <span className="service-icon">
-                  <Network size={22} aria-hidden="true" />
-                </span>
-              </div>
-
-              <div>
-                <h3>Systems integration &amp; APIs</h3>
-                <p>
-                  Connect applications and data sources when reporting depends
-                  on information from multiple business systems.
-                </p>
-              </div>
-
-              <div className="service-link">
-                Explore integration services
-                <ArrowUpRight size={16} aria-hidden="true" />
-              </div>
-            </Link>
+                  <ArrowUpRight
+                    className="related-service-arrow"
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">06 / REPORTING QUESTIONS</p>
 
               <h2>
                 Reporting &amp; analytics
                 <br />
-                <span className="gradient-text">
+                <span className="service-heading-muted">
                   questions answered.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Straightforward answers about CRM reporting, dashboards, KPIs,
               operational visibility, and reporting projects.
             </p>
           </div>
 
-          <div>
+          <div className="service-faq-grid">
             {faqs.map((faq) => (
-              <article key={faq.question} className="service-card">
+              <article className="service-faq-card" key={faq.question}>
                 <h3>{faq.question}</h3>
                 <p>{faq.answer}</p>
               </article>
@@ -598,29 +592,31 @@ export default function ReportingAnalyticsPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <section className="service-page-cta-section">
         <div className="site-container">
-          <div className="service-card">
-            <p className="eyebrow">REPORTING PROJECT</p>
+          <div className="service-cta-panel">
+            <div>
+              <p className="eyebrow">REPORTING PROJECT</p>
 
-            <h2>
-              Need a clearer view
-              <br />
-              <span className="gradient-text">
-                of your business?
-              </span>
-            </h2>
+              <h2>
+                Need a clearer view
+                <br />
+                <span className="gradient-text">of your business?</span>
+              </h2>
+            </div>
 
-            <p className="section-description">
-              Tell me what you need to understand, where the information lives,
-              how you currently report on it, and what decisions the reporting
-              needs to support.
-            </p>
+            <div className="service-cta-copy">
+              <p>
+                Tell me what you need to understand, where the information
+                lives, how you currently report on it, and what decisions the
+                reporting needs to support.
+              </p>
 
-            <Link href="/#contact" className="button">
-              Discuss your reporting project
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </Link>
+              <Link href="/#contact" className="button">
+                Discuss your reporting project
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
