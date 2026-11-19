@@ -17,6 +17,7 @@ const pageUrl = `${siteUrl}/services/systems-integration`
 
 export const metadata: Metadata = {
   title: "Systems Integration & API Integration",
+
   description:
     "Connect CRM systems, business applications, databases, and workflows using APIs, webhooks, automation platforms, and practical systems integration.",
 
@@ -25,12 +26,19 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
+    type: "website",
+    url: pageUrl,
     title: "Systems Integration & API Integration | Vega Morada",
     description:
       "Connect CRM systems, applications, data, and workflows through APIs, webhooks, automation platforms, and practical business integrations.",
-    url: pageUrl,
-    type: "website",
     siteName: "Vega Morada",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Systems Integration & API Integration | Vega Morada",
+    description:
+      "Connect CRM systems, applications, data, and workflows through APIs, webhooks, automation platforms, and practical business integrations.",
   },
 
   robots: {
@@ -131,6 +139,23 @@ const caseStudies = [
   },
 ]
 
+const relatedServices = [
+  {
+    title: "CRM implementation & optimization",
+    description:
+      "Build CRM structures, workflows, reporting, automation, and connected customer data around the way your business operates.",
+    href: "/services/crm-implementation",
+    icon: Database,
+  },
+  {
+    title: "Business process automation",
+    description:
+      "Automate repetitive processes across connected applications using workflow logic, triggers, actions, and data movement.",
+    href: "/services/business-process-automation",
+    icon: Workflow,
+  },
+]
+
 const faqs = [
   {
     question: "What is systems integration?",
@@ -215,7 +240,7 @@ const breadcrumbSchema = {
 
 export default function SystemsIntegrationPage() {
   return (
-    <main>
+    <main className="service-page">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -227,15 +252,15 @@ export default function SystemsIntegrationPage() {
       />
 
       {/* HERO */}
-      <section className="section">
+      <section className="service-page-hero">
         <div className="site-container">
-          <Link href="/#services" className="back-link">
+          <Link href="/#services" className="service-back-link">
             <ArrowLeft size={16} aria-hidden="true" />
             Back to services
           </Link>
 
-          <div className="service-page-hero">
-            <div>
+          <div className="service-hero-grid">
+            <div className="service-hero-title">
               <p className="eyebrow">
                 SYSTEMS INTEGRATION · APIs · WEBHOOKS
               </p>
@@ -247,8 +272,8 @@ export default function SystemsIntegrationPage() {
               </h1>
             </div>
 
-            <div>
-              <p className="service-page-intro">
+            <div className="service-hero-copy">
+              <p>
                 Connect the systems your business already uses so information
                 can move where it needs to go. I build practical integrations
                 between CRM platforms, applications, databases, forms, and
@@ -256,11 +281,21 @@ export default function SystemsIntegrationPage() {
                 native integrations.
               </p>
 
-              <div className="service-skills">
+              <div
+                className="service-platform-tags"
+                aria-label="Systems integration capabilities"
+              >
                 <span>APIs</span>
                 <span>Webhooks</span>
                 <span>REST</span>
                 <span>Integrations</span>
+              </div>
+
+              <div className="service-hero-cta">
+                <Link href="/#contact" className="button">
+                  Discuss your integration project
+                  <ArrowUpRight size={17} aria-hidden="true" />
+                </Link>
               </div>
             </div>
           </div>
@@ -268,48 +303,49 @@ export default function SystemsIntegrationPage() {
       </section>
 
       {/* APPROACH */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">01 / THE APPROACH</p>
 
               <h2>
                 Connect the systems,
                 <br />
-                <span className="muted-text">
+                <span className="service-heading-muted">
                   not just the applications.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Useful integration starts with understanding what information
               needs to move, why it needs to move, when it should move, and
               what each system should do with it.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-capability-grid">
             {capabilities.map((capability, index) => {
               const Icon = capability.icon
 
               return (
-                <article key={capability.title} className="service-card">
-                  <div className="service-card-top">
-                    <span className="service-icon">
-                      <Icon size={22} aria-hidden="true" />
+                <article
+                  key={capability.title}
+                  className="service-detail-card"
+                >
+                  <div className="service-detail-card-top">
+                    <span className="service-detail-icon">
+                      <Icon size={21} aria-hidden="true" />
                     </span>
 
-                    <span className="service-number">
+                    <span className="service-detail-number">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <div>
-                    <h3>{capability.title}</h3>
-                    <p>{capability.description}</p>
-                  </div>
+                  <h3>{capability.title}</h3>
+                  <p>{capability.description}</p>
                 </article>
               )
             })}
@@ -318,45 +354,43 @@ export default function SystemsIntegrationPage() {
       </section>
 
       {/* INTEGRATION METHODS */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">02 / INTEGRATION METHODS</p>
 
               <h2>
                 Different connections.
                 <br />
-                <span className="muted-text">
+                <span className="service-heading-muted">
                   One business-first approach.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               The right integration method depends on the applications,
               available interfaces, data, workflow requirements, and how the
               connected process needs to operate.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-platform-grid">
             {integrationMethods.map((method, index) => (
-              <article key={method.title} className="service-card">
-                <div className="service-card-top">
-                  <span className="service-icon">
-                    <Network size={22} aria-hidden="true" />
+              <article key={method.title} className="service-detail-card">
+                <div className="service-detail-card-top">
+                  <span className="service-detail-icon">
+                    <Network size={21} aria-hidden="true" />
                   </span>
 
-                  <span className="service-number">
+                  <span className="service-detail-number">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
 
-                <div>
-                  <h3>{method.title}</h3>
-                  <p>{method.description}</p>
-                </div>
+                <h3>{method.title}</h3>
+                <p>{method.description}</p>
               </article>
             ))}
           </div>
@@ -364,75 +398,89 @@ export default function SystemsIntegrationPage() {
       </section>
 
       {/* SCOPE */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">03 / WHAT I CAN HELP WITH</p>
 
               <h2>
                 From disconnected tools
                 <br />
-                <span className="muted-text">to connected operations.</span>
+                <span className="service-heading-muted">
+                  to connected operations.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Integration projects vary by technology stack and business
               process, but the work can include the following areas.
             </p>
           </div>
 
-          <div className="scope-grid">
-            {scope.map((item) => (
-              <div key={item} className="scope-item">
-                <Check size={16} aria-hidden="true" />
-                <span>{item}</span>
-              </div>
-            ))}
+          <div className="service-deliverables-panel">
+            <div className="service-deliverables-grid">
+              {scope.map((item) => (
+                <div key={item} className="service-deliverable">
+                  <span className="service-check">
+                    <Check size={14} aria-hidden="true" />
+                  </span>
+
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* RELATED CASE STUDIES */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
                 Connected systems
                 <br />
-                <span className="muted-text">applied to real operations.</span>
+                <span className="service-heading-muted">
+                  applied to real operations.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Explore examples where CRM platforms, automation tools,
               applications, and operational workflows needed to work together.
             </p>
           </div>
 
-          <div className="services-grid">
+          <div className="service-case-grid">
             {caseStudies.map((study) => (
-              <article key={study.company} className="service-card">
+              <Link
+                key={study.company}
+                href={study.href}
+                className="service-case-card"
+              >
                 <div>
+                  <span className="service-card-label">CASE STUDY</span>
+
                   <h3>{study.company}</h3>
+
                   <p>{study.description}</p>
                 </div>
 
-                <div style={{ marginTop: "1.5rem" }}>
-                  <Link href={study.href} className="text-link">
-                    View case study
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </Link>
+                <div className="service-card-link">
+                  <span>View case study</span>
+                  <ArrowUpRight size={17} aria-hidden="true" />
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 
-          <div style={{ marginTop: "2rem" }}>
+          <div className="service-section-action">
             <Link href="/#projects" className="button button-outline">
               Explore integration projects
               <ArrowUpRight size={18} aria-hidden="true" />
@@ -442,77 +490,84 @@ export default function SystemsIntegrationPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="section">
+      <section className="service-page-section">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">05 / RELATED SERVICES</p>
 
               <h2>
                 Build connected
                 <br />
-                <span className="muted-text">
+                <span className="service-heading-muted">
                   CRM and automation workflows.
                 </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Systems integration often works alongside CRM implementation and
               business process automation when applications need to exchange
               information and coordinate actions.
             </p>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1rem",
-            }}
-          >
-            <Link
-              href="/services/crm-implementation"
-              className="button button-outline"
-            >
-              CRM implementation &amp; optimization
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+          <div className="related-service-grid">
+            {relatedServices.map((service) => {
+              const Icon = service.icon
 
-            <Link
-              href="/services/business-process-automation"
-              className="button button-outline"
-            >
-              Business process automation
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+              return (
+                <Link
+                  key={service.title}
+                  href={service.href}
+                  className="related-service-card"
+                >
+                  <span className="service-detail-icon">
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
+
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
+
+                  <ArrowUpRight
+                    className="related-service-arrow"
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="section">
+      <section className="service-page-section service-page-section-alt">
         <div className="site-container">
-          <div className="section-heading">
+          <div className="service-section-heading">
             <div>
               <p className="eyebrow">06 / INTEGRATION QUESTIONS</p>
 
               <h2>
                 Systems integration
                 <br />
-                <span className="muted-text">questions answered.</span>
+                <span className="service-heading-muted">
+                  questions answered.
+                </span>
               </h2>
             </div>
 
-            <p className="section-description">
+            <p>
               Straightforward answers about APIs, webhooks, CRM integrations,
               data synchronization, and connected business systems.
             </p>
           </div>
 
-          <div className="faq-grid">
+          <div className="service-faq-grid">
             {faqs.map((faq) => (
-              <article key={faq.question} className="faq-card">
+              <article key={faq.question} className="service-faq-card">
                 <h3>{faq.question}</h3>
                 <p>{faq.answer}</p>
               </article>
@@ -522,24 +577,26 @@ export default function SystemsIntegrationPage() {
       </section>
 
       {/* CTA */}
-      <section className="section">
+      <section className="service-page-cta-section">
         <div className="site-container">
-          <div className="cta-panel">
-            <p className="eyebrow">INTEGRATION PROJECT</p>
+          <div className="service-cta-panel">
+            <div>
+              <p className="eyebrow">INTEGRATION PROJECT</p>
 
-            <h2>
-              Need your systems to
-              <br />
-              <span className="gradient-text">work together?</span>
-            </h2>
+              <h2>
+                Need your systems to
+                <br />
+                <span className="gradient-text">work together?</span>
+              </h2>
+            </div>
 
-            <p>
-              Tell me which applications you use, what information needs to
-              move between them, where the manual work happens, and what you
-              want the connected process to accomplish.
-            </p>
+            <div className="service-cta-copy">
+              <p>
+                Tell me which applications you use, what information needs to
+                move between them, where the manual work happens, and what you
+                want the connected process to accomplish.
+              </p>
 
-            <div className="hero-actions">
               <Link href="/#contact" className="button">
                 Discuss your integration project
                 <ArrowUpRight size={18} aria-hidden="true" />
