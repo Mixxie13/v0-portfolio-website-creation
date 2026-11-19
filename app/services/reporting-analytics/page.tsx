@@ -8,6 +8,7 @@ import {
   Database,
   Gauge,
   LineChart,
+  Network,
   Search,
   TableProperties,
   Workflow,
@@ -20,9 +21,11 @@ export const metadata: Metadata = {
   title: "Reporting & Analytics | CRM Dashboards | Vega Morada",
   description:
     "Reporting and analytics for CRM and business operations, including dashboards, KPIs, data visibility, pipeline reporting, and operational reporting.",
+
   alternates: {
     canonical: pageUrl,
   },
+
   openGraph: {
     type: "website",
     url: pageUrl,
@@ -31,11 +34,17 @@ export const metadata: Metadata = {
       "Turn CRM and operational data into useful dashboards, reports, KPIs, and business visibility.",
     siteName: "Vega Morada",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Reporting & Analytics | Vega Morada",
     description:
       "CRM dashboards, operational reporting, KPIs, pipeline visibility, and practical business analytics.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -132,6 +141,21 @@ const helpWith = [
   "Existing report optimization",
 ]
 
+const caseStudies = [
+  {
+    company: "We Clear Junk",
+    description:
+      "Zoho CRM implementation work involving reporting dashboards, financial reporting frameworks, customer lifecycle visibility, service processes, and operational reporting.",
+    href: "/case-studies/we-clear-junk",
+  },
+  {
+    company: "The Lucky Harvest",
+    description:
+      "Connected product, inventory, order, and operational systems work involving Zoho Inventory, WooCommerce, automation, and centralized information management.",
+    href: "/case-studies/the-lucky-harvest",
+  },
+]
+
 const faqs = [
   {
     question: "What is CRM reporting?",
@@ -220,14 +244,10 @@ export default function ReportingAnalyticsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c"),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([
+            serviceSchema,
+            breadcrumbSchema,
+          ]).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -322,7 +342,7 @@ export default function ReportingAnalyticsPage() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* REPORTING PROCESS */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
@@ -402,12 +422,55 @@ export default function ReportingAnalyticsPage() {
         </div>
       </section>
 
+      {/* RELATED CASE STUDIES */}
+      <section className="section">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">04 / RELATED CASE STUDIES</p>
+
+              <h2>
+                Reporting and visibility
+                <br />
+                <span className="gradient-text">
+                  grounded in real operations.
+                </span>
+              </h2>
+            </div>
+
+            <p className="section-description">
+              Explore work involving CRM reporting, financial visibility,
+              operational information, customer processes, and connected
+              business systems.
+            </p>
+          </div>
+
+          <div className="services-grid">
+            {caseStudies.map((study) => (
+              <article key={study.company} className="service-card">
+                <div>
+                  <h3>{study.company}</h3>
+                  <p>{study.description}</p>
+                </div>
+
+                <div style={{ marginTop: "1.5rem" }}>
+                  <Link href={study.href} className="service-link">
+                    View case study
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* RELATED SERVICES */}
       <section className="section">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">04 / CONNECTED SYSTEMS</p>
+              <p className="eyebrow">05 / CONNECTED SERVICES</p>
 
               <h2>
                 Better reporting starts
@@ -419,9 +482,9 @@ export default function ReportingAnalyticsPage() {
             </div>
 
             <p className="section-description">
-              Reporting often depends on CRM structure, workflow design,
-              automation, and integrations. These services can support the
-              systems behind the reporting layer.
+              Reporting often depends on CRM structure, workflow automation,
+              and systems integration. These services can support the
+              information and processes behind the reporting layer.
             </p>
           </div>
 
@@ -480,7 +543,7 @@ export default function ReportingAnalyticsPage() {
             >
               <div className="service-card-top">
                 <span className="service-icon">
-                  <Database size={22} aria-hidden="true" />
+                  <Network size={22} aria-hidden="true" />
                 </span>
               </div>
 
@@ -506,7 +569,7 @@ export default function ReportingAnalyticsPage() {
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">05 / REPORTING QUESTIONS</p>
+              <p className="eyebrow">06 / REPORTING QUESTIONS</p>
 
               <h2>
                 Reporting &amp; analytics
