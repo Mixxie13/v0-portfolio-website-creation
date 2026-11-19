@@ -92,6 +92,27 @@ const deliverables = [
   "Documentation and team handover",
 ]
 
+const caseStudies = [
+  {
+    company: "We Clear Junk",
+    description:
+      "Zoho CRM implementation planning, lead-to-job lifecycle workflows, customer service systems, reporting, and automation strategy.",
+    href: "/case-studies/we-clear-junk",
+  },
+  {
+    company: "The Lucky Harvest",
+    description:
+      "Zoho CRM and inventory workflows connecting product data, order processes, automation, and operational systems.",
+    href: "/case-studies/the-lucky-harvest",
+  },
+  {
+    company: "BlueCloudUSA",
+    description:
+      "CRM administration, customer onboarding, operational workflows, compliance coordination, and business process documentation.",
+    href: "/case-studies/bluecloudusa",
+  },
+]
+
 const faqs = [
   {
     question: "What is CRM implementation?",
@@ -227,7 +248,7 @@ export default function CRMImplementationPage() {
         </div>
       </section>
 
-      {/* Why CRM implementation matters */}
+      {/* Approach */}
       <section className="section-space">
         <div className="site-container">
           <div className="section-heading">
@@ -383,25 +404,80 @@ export default function CRMImplementationPage() {
         </div>
       </section>
 
-      {/* Related proof */}
+      {/* Case studies */}
       <section className="section-space">
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">04 / REAL WORK</p>
+              <p className="eyebrow">04 / RELATED CASE STUDIES</p>
 
               <h2>
-                See CRM systems
+                CRM systems
                 <br />
                 <span className="text-muted-foreground">
-                  applied to real projects.
+                  applied to real operations.
                 </span>
               </h2>
             </div>
 
             <p>
-              Explore examples of CRM, automation, integration, reporting, and
-              operational systems work from my portfolio.
+              Explore examples of CRM implementation, administration,
+              automation, reporting, and connected operational workflows.
+            </p>
+          </div>
+
+          <div className="service-grid">
+            {caseStudies.map((study) => (
+              <article className="service-card" key={study.company}>
+                <h3>{study.company}</h3>
+                <p>{study.description}</p>
+
+                <div style={{ marginTop: "1.5rem" }}>
+                  <Link href={study.href} className="text-link">
+                    View case study
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1rem",
+              marginTop: "2rem",
+            }}
+          >
+            <Link href="/#projects" className="button button-outline">
+              Explore CRM &amp; automation projects
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Related services */}
+      <section className="section-space">
+        <div className="site-container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">05 / RELATED SERVICES</p>
+
+              <h2>
+                Connect your CRM
+                <br />
+                <span className="text-muted-foreground">
+                  to the rest of your operation.
+                </span>
+              </h2>
+            </div>
+
+            <p>
+              CRM implementation often overlaps with workflow automation and
+              systems integration when information needs to move between
+              platforms and business processes.
             </p>
           </div>
 
@@ -412,13 +488,19 @@ export default function CRMImplementationPage() {
               gap: "1rem",
             }}
           >
-            <Link href="/#case-studies" className="button">
-              View case studies
+            <Link
+              href="/services/business-process-automation"
+              className="button button-outline"
+            >
+              Business process automation
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
 
-            <Link href="/#projects" className="button button-outline">
-              Explore projects
+            <Link
+              href="/services/systems-integration"
+              className="button button-outline"
+            >
+              Systems integration &amp; APIs
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
@@ -430,7 +512,7 @@ export default function CRMImplementationPage() {
         <div className="site-container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">05 / CRM QUESTIONS</p>
+              <p className="eyebrow">06 / CRM QUESTIONS</p>
 
               <h2>
                 CRM implementation
