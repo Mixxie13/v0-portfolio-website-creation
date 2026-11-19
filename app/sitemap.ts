@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Case studies
     {
+      url: `${siteUrl}/case-studies/bluecloudusa`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${siteUrl}/case-studies/the-lucky-harvest`,
       lastModified: new Date(),
       changeFrequency: "monthly",
