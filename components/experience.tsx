@@ -107,6 +107,7 @@ const caseStudies = [
       "Improved operational reporting processes",
       "Developed process documentation and implementation plans",
     ],
+    href: "/case-studies/we-clear-junk",
   },
 ]
 
